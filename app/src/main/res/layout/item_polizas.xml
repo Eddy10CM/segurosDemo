@@ -16,37 +16,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-
                 >
                 <ImageView
-                    android:layout_gravity="center"
-                    android:foregroundGravity="center"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:src="@drawable/car"/>
                 <TextView
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:layout_weight="2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:text="@string/autos"
-                    android:textAlignment="center"
+                    android:text="Paliot 2007"
                     android:textSize="28dp"
                     android:textColor="@color/colorPrimary"
                     />
                 <ImageView
+                    android:layout_weight=".5"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:src="@drawable/logo" />
             </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:src="@drawable/boton_seleccionar"/>
             <LinearLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    >
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -83,8 +85,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Ver Detalles"
-                            android:textColor="@android:color/black"/>
-                        <LinearLayout
+                            android:textColor="@color/colorAccent"/>
+                        <!--<LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
@@ -102,12 +104,13 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="@android:color/black"
                                 android:text="@string/poliza_seguro"/>
-                        </LinearLayout>
+                        </LinearLayout>-->
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:onClick="details"
                         android:layout_weight="1">
                         <Spinner
                             android:layout_width="match_parent"
@@ -115,6 +118,74 @@
                             android:scrollbars="vertical"
                             android:spinnerMode="dropdown"
                             android:id="@+id/quiero_polizas"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:src="@drawable/boton_seleccionar"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Vigencia:"
+                        android:textColor="@android:color/black"
+                        android:textSize="22sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/black"
+                        android:textSize="12sp"
+                        android:text="15/03/2016 - 30/06/2016"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/details"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Baja a partir:"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="26/16/2016"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Motivo: "
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"/>
+                        <Spinner
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="vertical"
+                            android:spinnerMode="dropdown"
+                            android:id="@+id/motivo"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

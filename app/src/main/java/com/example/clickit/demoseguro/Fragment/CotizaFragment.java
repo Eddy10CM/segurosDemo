@@ -5,12 +5,15 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.clickit.demoseguro.Adapters.AdaptadorSeguros;
 import com.example.clickit.demoseguro.R;
@@ -23,6 +26,9 @@ import java.util.List;
  */
 public class CotizaFragment extends Fragment {
 
+    String item,item1;
+    RecyclerView recyclerView;
+
     private LinearLayoutManager linearLayout;
 
     public CotizaFragment(){}
@@ -32,7 +38,7 @@ public class CotizaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cotiza,container,false);
 
-        RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.list_seguros);
+        recyclerView = (RecyclerView)view.findViewById(R.id.list_seguros);
         linearLayout = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayout);
 
@@ -46,7 +52,37 @@ public class CotizaFragment extends Fragment {
         paquetes.add("Integral");
 
         List<String> formasDePago = new ArrayList<>();
+        formasDePago.add("Completo");
         formasDePago.add("Semestral");
+        formasDePago.add("Trimestral");
+
+        paquete.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                item = adapterView.getItemAtPosition(position).toString();
+                Toast.makeText(getActivity().getApplicationContext(),item,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        formPago.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                item1 = adapterView.getItemAtPosition(position).toString();
+                Toast.makeText(getActivity().getApplicationContext(), item1,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
 
         ArrayAdapter<String> dataPaquetes = new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_dropdown_item,paquetes);
         dataPaquetes.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

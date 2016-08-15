@@ -1,6 +1,7 @@
 package com.example.clickit.demoseguro.Adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,18 +14,26 @@ import com.example.clickit.demoseguro.R;
  */
 public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.ViewHolder> {
 
+    private String paquete,formaDePago;
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         /**
          * Aqui van los campos a usar en la lista personalizada
          * */
+        TextView costoTotal;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            costoTotal = (TextView)itemView.findViewById(R.id.costo);
         }
     }
 
-    public AdaptadorSeguros(){}
+    public AdaptadorSeguros() {
+        this.paquete = paquete;
+        this.formaDePago = formaDePago;
+
+    }
 
     @Override
     public int getItemCount() {
@@ -35,12 +44,13 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_seguros,parent,false);
+
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
+        holder.costoTotal.setText(paquete);
     }
 
 

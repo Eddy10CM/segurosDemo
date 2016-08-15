@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/content_fragment"
+        android:layout_marginLeft="@dimen/espacio_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/info_seguro"
+            android:layout_marginBottom="@dimen/espacio_card_view"/>
+         <Spinner
+             android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            android:id="@+id/spinner_seguros"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="@dimen/espacio_top_card_view"
+        android:id="@+id/card_seguros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/espacio_card_view"
+        android:layout_marginRight="@dimen/espacio_card_view"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Introduce los datos de tu auto, solo tomará un minuto"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Información del vehiculo"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="@dimen/espacio_card_view"
+                android:textSize="14sp"/>
+            <Spinner
+                android:layout_marginTop="@dimen/espacio_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                android:id="@+id/autos"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:layout_marginTop="@dimen/espacio_card_view"
+                android:text="Información del conductor"/>
+            <LinearLayout
+                android:layout_marginTop="@dimen/espacio_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown"
+                    android:id="@+id/edad"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="El vehiculo circula en el Código Postal"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:layout_marginTop="@dimen/espacio_card_view"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/espacio_card_view">
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="C.P"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mostrar Ofertas"
+                    android:textColor="@color/colorWhite"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:id="@+id/btnCotizar"/>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

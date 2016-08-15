@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">demoSeguro</string>
+    <string name="pantalla_inicio">Inicio Sesion</string>
+    <string name="usuario">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="inicio">Inicio</string>
+    <string name="cotiza_compra">Cotiza y compra</string>
+    <string name="polizas">Mis Pólizas</string>
+    <string name="friends">¡Invita a un amigo!</string>
+    <string name="about">Acerca</string>
+    <string name="contact">Contacto</string>
+    <string name="logout">Salir de la sesión</string>
+    <string name="title_activity_drawer">DrawerActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="titulo_seleciona_vehiculo">Selecciona tu vehiculo</string>
+    <string name="info_seguro">Me gustaría Cotizar y Comprar mi Seguro de: </string>
+    <string name="print">Imprimir / Enviar por correo</string>
+    <string name="autos">Auto Seleccionado</string>
+    <string name="poliza">Póliza</string>
+    <string name="quiero">Quiero</string>
+    <string name="poliza_num">DZW025140000</string>
+    <string name="condiciones">Condiciones Generales</string>
+    <string name="poliza_seguro">Póliza Seguro</string>
+</resources>

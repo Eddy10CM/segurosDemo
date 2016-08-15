@@ -41,6 +41,7 @@ public class SeleccionaVehiculoFragment extends Fragment implements AdapterView.
 
         Spinner spinnerAutos = (Spinner)view.findViewById(R.id.autos);
         Spinner spinnerEdad = (Spinner)view.findViewById(R.id.edad);
+        Spinner spinnerSexo = (Spinner)view.findViewById(R.id.sexo);
 
         List<String> autos = new ArrayList<>();
         autos.add("Golf Gti 2015");
@@ -57,6 +58,10 @@ public class SeleccionaVehiculoFragment extends Fragment implements AdapterView.
         edad.add("20");
         edad.add("21");
 
+        List<String> sexo = new ArrayList<>();
+        sexo.add("Hombre");
+        sexo.add("Mujer");
+
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, seguros);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSeguros.setAdapter(dataAdapter);
@@ -68,6 +73,10 @@ public class SeleccionaVehiculoFragment extends Fragment implements AdapterView.
         ArrayAdapter<String> dataAdapterEdad = new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_dropdown_item,edad);
         dataAdapterEdad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerEdad.setAdapter(dataAdapterEdad);
+
+        ArrayAdapter<String> dataAdapterSexo = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_dropdown_item,sexo);
+        dataAdapterSexo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerSexo.setAdapter(dataAdapterSexo);
 
         btnCotizar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +90,6 @@ public class SeleccionaVehiculoFragment extends Fragment implements AdapterView.
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
         // On selecting a spinner item
         String item = adapterView.getItemAtPosition(position).toString();
-        Log.e("TAG",adapterView.toString());
     }
 
     @Override

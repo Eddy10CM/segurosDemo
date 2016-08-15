@@ -9,35 +9,45 @@ import android.widget.TextView;
 
 import com.example.clickit.demoseguro.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by clickit on 12/08/16.
  */
 public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.ViewHolder> {
 
-    private String paquete,formaDePago;
+    public String info = "";
+
+
+
+    public void envioDatos(String item) {
+        info = item;
+    }
+
+    public AdaptadorSeguros() {
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         /**
          * Aqui van los campos a usar en la lista personalizada
          * */
-        TextView costoTotal;
+        TextView costoTotal,primRecivo,proxRecivo;
 
         public ViewHolder(View itemView) {
             super(itemView);
             costoTotal = (TextView)itemView.findViewById(R.id.costo);
+            primRecivo = (TextView)itemView.findViewById(R.id.prim_recivo);
+            proxRecivo = (TextView)itemView.findViewById(R.id.prox_reciv);
         }
     }
 
-    public AdaptadorSeguros() {
-        this.paquete = paquete;
-        this.formaDePago = formaDePago;
 
-    }
 
     @Override
     public int getItemCount() {
-        return 1;
+        return 3;
     }
 
     @Override
@@ -50,8 +60,38 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.costoTotal.setText(paquete);
+        Log.e("TAG",info);
+        if (info.equals("Amplia")){
+            holder.costoTotal.setText("$23,500");
+            holder.primRecivo.setText("$7,500");
+            holder.proxRecivo.setText("$6,450");
+        }else if (info.equals("Limitada")){
+            holder.costoTotal.setText("33,500");
+            holder.primRecivo.setText("$9,500");
+            holder.proxRecivo.setText("$8,450");
+        }else if (info.equals("RC")){
+            holder.costoTotal.setText("$53,500");
+            holder.primRecivo.setText("$12,500");
+            holder.proxRecivo.setText("$10,450");
+        }
     }
 
+    public static class Datos{
+        public String costoTotal;
 
+
+
+        public Datos(String costoTotal) {
+            this.costoTotal = costoTotal;
+        }
+
+
+        public final static List<Datos> DIRECCIONES = new ArrayList<>();
+
+        static {
+            DIRECCIONES.add(new Datos("$23,500"));
+            DIRECCIONES.add(new Datos("$23,500"));
+            DIRECCIONES.add(new Datos("$23,500"));
+        }
+    }
 }

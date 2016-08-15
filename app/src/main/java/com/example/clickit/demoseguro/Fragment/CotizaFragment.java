@@ -28,6 +28,8 @@ public class CotizaFragment extends Fragment {
 
     String item,item1;
     RecyclerView recyclerView;
+    AdaptadorSeguros adaptadorSeguros;
+    AdaptadorSeguros.Datos datos;
 
     private LinearLayoutManager linearLayout;
 
@@ -60,7 +62,8 @@ public class CotizaFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 item = adapterView.getItemAtPosition(position).toString();
-                Toast.makeText(getActivity().getApplicationContext(),item,Toast.LENGTH_SHORT).show();
+                adaptadorSeguros.envioDatos(item);
+                //datos.recibirDatos(item);
             }
 
             @Override
@@ -73,7 +76,7 @@ public class CotizaFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 item1 = adapterView.getItemAtPosition(position).toString();
-                Toast.makeText(getActivity().getApplicationContext(), item1,Toast.LENGTH_SHORT).show();
+                adaptadorSeguros.envioDatos(item1);
             }
 
             @Override
@@ -92,7 +95,7 @@ public class CotizaFragment extends Fragment {
         dataFormasPago.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         formPago.setAdapter(dataFormasPago);
 
-        AdaptadorSeguros adaptadorSeguros = new AdaptadorSeguros();
+        adaptadorSeguros = new AdaptadorSeguros();
         recyclerView.setAdapter(adaptadorSeguros);
         return view;
     }

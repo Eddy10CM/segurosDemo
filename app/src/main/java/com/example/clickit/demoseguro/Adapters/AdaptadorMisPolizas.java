@@ -5,10 +5,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.clickit.demoseguro.R;
 
@@ -23,6 +28,8 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
 
     Spinner quiero,motivo;
     ViewGroup linear;
+    Button btnVolver;
+    TextView txtDetalles;
     private static final int DURATION = 250;
 
     public class ViewHodlder extends RecyclerView.ViewHolder {
@@ -40,22 +47,46 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
     }
 
     @Override
-    public ViewHodlder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHodlder onCreateViewHolder(final ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_polizas,parent,false);
 
         quiero = (Spinner)view.findViewById(R.id.quiero_polizas);
         motivo = (Spinner)view.findViewById(R.id.motivo);
+        btnVolver = (Button)view.findViewById(R.id.volver);
+        txtDetalles = (TextView)view.findViewById(R.id.txtDetalles);
 
-        List<String> data = new ArrayList<>();
+
+        final List<String> data = new ArrayList<>();
         data.add("Seleccione");
         data.add("Dar de baja");
 
 
         List<String> data1 = new ArrayList<>();
         data1.add("Seleccione");
-        data1.add("Opcion 1");
-        data1.add("Opcion 2");
+        data1.add("Error de captura");
+        data1.add("Baja de unidad");
+        data1.add("Perdida Total/Robo de la unidad");
+        data1.add("Unidad ya asegurada(Duplicada)");
+        data1.add("Cambio de cobertura");
+        data1.add("Cambio de aseguradora");
+
+        txtDetalles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("TAG","SE presiono el texto");
+                View popUp = LayoutInflater.from(parent.getContext()).inflate(R.layout.show_data,null);
+                final PopupWindow popupWindow = new PopupWindow(popUp, WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.MATCH_PARENT);
+                Button back = (Button)popUp.findViewById(R.id.back);
+                back.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        popupWindow.dismiss();
+                    }
+                });
+                popupWindow.showAsDropDown(popUp, 50, 50);
+            }
+        });
 
 
 
@@ -64,16 +95,22 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String item = adapterView.getItemAtPosition(i).toString();
                 if (item.equals("Seleccione")){
-                    Log.e("TAG","No se ha seleccionado ninguna opcion");
-                    ExpandAndCollapseViewUtil.collapse(linear, DURATION);
                 }else if (item.equals("Dar de baja")){
-                    details(view);
+                    ExpandAndCollapseViewUtil.expand(linear, DURATION);
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
+            }
+        });
+
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                quiero.setSelection(0);
+                ExpandAndCollapseViewUtil.collapse(linear, DURATION);
             }
         });
 

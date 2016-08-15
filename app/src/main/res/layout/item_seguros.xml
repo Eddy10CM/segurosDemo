@@ -3,7 +3,7 @@
     android:padding="@dimen/espacio_card_view"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -66,6 +66,7 @@
                     android:layout_height="wrap_content"
                     android:text="$13,637"
                     android:layout_weight="1"
+                    android:id="@+id/prim_recivo"
                     android:layout_gravity="center"
                     android:textAlignment="center"/>
             </LinearLayout>
@@ -84,6 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$13,637"
+                    android:id="@+id/prox_reciv"
                     android:layout_gravity="center"
                     android:textAlignment="center"/>
             </LinearLayout>

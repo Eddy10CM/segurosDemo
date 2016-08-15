@@ -38,7 +38,7 @@
             </LinearLayout>
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="5dp"
+                android:layout_height="wrap_content"
                 android:src="@drawable/boton_seleccionar"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -85,6 +85,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Ver Detalles"
+                            android:id="@+id/txtDetalles"
                             android:textColor="@color/colorAccent"/>
                         <!--<LinearLayout
                             android:layout_width="match_parent"
@@ -122,7 +123,7 @@
                 </LinearLayout>
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="5dp"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/boton_seleccionar"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -143,6 +144,32 @@
                         android:textSize="12sp"
                         android:text="15/03/2016 - 30/06/2016"/>
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ProgressBar
+                        android:layout_marginTop="@dimen/espacio_card_view"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/progreso"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:minHeight="15dp"
+                        android:progress="75"/>
+                    <ImageView
+                        android:layout_weight="1"
+                        android:layout_width="60dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/warning"/>
+                </LinearLayout>
+                <ImageView
+                    android:layout_marginTop="@dimen/espacio_card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/linea_separador"/>
                 <LinearLayout
                     android:id="@+id/details"
                     android:visibility="gone"
@@ -186,6 +213,45 @@
                             android:scrollbars="vertical"
                             android:spinnerMode="dropdown"
                             android:id="@+id/motivo"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Vigencia:"
+                            android:textColor="@android:color/black"
+                            android:textSize="22sp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@android:color/black"
+                            android:textSize="12sp"
+                            android:text="15/03/2016 - 30/06/2016"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Volver"
+                            android:textColor="@color/colorWhite"
+                            android:id="@+id/volver"
+                            android:background="@android:color/holo_red_dark"/>
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Aceptar"
+                            android:textColor="@color/colorWhite"
+                            android:background="@color/colorPrimary"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

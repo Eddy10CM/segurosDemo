@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@color/colorWhite">
+    android:orientation="vertical" android:layout_width="320dp"
+    android:layout_height="530dp"
+    android:background="@drawable/background_pop_up">
 
     <LinearLayout
-        android:background="@android:color/darker_gray"
+        android:background="@drawable/background_linear_pop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -155,7 +155,8 @@
                 android:textColor="@android:color/black"/>
         </LinearLayout>
         <LinearLayout
-            android:background="@android:color/darker_gray"
+            android:layout_marginTop="@dimen/espacio_card_view"
+            android:background="@drawable/background_linear_pop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -218,7 +219,8 @@
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
-            android:background="@android:color/darker_gray"
+            android:layout_marginTop="@dimen/espacio_card_view"
+            android:background="@drawable/background_linear_pop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -259,11 +261,14 @@
             </LinearLayout>
         </LinearLayout>
         <Button
+            android:layout_marginTop="@dimen/espacio_card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="volver"
             android:id="@+id/back"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/background_button_pop"
             />
     </LinearLayout>
 </LinearLayout>

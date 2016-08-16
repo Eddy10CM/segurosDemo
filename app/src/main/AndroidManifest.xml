@@ -15,7 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--adjustPan es para hacer que el editText se vea cuando se escribe -->
         <activity
+            android:windowSoftInputMode="adjustPan"
             android:name=".DrawerActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">

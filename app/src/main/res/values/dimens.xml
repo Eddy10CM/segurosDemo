@@ -13,4 +13,9 @@
     <dimen name="content_fragment">2dp</dimen>
     <dimen name="espacio_card_view">5dp</dimen>
     <dimen name="espacio_top_card_view">9dp</dimen>
+
+    <dimen name="x_pop">100dp</dimen>
+    <dimen name="y_pop">300dp</dimen>
+
+    <dimen name="title_orange">18sp</dimen>
 </resources>

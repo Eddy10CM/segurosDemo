@@ -84,7 +84,7 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
                         popupWindow.dismiss();
                     }
                 });
-                popupWindow.showAsDropDown(popUp, 50, 50);
+                popupWindow.showAsDropDown(popUp, 100,300);
             }
         });
 

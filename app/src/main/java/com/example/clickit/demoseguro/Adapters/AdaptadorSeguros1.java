@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by clickit on 12/08/16.
  */
-public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.ViewHolder> {
+public class AdaptadorSeguros1 extends RecyclerView.Adapter<AdaptadorSeguros1.ViewHolder> {
 
     public String info = "";
 
@@ -25,7 +25,7 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
         info = item;
     }
 
-    public AdaptadorSeguros() {
+    public AdaptadorSeguros1() {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -61,9 +61,10 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-            holder.costoTotal.setText("$23,500");
-            holder.primRecivo.setText("$7,500");
-            holder.proxRecivo.setText("$6,450");
+            holder.costoTotal.setText("$53,500");
+            holder.primRecivo.setText("$12,500");
+            holder.proxRecivo.setText("$10,450");
+
     }
 
     public static class Datos{

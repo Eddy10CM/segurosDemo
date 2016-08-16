@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/test">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -27,7 +29,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="Paliot 2007"
-                    android:textSize="28dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/espacio_card_view"
+                    android:textSize="@dimen/title_orange"
                     android:textColor="@color/colorPrimary"
                     />
                 <ImageView
@@ -53,7 +57,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/poliza"
-                        android:textSize="24dp"
+                        android:textSize="@dimen/title_orange"
                         android:textColor="@android:color/black"
                         android:layout_weight="1"
                         />
@@ -61,7 +65,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/quiero"
-                        android:textSize="24dp"
+                        android:textSize="@dimen/title_orange"
                         android:textColor="@android:color/black"
                         android:layout_weight="1"
                         />
@@ -80,12 +84,13 @@
                             android:layout_height="wrap_content"
                             android:text="@string/poliza_num"
                             android:textColor="@color/colorPrimary"
-                            android:textSize="22dp"/>
+                            android:textSize="@dimen/title_orange"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Ver Detalles"
                             android:id="@+id/txtDetalles"
+                            android:textSize="15sp"
                             android:textColor="@color/colorAccent"/>
                         <!--<LinearLayout
                             android:layout_width="match_parent"
@@ -135,13 +140,14 @@
                         android:layout_weight="1"
                         android:text="Vigencia:"
                         android:textColor="@android:color/black"
-                        android:textSize="22sp"/>
+                        android:textSize="@dimen/title_orange"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@android:color/black"
-                        android:textSize="12sp"
+                        android:textSize="15sp"
+                        android:singleLine="true"
                         android:text="15/03/2016 - 30/06/2016"/>
                 </LinearLayout>
                 <LinearLayout
@@ -186,12 +192,12 @@
                             android:layout_weight="1"
                             android:text="Baja a partir:"
                             android:textColor="@android:color/black"
-                            android:textSize="16sp"/>
+                            android:textSize="@dimen/title_orange"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="26/16/2016"
+                            android:text="26/06/2016"
                             android:textColor="@android:color/black"
                             android:textSize="16sp"/>
                     </LinearLayout>
@@ -205,7 +211,7 @@
                             android:layout_weight="1"
                             android:text="Motivo: "
                             android:textColor="@android:color/black"
-                            android:textSize="16sp"/>
+                            android:textSize="@dimen/title_orange"/>
                         <Spinner
                             android:layout_weight="1"
                             android:layout_width="match_parent"
@@ -224,13 +230,14 @@
                             android:layout_weight="1"
                             android:text="Vigencia:"
                             android:textColor="@android:color/black"
-                            android:textSize="22sp"/>
+                            android:textSize="@dimen/title_orange"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:textColor="@android:color/black"
-                            android:textSize="12sp"
+                            android:textSize="15sp"
+                            android:singleLine="true"
                             android:text="15/03/2016 - 30/06/2016"/>
                     </LinearLayout>
                     <LinearLayout

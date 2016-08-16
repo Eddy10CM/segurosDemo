@@ -1,6 +1,8 @@
 package com.example.clickit.demoseguro.Fragment;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
@@ -8,11 +10,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 import com.example.clickit.demoseguro.R;
@@ -23,10 +27,15 @@ import java.util.List;
 /**
  * Created by clickit on 11/08/16.
  */
-public class SeleccionaVehiculoFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+public class SeleccionaVehiculoFragment extends Fragment /*implements AdapterView.OnItemSelectedListener*/ {
 
     private Button btnCotizar;
-
+    public static final String AUTOS = "autos";
+    public static final String EDAD = "edad";
+    public static final String SEXO = "sexo";
+    public static final String CP = "cp";
+    String item="",item1="",item2="",item4;
+    CotizaFragment cotizaFragment = new CotizaFragment();
     public SeleccionaVehiculoFragment(){}
 
     @Nullable
@@ -37,11 +46,44 @@ public class SeleccionaVehiculoFragment extends Fragment implements AdapterView.
 
         btnCotizar = (Button)view.findViewById(R.id.btnCotizar);
 
-        spinnerSeguros.setOnItemSelectedListener(this);
+
 
         Spinner spinnerAutos = (Spinner)view.findViewById(R.id.autos);
         Spinner spinnerEdad = (Spinner)view.findViewById(R.id.edad);
         Spinner spinnerSexo = (Spinner)view.findViewById(R.id.sexo);
+        final TextView txtCP = (TextView)view.findViewById(R.id.cp);
+
+        spinnerAutos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                item = adapterView.getItemAtPosition(position).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
+        spinnerEdad.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                item1 = adapterView.getItemAtPosition(position).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
+        spinnerSexo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                item2 = adapterView.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
 
         List<String> autos = new ArrayList<>();
         autos.add("Golf Gti 2015");
@@ -81,12 +123,23 @@ public class SeleccionaVehiculoFragment extends Fragment implements AdapterView.
         btnCotizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (item1.equals("Edad")){
+                    Log.e("TAG","Error debes seleccionar una edad");
+                }else{
+                    if (txtCP.getText().toString().equals("")){
+                        Log.e("TAG","Error debes seleccionar una edad");
+                    }else
+                    {
+                        item4 = txtCP.getText().toString().trim();
+                        cotizaFragment.enviarDatos(item,item1,item2,item4);
+                    }
+                }
             }
         });
         return view;
     }
 
-    @Override
+   /* @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
         // On selecting a spinner item
         String item = adapterView.getItemAtPosition(position).toString();
@@ -95,5 +148,5 @@ public class SeleccionaVehiculoFragment extends Fragment implements AdapterView.
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
-    }
+    }*/
 }

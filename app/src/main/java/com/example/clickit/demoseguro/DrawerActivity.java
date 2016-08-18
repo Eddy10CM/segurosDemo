@@ -54,28 +54,22 @@ public class DrawerActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.nav_inicio:
-                String title = (String) item.getTitle();
-                fragmentGenerico = new InicioFragment(title);
+                fragmentGenerico = new InicioFragment();
                 break;
             case R.id.nav_cotiza_compra:
-                title = (String) item.getTitle();
                 fragmentGenerico = new CotizaCompraFragment();
                 break;
             case R.id.nav_polizas:
-                title = (String) item.getTitle();
                 fragmentGenerico = new PolizasFragment();
                 break;
             case R.id.nav_invita:
-                title = (String) item.getTitle();
-                fragmentGenerico = new InicioFragment(title);
+                fragmentGenerico = new InicioFragment();
                 break;
             case R.id.nav_acerca:
-                title = (String) item.getTitle();
-                fragmentGenerico = new InicioFragment(title);
+                fragmentGenerico = new InicioFragment();
                 break;
             case R.id.nav_contacto:
-                title = (String) item.getTitle();
-                fragmentGenerico = new InicioFragment(title);
+                fragmentGenerico = new InicioFragment();
                 break;
 
         }
@@ -85,7 +79,6 @@ public class DrawerActivity extends AppCompatActivity {
                     .replace(R.id.contenedor_principal,fragmentGenerico)
                     .commit();
         }
-        //
         setTitle(item.getTitle());
     }
 

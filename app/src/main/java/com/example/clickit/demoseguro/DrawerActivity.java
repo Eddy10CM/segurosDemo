@@ -152,4 +152,6 @@ public class DrawerActivity extends AppCompatActivity {
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }*/
+
+
 }

@@ -26,7 +26,7 @@ public class InicioFragment extends Fragment {
     int count = 0;
     public InicioFragment(){}
 
-    TextView txtNotification,txtPanorama;
+    TextView txtNotification,txtPanorama,txtConfiguration;
 
     @Nullable
     @Override
@@ -44,29 +44,42 @@ public class InicioFragment extends Fragment {
 
         txtPanorama = (TextView)view.findViewById(R.id.txt_panorama);
 
+        txtConfiguration = (TextView)view.findViewById(R.id.txt_configuracion);
+
+        txtPanorama.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count = 0;
+                txtPanorama.setTextColor(Color.parseColor("#FB8C00"));
+                txtNotification.setTextColor(Color.parseColor("#000000"));
+                txtConfiguration.setTextColor(Color.parseColor("#000000"));
+                fragments(count);
+            }
+        });
+
         txtNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 count = 1;
                 txtNotification.setTextColor(Color.parseColor("#FB8C00"));
                 txtPanorama.setTextColor(Color.parseColor("#000000"));
+                txtConfiguration.setTextColor(Color.parseColor("#000000"));
                 fragments(count);
             }
         });
 
-        txtPanorama.setOnClickListener(new View.OnClickListener() {
+
+        txtConfiguration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                count = 0;
+                count = 2;
+                txtConfiguration.setTextColor(Color.parseColor("#FB8C00"));
                 txtNotification.setTextColor(Color.parseColor("#000000"));
-                txtPanorama.setTextColor(Color.parseColor("#FB8C00"));
+                txtPanorama.setTextColor(Color.parseColor("#000000"));
                 fragments(count);
             }
         });
-
-
-        //txtPanorama.setTextColor(R.color.colorPrimary);
-
+        
         return view;
     }
 
@@ -74,15 +87,18 @@ public class InicioFragment extends Fragment {
         Fragment fragment = null;
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         if (count == 0){
-            Log.e("TAG",String.valueOf(count));
             fragment = new TestFragment();
         }else if (count == 1){
             fragment = new TestFragment2();
+        }else if (count == 2){
+            fragment = new TestFragment3();
         }
         if (fragment!=null){
-            transaction.replace(R.id.content,fragment)
-            .addToBackStack(null).commit();
-            //transaction.add(R.id.content,fragment).commit();
+            transaction.setCustomAnimations(R.anim.left_in,R.anim.left_out).replace(R.id.content,fragment)
+            .commit();
+            //transaction.add(R.id.content,fragment).addToBackStack(null).commit();
         }
     }
+
+
 }

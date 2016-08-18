@@ -8,81 +8,85 @@
     android:layout_marginBottom="10dp"
     android:layout_marginLeft="10dp"
     tools:context="com.example.clickit.demoseguro.Fragment.InicioFragment">
-
-
-       <android.support.v7.widget.CardView
-           xmlns:app="http://schemas.android.com/apk/res-auto"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           app:cardCornerRadius="2dp"
-           android:layout_gravity="center"
-           app:cardElevation="10dp"
-           app:cardUseCompatPadding="true">
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:orientation="vertical">
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:orientation="vertical">
-                   <ImageView
-                       android:layout_width="130dp"
-                       android:layout_height="130dp"
-                       android:scaleType="centerInside"
-                       android:layout_gravity="center_horizontal"
-                       android:src="@drawable/logo"/>
-               </LinearLayout>
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:textSize="@dimen/title_orange"
-                   android:textColor="@android:color/black"
-                   android:id="@+id/txt_username"
-                   android:gravity="center"
-                   android:text="RAYMUNDO DE JESUS CHAPA FLORES"
-                   android:textAlignment="center"/>
-               <TextView
-                   android:layout_marginTop="20dp"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:id="@+id/txt_panorama"
-                   android:text="Panorama"
-                   android:textSize="16dp"
-                   android:gravity="center"
-                   android:layout_gravity="center"
-                   android:textAlignment="center"
-                   android:textColor="@color/colorPrimary"
-                   />
-               <TextView
-                   android:gravity="center"
-                   android:layout_marginTop="@dimen/espacio_card_view"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:id="@+id/txt_notificacion"
-                   android:text="Notificaciones"
-                   android:textSize="16dp"
-                   android:layout_gravity="center"
-                   android:textAlignment="center"
-                   android:textColor="@android:color/black"/>
-               <TextView
-                   android:layout_marginTop="@dimen/espacio_card_view"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:id="@+id/txt_configuracion"
-                   android:text="Configuración de la cuenta"
-                   android:textSize="16dp"
-                   android:layout_gravity="center"
-                   android:textAlignment="center"
-                   android:textColor="@android:color/black"/>
-           </LinearLayout>
-       </android.support.v7.widget.CardView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <android.support.v7.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="2dp"
+            android:layout_gravity="center"
+            app:cardElevation="10dp"
+            app:cardUseCompatPadding="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:scaleType="centerInside"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/perfil"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/title_orange"
+                    android:textColor="@android:color/black"
+                    android:id="@+id/txt_username"
+                    android:gravity="center"
+                    android:text="RAYMUNDO DE JESUS CHAPA FLORES"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_panorama"
+                    android:text="Panorama"
+                    android:textSize="16dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    />
+                <TextView
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_notificacion"
+                    android:text="Notificaciones"
+                    android:textSize="16dp"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_configuracion"
+                    android:text="Configuración de la cuenta"
+                    android:textSize="16dp"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="@dimen/espacio_card_view"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/content"/>
     <LinearLayout
-        
+        android:layout_weight="0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -93,6 +97,7 @@
             android:text="Copyright 2016"/>
         <TextView
             android:textAlignment="textEnd"
+            android:gravity="end"
             android:layout_gravity="end"
             android:layout_weight="1"
             android:layout_width="match_parent"

@@ -79,7 +79,7 @@ public class InicioFragment extends Fragment {
                 fragments(count);
             }
         });
-        
+
         return view;
     }
 

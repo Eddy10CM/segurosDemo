@@ -30,7 +30,6 @@ public class TestFragment extends Fragment {
         View view = inflater.inflate(R.layout.test,container,false);
 
 
-
         return view;
     }
 }

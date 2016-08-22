@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/espacio_card_view"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:background="@drawable/border_style_recycler"
+            android:textAlignment="center"
+            android:gravity="start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hace 30 dias"
+            android:singleLine="true"
+            android:textStyle="normal"
+            android:ellipsize="marquee"
+            android:scrollHorizontally="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:freezesText="true"/>
+        <TextView
+            android:background="@drawable/border_style_recycler"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textStyle="normal"
+            android:text="Renovacion"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:background="@drawable/border_style_recycler"
+            android:textAlignment="center"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:text="Póliza 40497 vence en 9 días"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:background="@drawable/background_button_pop"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:id="@+id/btn_notificacion"
+            android:text="Acción"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="18dp" />
+    </LinearLayout>
+
+</LinearLayout>

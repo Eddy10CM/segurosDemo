@@ -20,6 +20,7 @@ public class TestFragment2 extends Fragment {
     RecyclerView recyclerView;
     AdaptadorNotificaciones adaptadorNotificaciones;
     LinearLayoutManager linearLayoutManager;
+    ViewGroup linear;
 
     public TestFragment2() {
     }
@@ -32,8 +33,13 @@ public class TestFragment2 extends Fragment {
         linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
 
+        linear = (ViewGroup)view.findViewById(R.id.linar_notificaciones_disponibles);
+
         adaptadorNotificaciones = new AdaptadorNotificaciones();
         recyclerView.setAdapter(adaptadorNotificaciones);
+        if (adaptadorNotificaciones.getItemCount()==0){
+            linear.setVisibility(View.VISIBLE);
+        }
         return view;
     }
 }

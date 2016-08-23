@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.clickit.demoseguro.R;
 
@@ -16,9 +17,18 @@ public class AdaptadorNotificaciones extends RecyclerView.Adapter<AdaptadorNotif
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         Button btnNotification;
+        TextView txtFecha,txtTipo,txtNotificacion;
+
         public ViewHolder(View itemView) {
             super(itemView);
             btnNotification = (Button)itemView.findViewById(R.id.btn_notificacion);
+            txtFecha = (TextView)itemView.findViewById(R.id.txt_fecha_notificacion);
+            txtTipo = (TextView)itemView.findViewById(R.id.txt_renovacion);
+            txtNotificacion = (TextView)itemView.findViewById(R.id.txt_notificacion);
+            txtFecha.setSelected(true);
+            txtTipo.setSelected(true);
+            txtNotificacion.setSelected(true);
+
         }
     }
 
@@ -35,7 +45,7 @@ public class AdaptadorNotificaciones extends RecyclerView.Adapter<AdaptadorNotif
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 10;
     }
 
 }

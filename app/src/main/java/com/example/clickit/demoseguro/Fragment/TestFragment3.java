@@ -21,7 +21,7 @@ import com.example.clickit.demoseguro.R;
 public class TestFragment3 extends Fragment {
 
     TextView txtInfoPersonal,txtCambiarAvatar,txtCambiarContrasena;
-    int count = 0;
+    int count = 0,transitionCount=0;
 
     @Nullable
     @Override
@@ -83,6 +83,10 @@ public class TestFragment3 extends Fragment {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         if (count==0){
             fragment = new InfoPersonalFragment();
+            /*if (transitionCount==0){
+                transaction
+                transitionCount=1;
+            }*/
         }else if (count==1){
             fragment = new CambiarAvatarFragment();
         }else if (count==2){
@@ -90,7 +94,10 @@ public class TestFragment3 extends Fragment {
         }
 
         if (fragment != null){
-            transaction.replace(R.id.content_configuration,fragment).commit();
+            transaction
+                    .setCustomAnimations(R.anim.zoom_foward_in,R.anim.zoom_foward_out)
+                    .replace(R.id.content_configuration,fragment)
+                    .commit();
         }
     }
 }

@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(),DrawerActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.zoom_foward_in,R.anim.zoom_foward_out);
             }
         });
     }

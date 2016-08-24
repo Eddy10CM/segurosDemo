@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,8 +16,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.clickit.demoseguro.Fragment.AcercaFragment;
+import com.example.clickit.demoseguro.Fragment.ContactoFragment;
 import com.example.clickit.demoseguro.Fragment.CotizaCompraFragment;
 import com.example.clickit.demoseguro.Fragment.InicioFragment;
+import com.example.clickit.demoseguro.Fragment.InvitaUnAmigoFragment;
 import com.example.clickit.demoseguro.Fragment.PolizasFragment;
 
 public class DrawerActivity extends AppCompatActivity {
@@ -63,21 +67,26 @@ public class DrawerActivity extends AppCompatActivity {
                 fragmentGenerico = new PolizasFragment();
                 break;
             case R.id.nav_invita:
-                fragmentGenerico = new InicioFragment();
+                fragmentGenerico = new InvitaUnAmigoFragment();
                 break;
             case R.id.nav_acerca:
-                fragmentGenerico = new InicioFragment();
+                fragmentGenerico = new AcercaFragment();
                 break;
             case R.id.nav_contacto:
-                fragmentGenerico = new InicioFragment();
+                fragmentGenerico = new ContactoFragment();
+                break;
+            case R.id.nav_logout:
+                finish();
                 break;
 
         }
         if (fragmentGenerico != null){
             fragmentManager
                     .beginTransaction()
+                    .setCustomAnimations(R.anim.left_in,R.anim.left_out)
                     .replace(R.id.contenedor_principal,fragmentGenerico)
                     .commit();
+
         }
         setTitle(item.getTitle());
     }

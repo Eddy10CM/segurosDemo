@@ -67,12 +67,21 @@
                 android:text="Mis Polizas"
                 android:layout_gravity="center"
                 android:gravity="center"/>
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/polizas"
-                android:layout_gravity="center"
-                android:background="@color/colorPrimary"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/polizas"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorWhite"
+                    android:text="9"/>
+            </RelativeLayout>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

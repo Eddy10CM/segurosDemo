@@ -28,17 +28,18 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         setContentView(R.layout.splash_screen);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
                 Intent intent = new Intent().setClass(SplashScreenActivity.this,MainActivity.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.left_out,R.anim.left_in);
+                overridePendingTransition(R.anim.left_in,R.anim.left_out);
                 finish();
             }
         };
+
 
         Timer timer = new Timer();
         timer.schedule(task,SPLASH_SCREEN_DELAY);

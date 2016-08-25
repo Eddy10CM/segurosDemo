@@ -77,16 +77,20 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true" />
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorWhite"
-                    android:text="9"/>
+                    android:text="9"
+                    android:textSize="@dimen/title_orange"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="24dp" />
             </RelativeLayout>
-            <ImageView
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:src="@drawable/dm"
+                android:id="@+id/slider"
                 />
         </LinearLayout>
     </android.support.v7.widget.CardView>

@@ -50,7 +50,6 @@
                         android:checked="false"/>
                 </RadioGroup>
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -71,111 +70,146 @@
                     android:id="@+id/rfc"
                     android:singleLine="true"/>
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_weight="2"
+                android:orientation="vertical"
+                android:visibility="visible"
+                android:id="@+id/linear_pfisica">
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/title_orange"
-                    android:text="*Nombre:"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/title_fragment"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/nombre"
-                    android:singleLine="true"
-                    android:inputType="text"/>
-            </LinearLayout>
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/title_orange"
+                        android:text="*Nombre:"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/title_fragment"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/nombre"
+                        android:singleLine="true"
+                        android:inputType="text"/>
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_weight="2"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/title_orange"
-                    android:text="*A. Pat.:"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/title_fragment"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/apaterno"
-                    android:singleLine="true"
-                    android:inputType="text"/>
-            </LinearLayout>
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/title_orange"
+                        android:text="*A. Pat.:"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/title_fragment"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/apaterno"
+                        android:singleLine="true"
+                        android:inputType="text"/>
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_weight="2"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/title_orange"
-                    android:text="*A. Mat.:"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/title_fragment"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/amaterno"
-                    android:singleLine="true"
-                    android:inputType="text"/>
-            </LinearLayout>
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/title_orange"
+                        android:text="*A. Mat.:"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/title_fragment"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/amaterno"
+                        android:singleLine="true"
+                        android:inputType="text"/>
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="25dp">
-                <TextView
-                    android:layout_weight="1"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/title_orange"
-                    android:text="*Sexo:"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/title_fragment"/>
-                <RadioGroup
-                    android:layout_weight=".5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/grpsexo"
                     android:orientation="horizontal"
-                    android:layout_gravity="center_horizontal">
-                    <RadioButton
-                        android:layout_width="wrap_content"
+                    android:layout_marginTop="25dp">
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Masculino"
-                        android:id="@+id/masculino"
+                        android:textSize="@dimen/title_orange"
+                        android:text="*Sexo:"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
-                        android:checked="true"/>
-                    <RadioButton
-                        android:layout_width="wrap_content"
+                        android:textColor="@color/title_fragment"/>
+                    <RadioGroup
+                        android:layout_weight=".5"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Femenino"
-                        android:id="@+id/femenino"
+                        android:id="@+id/grpsexo"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_horizontal">
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Masculino"
+                            android:id="@+id/masculino"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:checked="true"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Femenino"
+                            android:id="@+id/femenino"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:checked="false"/>
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linear_pmoral"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/title_orange"
+                        android:text="*Razon Social:"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
-                        android:checked="false"/>
-                </RadioGroup>
+                        android:textColor="@color/title_fragment"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/razon_social"
+                        android:singleLine="true"
+                        android:inputType="number"/>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout

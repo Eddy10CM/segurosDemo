@@ -19,12 +19,12 @@ import com.example.clickit.demoseguro.R;
 public class InfoPersonalFragment extends Fragment {
 
 
-    ViewGroup linearPFisica,linearPMoral;
+    ViewGroup linearPFisica,linearPMoral,linear_p_post,linear_post;
     private static final int DURATION = 250;
-    RadioButton radioPerFisica,radioPerMoral;
+    RadioButton radioPerFisica,radioPerMoral,sipost,nopost;
 
     // This will get the radiogroup
-    RadioGroup rGroup;
+    RadioGroup rGroup, grpcodpost;
     // This will get the radiobutton in the radiogroup that is checked
     //RadioButton checkedRadioButton = (RadioButton)rGroup.findViewById(rGroup.getCheckedRadioButtonId());
 
@@ -34,9 +34,14 @@ public class InfoPersonalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_info_personal,container,false);
 
+        rGroup = (RadioGroup) view.findViewById(R.id.rad_tpersons);
         radioPerFisica = (RadioButton)view.findViewById(R.id.rad_fisica);
         radioPerMoral = (RadioButton)view.findViewById(R.id.rad_moral);
-        rGroup = (RadioGroup) view.findViewById(R.id.rad_tpersons);
+
+        grpcodpost = (RadioGroup) view.findViewById(R.id.grpcodpost);
+        sipost = (RadioButton)view.findViewById(R.id.sipost);
+        nopost = (RadioButton)view.findViewById(R.id.nopost);
+
 
         rGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -56,10 +61,31 @@ public class InfoPersonalFragment extends Fragment {
             }
         });
 
+        grpcodpost.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                if (checkedId == R.id.sipost) {
+                    //do work when radioButton1 is active
+                    ExpandAndCollapseViewUtil.expand(linear_post, DURATION);
+                    ExpandAndCollapseViewUtil.collapse(linear_p_post, DURATION);
+
+                } else  if (checkedId == R.id.nopost) {
+                    //do work when radioButton2 is active
+                    ExpandAndCollapseViewUtil.expand(linear_p_post, DURATION);
+                    ExpandAndCollapseViewUtil.collapse(linear_post, DURATION);
+                }
+
+            }
+        });
+
 
         linearPFisica = (ViewGroup)view.findViewById(R.id.linear_pfisica);
         linearPMoral = (ViewGroup)view.findViewById(R.id.linear_pmoral);
+        linear_p_post = (ViewGroup)view.findViewById(R.id.linear_p_post);
+        linear_post = (ViewGroup)view.findViewById(R.id.linear_post);
 
         return view;
     }
 }
+//linear_pfisica_post

@@ -96,7 +96,8 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
                 String item = adapterView.getItemAtPosition(i).toString();
                 if (item.equals("Seleccione")){
                 }else if (item.equals("Dar de baja")){
-                    ExpandAndCollapseViewUtil.expand(linear, DURATION);
+                    linear.setVisibility(View.VISIBLE);
+                    //ExpandAndCollapseViewUtil.expand(linear, DURATION);
                 }
             }
 
@@ -110,7 +111,8 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
             @Override
             public void onClick(View view) {
                 quiero.setSelection(0);
-                ExpandAndCollapseViewUtil.collapse(linear, DURATION);
+                linear.setVisibility(View.GONE);
+                //ExpandAndCollapseViewUtil.collapse(linear, DURATION);
             }
         });
 

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.example.clickit.demoseguro.Adapters.ExpandAndCollapseViewUtil;
 import com.example.clickit.demoseguro.R;
 
 /**
@@ -17,27 +18,30 @@ import com.example.clickit.demoseguro.R;
  */
 public class InfoPersonalFragment extends Fragment {
 
-    RadioButton radioPerFisica,radioPerMoral;
+
+    ViewGroup linearPFisica,linearPMoral,linear_p_post,linear_post;
+    private static final int DURATION = 250;
+    RadioButton radioPerFisica,radioPerMoral,sipost,nopost;
 
     // This will get the radiogroup
-    RadioGroup rGroup;
+    RadioGroup rGroup, grpcodpost;
     // This will get the radiobutton in the radiogroup that is checked
     //RadioButton checkedRadioButton = (RadioButton)rGroup.findViewById(rGroup.getCheckedRadioButtonId());
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_info_personal,container,false);
 
+        rGroup = (RadioGroup) view.findViewById(R.id.rad_tpersons);
         radioPerFisica = (RadioButton)view.findViewById(R.id.rad_fisica);
         radioPerMoral = (RadioButton)view.findViewById(R.id.rad_moral);
-        rGroup = (RadioGroup) view.findViewById(R.id.rad_tpersons);
 
-        /*if(radioPerFisica.isChecked()){
-            Log.e("chequed1","Chequeroni1");
-        }else if(radioPerMoral.isChecked()){
-            Log.e("chequed2","Chequeroni2");
-        }*/
+        grpcodpost = (RadioGroup) view.findViewById(R.id.grpcodpost);
+        sipost = (RadioButton)view.findViewById(R.id.sipost);
+        nopost = (RadioButton)view.findViewById(R.id.nopost);
+
 
         rGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -45,16 +49,43 @@ public class InfoPersonalFragment extends Fragment {
 
                 if (checkedId == R.id.rad_fisica) {
                     //do work when radioButton1 is active
-                    Log.e("chequed1","Chequeroni1");
+                    ExpandAndCollapseViewUtil.expand(linearPFisica, DURATION);
+                    ExpandAndCollapseViewUtil.collapse(linearPMoral, DURATION);
 
                 } else  if (checkedId == R.id.rad_moral) {
                     //do work when radioButton2 is active
-                    Log.e("chequed2","Chequeroni2");
+                    ExpandAndCollapseViewUtil.expand(linearPMoral, DURATION);
+                    ExpandAndCollapseViewUtil.collapse(linearPFisica, DURATION);
                 }
 
             }
         });
 
+        grpcodpost.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                if (checkedId == R.id.sipost) {
+                    //do work when radioButton1 is active
+                    ExpandAndCollapseViewUtil.expand(linear_post, DURATION);
+                    ExpandAndCollapseViewUtil.collapse(linear_p_post, DURATION);
+
+                } else  if (checkedId == R.id.nopost) {
+                    //do work when radioButton2 is active
+                    ExpandAndCollapseViewUtil.expand(linear_p_post, DURATION);
+                    ExpandAndCollapseViewUtil.collapse(linear_post, DURATION);
+                }
+
+            }
+        });
+
+
+        linearPFisica = (ViewGroup)view.findViewById(R.id.linear_pfisica);
+        linearPMoral = (ViewGroup)view.findViewById(R.id.linear_pmoral);
+        linear_p_post = (ViewGroup)view.findViewById(R.id.linear_p_post);
+        linear_post = (ViewGroup)view.findViewById(R.id.linear_post);
+
         return view;
     }
 }
+//linear_pfisica_post

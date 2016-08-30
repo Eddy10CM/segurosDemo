@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.clickit.demoseguro.Fragment.FragmentsNietos.CambiarAvatarFragment;
+import com.example.clickit.demoseguro.Fragment.FragmentsNietos.CambiarContasenaFragment;
+import com.example.clickit.demoseguro.Fragment.FragmentsNietos.CotizarAutoFragment;
+import com.example.clickit.demoseguro.Fragment.FragmentsNietos.CotizarFunerariaFragment;
+import com.example.clickit.demoseguro.Fragment.FragmentsNietos.CotizarVidaFragment;
+import com.example.clickit.demoseguro.Fragment.FragmentsNietos.InfoPersonalFragment;
 import com.example.clickit.demoseguro.R;
 
 /**
@@ -26,6 +33,7 @@ public class CotizaCompraFragment extends Fragment {
     private AppBarLayout appBar;
     private TabLayout tabs;
     private ViewPager viewPager;
+    int count = 0;
     Button btnCotizaCompraAuto,btnCotizaCompraVida,btnCotizaCompraFuneraria;
     public final static String KEY = "KEY";
 
@@ -61,6 +69,7 @@ public class CotizaCompraFragment extends Fragment {
             @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View view) {
+                count = 0;
                 btnCotizaCompraAuto.setCompoundDrawablesWithIntrinsicBounds(getActivity().getResources().getDrawable(R.drawable.car_blanco_button),null,null,null);
                 btnCotizaCompraAuto.setTextColor(getActivity().getResources().getColor(R.color.colorWhite));
                 btnCotizaCompraAuto.setBackground(getActivity().getResources().getDrawable(R.drawable.background_button_pop));
@@ -72,6 +81,8 @@ public class CotizaCompraFragment extends Fragment {
                 btnCotizaCompraFuneraria.setCompoundDrawablesWithIntrinsicBounds(getActivity().getResources().getDrawable(R.drawable.injury_orange),null,null,null);
                 btnCotizaCompraFuneraria.setTextColor(getActivity().getResources().getColor(R.color.colorPrimary));
                 btnCotizaCompraFuneraria.setBackground(getActivity().getResources().getDrawable(R.drawable.btn_disable_cotiza_compra));
+
+                fragments(count);
             }
         });
 
@@ -81,6 +92,7 @@ public class CotizaCompraFragment extends Fragment {
             @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View view) {
+                count = 1;
                 btnCotizaCompraVida.setCompoundDrawablesWithIntrinsicBounds(getActivity().getResources().getDrawable(R.drawable.corazon_blanco_button),null,null,null);
                 btnCotizaCompraVida.setTextColor(getActivity().getResources().getColor(R.color.colorWhite));
                 btnCotizaCompraVida.setBackground(getActivity().getResources().getDrawable(R.drawable.background_button_pop));
@@ -93,6 +105,8 @@ public class CotizaCompraFragment extends Fragment {
                 btnCotizaCompraFuneraria.setCompoundDrawablesWithIntrinsicBounds(getActivity().getResources().getDrawable(R.drawable.injury_orange),null,null,null);
                 btnCotizaCompraFuneraria.setTextColor(getActivity().getResources().getColor(R.color.colorPrimary));
                 btnCotizaCompraFuneraria.setBackground(getActivity().getResources().getDrawable(R.drawable.btn_disable_cotiza_compra));
+
+                fragments(count);
             }
         });
 
@@ -101,6 +115,7 @@ public class CotizaCompraFragment extends Fragment {
             @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View view) {
+                count = 2;
                 btnCotizaCompraFuneraria.setCompoundDrawablesWithIntrinsicBounds(getActivity().getResources().getDrawable(R.drawable.injury_blanco),null,null,null);
                 btnCotizaCompraFuneraria.setTextColor(getActivity().getResources().getColor(R.color.colorWhite));
                 btnCotizaCompraFuneraria.setBackground(getActivity().getResources().getDrawable(R.drawable.background_button_pop));
@@ -113,10 +128,37 @@ public class CotizaCompraFragment extends Fragment {
                 btnCotizaCompraVida.setCompoundDrawablesWithIntrinsicBounds(getActivity().getResources().getDrawable(R.drawable.corazon_naranja_button),null,null,null);
                 btnCotizaCompraVida.setTextColor(getActivity().getResources().getColor(R.color.colorPrimary));
                 btnCotizaCompraVida.setBackground(getActivity().getResources().getDrawable(R.drawable.btn_disable_cotiza_compra));
+
+                fragments(count);
             }
         });
 
+        fragments(count);
+
         return view;
+    }
+
+    private void fragments(int count) {
+        Fragment fragment = null;
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        if (count==0){
+            fragment = new CotizarAutoFragment();
+            /*if (transitionCount==0){
+                transaction
+                transitionCount=1;
+            }*/
+        }else if (count==1){
+            fragment = new CotizarVidaFragment();
+        }else if (count==2){
+            fragment = new CotizarFunerariaFragment();
+        }
+
+        if (fragment != null){
+            transaction
+                    .setCustomAnimations(R.anim.zoom_foward_in,R.anim.zoom_foward_out)
+                    .replace(R.id.content_cotiza_compra,fragment)
+                    .commit();
+        }
     }
 
     /*private void poblarViewPager(ViewPager viewPager) {

@@ -48,28 +48,31 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp">
         <Button
-            android:paddingLeft="3dp"
+            android:paddingLeft="26dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/car_blanco_button"
             android:text="Auto"
+            android:gravity="left|center_vertical"
             android:layout_weight="1"
             android:id="@+id/btn_cotiza_auto"
             android:layout_marginTop="8dp"
-            android:textAlignment="center"
+            android:drawablePadding="8dp"
             android:textColor="@color/colorWhite"
             android:background="@drawable/background_button_pop"/>
+
         <Button
-            android:paddingLeft="3dp"
+            android:paddingLeft="26dp"
             android:layout_marginLeft="@dimen/espacio_card_view"
             android:layout_weight="1"
             android:id="@+id/btn_cotiza_vida"
+            android:gravity="left|center_vertical"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/corazon_naranja_button"
             android:text="Vida"
-            android:textAlignment="center"
+            android:drawablePadding="8dp"
             android:textColor="@color/colorPrimary"
             android:background="@drawable/btn_disable_cotiza_compra"/>
         <Button

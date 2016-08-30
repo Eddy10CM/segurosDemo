@@ -304,6 +304,12 @@
                 </RadioGroup>
             </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:id="@+id/linear_p_post">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -410,6 +416,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+<<<<<<< HEAD
                     android:orientation="horizontal"
                     android:layout_marginTop="12dp">
                     <TextView
@@ -434,6 +441,52 @@
                         android:id="@+id/post_empty"
                         android:background="@drawable/background_button_validar_cp"
                         android:textColor="@color/colorWhite"
+                        android:text="Validar"/>
+                </LinearLayout>
+=======
+                    android:layout_weight="1"
+                    android:id="@+id/cp2"
+                    android:singleLine="true"
+                    android:inputType="number"/>
+>>>>>>> f693dece003248c94e608142ea49d36bb3d669e7
+            </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:id="@+id/linear_post">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/title_orange"
+                        android:text="C.P.:"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/title_fragment"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/cp"
+                        android:singleLine="true"
+                        android:inputType="number"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/post_empty"
                         android:text="Validar"/>
                 </LinearLayout>
             </LinearLayout>

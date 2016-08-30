@@ -33,5 +33,9 @@
     <style name="AppTheme.PopupOverlay" parent="AlertDialog.AppCompat.Light" />
 
 
+    <style name="spinner_style">
+        <item name="android:background">@drawable/gradient_spinner</item>
+        <item name="android:popupBackground">#DFFFFFFF</item>
+    </style>
 
 </resources>

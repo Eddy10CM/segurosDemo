@@ -26,4 +26,23 @@
     <string name="poliza_num">DZW025140000</string>
     <string name="condiciones">Condiciones Generales</string>
     <string name="poliza_seguro">Póliza Seguro</string>
+
+
+    <string-array name="modelos">
+        <item>2017</item>
+        <item>2016</item>
+    </string-array>
+
+    <string-array name="marcas">
+        <item>Acura</item>
+        <item>Audi</item>
+    </string-array>
+
+    <string-array name="lineas">
+        <item>RDX</item>
+    </string-array>
+
+    <string-array name="descripcion">
+        <item>RDX CLIMA VIDRIOELEC BOLSAAIRE QUEMACOCOS MP3 DVD PIEL AUT 6 CIL 5 PTS</item>
+    </string-array>
 </resources>

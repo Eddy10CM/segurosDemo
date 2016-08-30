@@ -81,7 +81,7 @@
 
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="39dp"
                 android:text="Mostrar ofertas"
                 android:paddingRight="18dp"
                 android:paddingLeft="18dp"

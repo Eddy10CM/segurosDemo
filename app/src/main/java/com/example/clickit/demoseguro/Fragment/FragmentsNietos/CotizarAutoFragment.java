@@ -41,7 +41,7 @@ public class CotizarAutoFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cotiza_auto,container,false);
 
         btnSpinner = (Button)view.findViewById(R.id.spinner_autos);
@@ -60,7 +60,9 @@ public class CotizarAutoFragment extends Fragment {
         btnCerrarBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ExpandAndCollapseViewUtil.collapse(lista,DURATION);
+                if (count==0){
+                    ExpandAndCollapseViewUtil.collapse(lista,DURATION);
+                }
             }
         });
 

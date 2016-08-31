@@ -31,4 +31,5 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.daimajia.slider:library:1.1.5@aar'
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
+    compile 'com.frosquivel:magicalcamera:1.0'
 }

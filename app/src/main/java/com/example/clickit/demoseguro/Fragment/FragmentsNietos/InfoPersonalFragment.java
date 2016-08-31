@@ -24,10 +24,7 @@ public class InfoPersonalFragment extends Fragment {
     RadioButton radioPerFisica,radioPerMoral,sipost,nopost;
 
     // This will get the radiogroup
-<<<<<<< HEAD
 
-=======
->>>>>>> f693dece003248c94e608142ea49d36bb3d669e7
     RadioGroup rGroup, grpcodpost;
     // This will get the radiobutton in the radiogroup that is checked
     //RadioButton checkedRadioButton = (RadioButton)rGroup.findViewById(rGroup.getCheckedRadioButtonId());

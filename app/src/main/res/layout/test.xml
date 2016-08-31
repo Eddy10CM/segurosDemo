@@ -110,7 +110,6 @@
                 custom:unselected_padding_left="5dp"
                 custom:unselected_padding_right="5dp"
                 android:layout_gravity="center"
-<<<<<<< HEAD
                 custom:selected_width="6dp"
                 custom:selected_height="6dp"
                 custom:unselected_width="6dp"
@@ -121,9 +120,7 @@
                 style="@style/AndroidImageSlider_Corner_Oval_Orange"
                 android:gravity="center_horizontal"
                 android:layout_gravity="center_horizontal"/>
-=======
-                android:src="@drawable/dm"/>
->>>>>>> f693dece003248c94e608142ea49d36bb3d669e7
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

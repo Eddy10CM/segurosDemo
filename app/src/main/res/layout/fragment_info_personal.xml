@@ -416,7 +416,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-<<<<<<< HEAD
+
                     android:orientation="horizontal"
                     android:layout_marginTop="12dp">
                     <TextView
@@ -443,12 +443,7 @@
                         android:textColor="@color/colorWhite"
                         android:text="Validar"/>
                 </LinearLayout>
-=======
-                    android:layout_weight="1"
-                    android:id="@+id/cp2"
-                    android:singleLine="true"
-                    android:inputType="number"/>
->>>>>>> f693dece003248c94e608142ea49d36bb3d669e7
+
             </LinearLayout>
             </LinearLayout>
 

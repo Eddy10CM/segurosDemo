@@ -150,7 +150,7 @@ public class CotizaCompraFragment extends Fragment {
         }else if (count==1){
             fragment = new CotizarVidaFragment();
         }else if (count==2){
-            fragment = new CotizarFunerariaFragment();
+            fragment = new CotizarVidaFragment();
         }
 
         if (fragment != null){

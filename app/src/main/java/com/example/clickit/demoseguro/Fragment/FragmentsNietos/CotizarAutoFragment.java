@@ -88,6 +88,7 @@ public class CotizarAutoFragment extends Fragment {
                 if (count==0){
                     btnSpinner.setText(items.getLista());
                     btnCerrarBack.setText("Modelo");
+                    btnCerrarBack.setCompoundDrawablesWithIntrinsicBounds(getActivity().getResources().getDrawable(R.drawable.back),null,null,null);
                     txtCambia.setText("Marca");
                     adapter.clear();
                     for (int i=0; i<marca.length;i++){

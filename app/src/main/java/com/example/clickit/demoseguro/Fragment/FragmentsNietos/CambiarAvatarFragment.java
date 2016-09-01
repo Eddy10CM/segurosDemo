@@ -2,7 +2,9 @@ package com.example.clickit.demoseguro.Fragment.FragmentsNietos;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,35 +27,32 @@ public class CambiarAvatarFragment extends Fragment {
     private CircleImageView imagecircle;
     private MagicalCamera magicalCamera;
     private int RESIZE_PHOTO_PIXELS_PERCENTAGE = 3000;
+    Intent intent;
+    final static int cons  = 0;
+    Bitmap bmp;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        activity = getActivity();
-
-        magicalCamera = new MagicalCamera(activity,RESIZE_PHOTO_PIXELS_PERCENTAGE);
-
         View view = inflater.inflate(R.layout.fragment_cambiar_avatar,container,false);
-
         imagecircle = (CircleImageView) view.findViewById(R.id.image_camera);
-
+        /*activity = getActivity();
+        magicalCamera = new MagicalCamera(activity,RESIZE_PHOTO_PIXELS_PERCENTAGE);
+        */
         imagecircle.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                /*if (magicalCamera.takeFragmentPhoto()) {
-                    startActivityForResult(magicalCamera.getIntentFragment(),MagicalCamera.TAKE_PHOTO);
-                }*/
-                magicalCamera.takePhoto();
+                intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent,cons);
             }
         });
-
         return view;
     }
 
-    /*@Override
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
-        magicalCamera.resultPhoto(requestCode, resultCode, data);
+        /*magicalCamera.resultPhoto(requestCode, resultCode, data);
         imagecircle.setImageBitmap(magicalCamera.getMyPhoto());
         //magicalCamera.savePhotoInMemoryDevice(magicalCamera.getMyPhoto(), "myTestPhoto", MagicalCamera.JPEG, true);
 
@@ -62,6 +61,11 @@ public class CambiarAvatarFragment extends Fragment {
         }
         else {
             Toast.makeText(activity, "The photo isn't save",Toast.LENGTH_SHORT);
+        }*/
+        if (resultCode==Activity.RESULT_OK){
+            Bundle extras = data.getExtras();
+            bmp = (Bitmap)extras.get("data");
+            imagecircle.setImageBitmap(bmp);
         }
-    }*/
+    }
 }

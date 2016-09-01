@@ -157,7 +157,6 @@ public class CotizarAutoFragment extends Fragment {
                         listaAutoses.add(test);
                     }
                     adapter.setItems(listaAutoses);
-                    Log.e("TAG",String.valueOf(count));
                     count = 1;
                 }else if (count==1){
                     String queTieneElBoton = btnSpinner.getText().toString();
@@ -165,7 +164,7 @@ public class CotizarAutoFragment extends Fragment {
                     btnSpinner.setText(queTieneElBoton + " " +items.getLista());
                     btnCerrarBack.setText("Marca");
                     txtCambia.setText("Línea");
-                    Log.e("TAG",String.valueOf(count));
+
                     adapter.clear();
                     for (int i=0; i<linea.length;i++){
                         ListaAutos test = new ListaAutos();

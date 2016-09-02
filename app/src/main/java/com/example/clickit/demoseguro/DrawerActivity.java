@@ -1,10 +1,16 @@
 package com.example.clickit.demoseguro;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -15,6 +21,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.clickit.demoseguro.Fragment.AcercaFragment;
 import com.example.clickit.demoseguro.Fragment.ContactoFragment;
@@ -24,6 +31,8 @@ import com.example.clickit.demoseguro.Fragment.InvitaUnAmigoFragment;
 import com.example.clickit.demoseguro.Fragment.PolizasFragment;
 
 public class DrawerActivity extends AppCompatActivity {
+
+    private int STORAGE_PERMISSION_CODE = 23;
         //implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
@@ -35,6 +44,8 @@ public class DrawerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        requestStoragePermission();
 
         toolbar.setTitle(R.string.inicio);
 
@@ -162,5 +173,46 @@ public class DrawerActivity extends AppCompatActivity {
         return true;
     }*/
 
+    private boolean isReadStorageAllowed(){
+        int result = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
+        if (result == PackageManager.PERMISSION_GRANTED){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    private void requestStoragePermission(){
+
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.CAMERA)){
+            //If the user has denied the permission previously your code will come to this block
+            //Here you can explain why you need this permission
+            //Explain here why you need this permission
+
+        }
+
+        //And finally ask for the permission
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA},STORAGE_PERMISSION_CODE);
+    }
+
+    @Override
+    @SuppressWarnings({"ResourceType"})
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        //Checking the request code of our request
+        if(requestCode == STORAGE_PERMISSION_CODE){
+
+            //If permission is granted
+            if(grantResults.length >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+                //Displaying a toast
+                Toast.makeText(this,"Permission granted now you can read the storage",Toast.LENGTH_LONG).show();
+            }else{
+                //Displaying another toast if permission is not granted
+                Toast.makeText(this,"Oops you just denied the permission",Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 
 }

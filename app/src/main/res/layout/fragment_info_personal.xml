@@ -456,7 +456,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone"
-            android:id="@+id/linear_post">
+            android:id="@+id/linear_posthide">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -475,13 +475,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:id="@+id/cp"
+                        android:id="@+id/cphide"
                         android:singleLine="true"
                         android:inputType="number"/>
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/post_empty"
+                        android:id="@+id/post_emptyhide"
                         android:text="Validar"/>
                 </LinearLayout>
             </LinearLayout>

@@ -3,9 +3,56 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="vertical"
+     android:layout_weight="1">
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="100dp"
+         android:background="@drawable/acerca_sm">
+         <TextView
+             android:background="#66000000"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:text="Acerca de"
+             android:gravity="center"
+             android:textColor="@color/colorWhite"
+             android:textSize="32dp"
+             android:textStyle="bold"
+             android:layout_centerVertical="true"
+             android:layout_alignParentLeft="true"
+             android:layout_alignParentStart="true" />
+     </LinearLayout>
+
+     <ImageView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:src="@drawable/acerca"
+         android:scaleType="fitXY"
+         android:paddingBottom="20dp"
+         android:paddingTop="20dp"/>
+ </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Acerca de"/>
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Copyright 2016"/>
+        <TextView
+            android:textAlignment="textEnd"
+            android:gravity="end"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SeguTrends"/>
+    </LinearLayout>
 
 </LinearLayout>

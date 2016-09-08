@@ -3,12 +3,14 @@ package com.example.clickit.demoseguro.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.example.clickit.demoseguro.Fragment.FragmentsNietos.MapaFragment;
 import com.example.clickit.demoseguro.R;
 
 import java.util.ArrayList;
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 public class ContactoFragment extends Fragment {
     @Nullable
     Spinner departamentospinner;
+
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_contacto,container,false);
@@ -34,6 +37,14 @@ public class ContactoFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         departamentospinner.setAdapter(adapter);
+
+        Fragment fragment = null;
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        fragment = new MapaFragment();
+
+        if (fragment!=null){
+            transaction.replace(R.id.content_map,fragment).commit();
+        }
 
         return view;
     }

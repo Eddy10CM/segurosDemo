@@ -45,4 +45,6 @@
     <string-array name="descripcion">
         <item>RDX CLIMA VIDRIOELEC BOLSAAIRE QUEMACOCOS MP3 DVD PIEL AUT 6 CIL 5 PTS</item>
     </string-array>
+
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAy9WUBxA6G7FMDiQ0C4TKFL5L8v8t6wr0</string>
 </resources>

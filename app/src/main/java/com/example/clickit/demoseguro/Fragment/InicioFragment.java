@@ -14,8 +14,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.clickit.demoseguro.Fragment.FragmentsNietos.CambiarAvatarFragment;
 import com.example.clickit.demoseguro.R;
 
 import static com.example.clickit.demoseguro.R.color.colorPrimary;
@@ -26,6 +29,7 @@ public class InicioFragment extends Fragment {
     int count = 0;
     int transitions_fragment1 = 0,transitions_fragment2 = 0, transitions_fragment3 = 0;
     public InicioFragment(){}
+    private ImageView imageViewAvatar;
 
     TextView txtNotification,txtPanorama,txtConfiguration;
 
@@ -80,6 +84,17 @@ public class InicioFragment extends Fragment {
                 fragments(count);
             }
         });
+
+        /*imageViewAvatar = (ImageView)view.findViewById(R.id.img_cambiar_avatar);
+        imageViewAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Fragment test = new CambiarAvatarFragment();
+                FragmentTransaction transaction = getChildFragmentManager()
+                        .beginTransaction();
+                transaction.add(R.id.content_configuration,test).addToBackStack("TEST").commit();
+            }
+        });*/
 
         return view;
     }

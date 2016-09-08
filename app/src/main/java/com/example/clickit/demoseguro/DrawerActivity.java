@@ -47,7 +47,7 @@ public class DrawerActivity extends AppCompatActivity {
 
 
 
-        toolbar.setTitle(R.string.inicio);
+        //toolbar.setLogo(getResources().getDrawable(R.drawable.logoblk));
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -99,7 +99,7 @@ public class DrawerActivity extends AppCompatActivity {
                     .commit();
 
         }
-        setTitle(item.getTitle());
+        //setTitle(item.getTitle());
     }
 
     private void prepararDrawer(NavigationView navigationView) {
@@ -172,7 +172,6 @@ public class DrawerActivity extends AppCompatActivity {
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }*/
-
 
 
 }

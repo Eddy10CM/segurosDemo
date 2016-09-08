@@ -92,6 +92,32 @@
                             android:id="@+id/items_seleccionables"/>
                     </LinearLayout>
                 </LinearLayout>
+            <EditText
+                android:layout_marginTop="@dimen/espacio_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="C.P"
+                android:id="@+id/edit_cp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="5"
+                android:textAlignment="center"
+                android:background="@drawable/btn_disable_cotiza_compra"/>
+            <Button
+                android:gravity="center|end"
+                android:layout_gravity="end"
+                android:textAlignment="center"
+                android:layout_margin="@dimen/espacio_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_weight="1"
+                android:text="Mostrar Ofertas"
+                android:singleLine="true"
+                android:textSize="12sp"
+                android:id="@+id/btn_mostrar_ofertas"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/background_button_pop"/>
             <!--</ScrollView>-->
         </LinearLayout>
     </android.support.v7.widget.CardView>

@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button btnInicio = (Button)findViewById(R.id.login);
-        requestStoragePermission();
+        isReadStorageAllowed();
         btnInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,13 +40,17 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         else {
+            requestStoragePermission();
             return false;
         }
     }
 
     private void requestStoragePermission(){
 
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.CAMERA) && ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.WRITE_EXTERNAL_STORAGE) && ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.INTERNET)){
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.CAMERA) &&
+                ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.WRITE_EXTERNAL_STORAGE) &&
+                ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.INTERNET) &&
+                ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.ACCESS_FINE_LOCATION)){
             //If the user has denied the permission previously your code will come to this block
             //Here you can explain why you need this permission
             //Explain here why you need this permission
@@ -54,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //And finally ask for the permission
-        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.INTERNET},STORAGE_PERMISSION_CODE);
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.INTERNET,Manifest.permission.ACCESS_FINE_LOCATION},STORAGE_PERMISSION_CODE);
     }
 
     @Override
@@ -75,4 +79,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }

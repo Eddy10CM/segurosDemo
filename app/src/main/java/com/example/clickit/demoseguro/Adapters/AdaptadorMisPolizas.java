@@ -86,20 +86,7 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
 
 
 
-        btnVolver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                quiero.setSelection(0);
-                if (linearPrincipal.getVisibility() == View.GONE){
-                    Animation animation= AnimationUtils.loadAnimation(parent.getContext(),R.anim.car_flip_right_out);
-                    linearPrincipal.startAnimation(animation);
-                    //animar(true);
-                    linearPrincipal.setVisibility(View.VISIBLE);
-                    linearDetails.setVisibility(View.GONE);
-                }
-                //ExpandAndCollapseViewUtil.collapse(linearDetails, DURATION);
-            }
-        });
+
 
 
 
@@ -154,15 +141,14 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
                     case 0:break;
                     case 1:
                         Log.e("TAG" + position,"Animación");
-                        if (position==0){
-                            if (linearDetails.getVisibility() == View.GONE){
-                                Animation animation= AnimationUtils.loadAnimation(myContext,R.anim.car_flip_left_in);
-                                linearDetails.startAnimation(animation);
-                                //animar(true);
-                                linearDetails.setVisibility(View.VISIBLE);
-                                linearPrincipal.setVisibility(View.GONE);
-                            }
+                        if (linearDetails.getVisibility() == View.GONE){
+                            Animation animation= AnimationUtils.loadAnimation(myContext,R.anim.car_flip_left_in);
+                            linearDetails.startAnimation(animation);
+                            //animar(true);
+                            linearDetails.setVisibility(View.VISIBLE);
+                            linearPrincipal.setVisibility(View.GONE);
                         }
+
                         break;
                     case 2:break;
                 }
@@ -171,6 +157,21 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
+            }
+        });
+
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                quiero.setSelection(0);
+                if (linearPrincipal.getVisibility() == View.GONE){
+                    Animation animation= AnimationUtils.loadAnimation(myContext,R.anim.car_flip_right_out);
+                    linearPrincipal.startAnimation(animation);
+                    //animar(true);
+                    linearPrincipal.setVisibility(View.VISIBLE);
+                    linearDetails.setVisibility(View.GONE);
+                }
+                //ExpandAndCollapseViewUtil.collapse(linearDetails, DURATION);
             }
         });
     }

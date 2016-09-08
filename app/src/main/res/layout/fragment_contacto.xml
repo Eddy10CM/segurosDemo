@@ -116,7 +116,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/car"
+                        android:src="@drawable/email"
                         android:layout_weight="0"/>
 
                     <TextView
@@ -147,7 +147,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/car"
+                        android:src="@drawable/home_orange"
                         android:layout_weight="0"/>
 
                     <TextView
@@ -181,7 +181,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/car"
+                        android:src="@drawable/phone"
                         android:layout_gravity="left"
                         android:layout_weight="0"/>
 
@@ -216,7 +216,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/car"
+                        android:src="@drawable/earth"
                         android:layout_gravity="center_vertical|left"
                         android:layout_weight="0"
                         />

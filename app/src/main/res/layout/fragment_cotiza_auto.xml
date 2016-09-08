@@ -44,46 +44,81 @@
                 android:paddingLeft="@dimen/espacio_card_view"
                 android:textSize="12sp"
                 />
-            <LinearLayout
+            <!--<ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/collapsable_list"
-                android:background="@drawable/btn_disable_cotiza_compra"
-                android:visibility="gone">
+                android:layout_height="wrap_content">-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                    <TextView
-                        android:textColor="@color/colorAccent"
-                        android:textSize="12sp"
-                        android:text="Modelo"
-                        android:id="@+id/txt_cambia"
-                        android:textAlignment="textStart"
-                        android:gravity="start|center"
-                        android:layout_weight="1"
-                        android:paddingLeft="@dimen/espacio_card_view"
+                    android:orientation="vertical"
+                    android:id="@+id/collapsable_list"
+                    android:background="@drawable/btn_disable_cotiza_compra"
+                    android:visibility="gone">
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                    <Button
-                        android:textColor="@color/title_fragment"
-                        android:textSize="12sp"
-                        android:text="Cerrar"
-                        android:id="@+id/btn_cerrar_and_back"
-                        android:drawableLeft="@drawable/close"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:layout_weight="2"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+                            android:textColor="@color/colorAccent"
+                            android:textSize="12sp"
+                            android:text="Modelo"
+                            android:id="@+id/txt_cambia"
+                            android:textAlignment="textStart"
+                            android:gravity="start|center"
+                            android:layout_weight="1"
+                            android:paddingLeft="@dimen/espacio_card_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <Button
+                            android:textColor="@color/title_fragment"
+                            android:textSize="12sp"
+                            android:text="Cerrar"
+                            android:id="@+id/btn_cerrar_and_back"
+                            android:drawableLeft="@drawable/close"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:layout_weight="2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <android.support.v7.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="125dp"
+                            android:id="@+id/items_seleccionables"/>
+                    </LinearLayout>
                 </LinearLayout>
-                <android.support.v7.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/items_seleccionables"/>
-            </LinearLayout>
+            <EditText
+                android:layout_marginTop="@dimen/espacio_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="C.P"
+                android:id="@+id/edit_cp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="5"
+                android:textAlignment="center"
+                android:background="@drawable/btn_disable_cotiza_compra"/>
+            <Button
+                android:gravity="center|end"
+                android:layout_gravity="end"
+                android:textAlignment="center"
+                android:layout_margin="@dimen/espacio_card_view"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_weight="1"
+                android:text="Mostrar Ofertas"
+                android:singleLine="true"
+                android:textSize="12sp"
+                android:id="@+id/btn_mostrar_ofertas"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/background_button_pop"/>
+            <!--</ScrollView>-->
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

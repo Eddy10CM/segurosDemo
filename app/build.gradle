@@ -33,5 +33,7 @@ dependencies {
     compile 'com.daimajia.slider:library:1.1.5@aar'
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
     compile 'com.frosquivel:magicalcamera:1.0'
+    compile 'com.google.android.gms:play-services-location:9.4.0'
     compile 'com.google.android.gms:play-services-maps:9.4.0'
+
 }

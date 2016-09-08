@@ -40,9 +40,9 @@ public class TestFragment extends Fragment implements BaseSliderView.OnSliderCli
         mDemoSlider = (SliderLayout)view.findViewById(R.id.slider);
 
         HashMap<String,String> url_maps = new HashMap<>();
-        url_maps.put("Cotiza tu automovil hasta con 6 aseguradoras", "http://saasods.segupoliza.com/images/carruselinicio/Car.jpeg");
-        url_maps.put("", "http://saasods.segupoliza.com/images/carruselinicio/vida.jpg");
-        url_maps.put("Sin la preocupacion de gastos en los momentos de dolor", "http://saasods.segupoliza.com/images/carruselinicio/funeral.jpg");
+        url_maps.put("Cotiza tu automovil hasta con 6 aseguradoras", "http://misseguros.odessaseguros.com/images/carruselinicio/Car.jpeg");
+        url_maps.put("", "http://misseguros.odessaseguros.com/images/carruselinicio/vida.jpg");
+        url_maps.put("Sin la preocupacion de gastos en los momentos de dolor", "http://misseguros.odessaseguros.com/images/carruselinicio/funeral.jpg");
 
         for(String name : url_maps.keySet()){
             TextSliderView textSliderView = new TextSliderView(getActivity());

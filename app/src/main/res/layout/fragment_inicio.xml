@@ -38,6 +38,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
                             <ImageView
+                                android:id="@+id/img_cambiar_avatar"
                                 android:layout_width="64dp"
                                 android:layout_height="64dp"
                                 android:scaleType="centerInside"

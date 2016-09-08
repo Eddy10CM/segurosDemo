@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginTop="10dp"
     android:id="@+id/test">
 
     <android.support.v7.widget.CardView
@@ -13,118 +16,39 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                >
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/car"/>
-                <TextView
-                    android:layout_marginLeft="@dimen/activity_vertical_margin"
-                    android:layout_weight="2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Paliot 2007"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/espacio_card_view"
-                    android:textSize="@dimen/title_orange"
-                    android:textColor="@color/colorPrimary"
-                    />
-                <ImageView
-                    android:layout_weight=".5"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/logo" />
-            </LinearLayout>
-            <ImageView
+                android:visibility="visible"
+                android:id="@+id/linear_principal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/boton_seleccionar"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_weight="1">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="horizontal"
                     >
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/car"/>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/poliza"
+                        android:layout_marginLeft="@dimen/activity_vertical_margin"
+                        android:layout_weight="2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Paliot 2007"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/espacio_card_view"
                         android:textSize="@dimen/title_orange"
-                        android:textColor="@android:color/black"
-                        android:layout_weight="1"
+                        android:textColor="@color/colorPrimary"
                         />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/quiero"
-                        android:textSize="@dimen/title_orange"
-                        android:textColor="@android:color/black"
-                        android:layout_weight="1"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight="1">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/poliza_num"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="@dimen/title_orange"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ver Detalles"
-                            android:id="@+id/txtDetalles"
-                            android:textSize="15sp"
-                            android:textColor="@color/colorAccent"/>
-                        <!--<LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_weight="1">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="@android:color/black"
-                                android:text="@string/condiciones"
-                                android:layout_weight="1"
-                                />
-                            <TextView
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="@android:color/black"
-                                android:text="@string/poliza_seguro"/>
-                        </LinearLayout>-->
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:onClick="details"
-                        android:layout_weight="1">
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:scrollbars="vertical"
-                            android:spinnerMode="dropdown"
-                            android:id="@+id/quiero_polizas"/>
-                    </LinearLayout>
+                    <ImageView
+                        android:layout_weight=".5"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/logo" />
                 </LinearLayout>
                 <ImageView
                     android:layout_width="match_parent"
@@ -133,93 +57,89 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Vigencia:"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/title_orange"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="@android:color/black"
-                        android:textSize="15sp"
-                        android:singleLine="true"
-                        android:text="15/03/2016 - 30/06/2016"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <ProgressBar
-                        android:layout_marginTop="@dimen/espacio_card_view"
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/progreso"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:indeterminate="false"
-                        android:max="100"
-                        android:minHeight="15dp"
-                        android:progress="75"/>
-                    <ImageView
-                        android:layout_weight="1"
-                        android:layout_width="60dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/warning"/>
-                </LinearLayout>
-                <ImageView
-                    android:layout_marginTop="@dimen/espacio_card_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/linea_separador"/>
-                <LinearLayout
-                    android:id="@+id/details"
-                    android:visibility="visible"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        >
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Baja a partir:"
+                            android:text="@string/poliza"
+                            android:textSize="@dimen/title_orange"
                             android:textColor="@android:color/black"
-                            android:textSize="@dimen/title_orange"/>
+                            android:layout_weight="1"
+                            />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="26/06/2016"
+                            android:text="@string/quiero"
+                            android:textSize="@dimen/title_orange"
                             android:textColor="@android:color/black"
-                            android:textSize="16sp"/>
+                            android:layout_weight="1"
+                            />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Motivo: "
-                            android:textColor="@android:color/black"
-                            android:textSize="@dimen/title_orange"/>
-                        <Spinner
-                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_weight="1">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/poliza_num"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/title_orange"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ver Detalles"
+                                android:id="@+id/txtDetalles"
+                                android:textSize="15sp"
+                                android:textColor="@color/colorAccent"/>
+                            <!--<LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/condiciones"
+                                    android:layout_weight="1"
+                                    />
+                                <TextView
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@android:color/black"
+                                    android:text="@string/poliza_seguro"/>
+                            </LinearLayout>-->
+                        </LinearLayout>
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:scrollbars="vertical"
-                            android:spinnerMode="dropdown"
-                            android:id="@+id/motivo"/>
+                            android:orientation="vertical"
+                            android:onClick="details"
+                            android:layout_weight="1">
+                            <Spinner
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:scrollbars="vertical"
+                                android:spinnerMode="dropdown"
+                                android:id="@+id/quiero_polizas"/>
+                        </LinearLayout>
                     </LinearLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/boton_seleccionar"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -244,25 +164,124 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                        <Button
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                        <ProgressBar
+                            android:layout_marginTop="@dimen/espacio_card_view"
                             android:layout_weight="1"
-                            android:text="Volver"
-                            android:textColor="@color/colorWhite"
-                            android:id="@+id/volver"
-                            android:background="@android:color/holo_red_dark"/>
-                        <Button
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/progreso"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:indeterminate="false"
+                            android:max="100"
+                            android:minHeight="15dp"
+                            android:progress="75"/>
+                        <ImageView
                             android:layout_weight="1"
-                            android:text="Aceptar"
-                            android:textColor="@color/colorWhite"
-                            android:background="@color/colorPrimary"/>
+                            android:layout_width="60dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/warning"/>
                     </LinearLayout>
+                    <ImageView
+                        android:layout_marginTop="@dimen/espacio_card_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/linea_separador"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/details"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Baja a partir:"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/title_orange"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="26/06/2016"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Motivo: "
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/title_orange"/>
+                    <Spinner
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="vertical"
+                        android:spinnerMode="dropdown"
+                        android:id="@+id/motivo"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Vigencia:"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/title_orange"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp"
+                        android:singleLine="true"
+                        android:text="15/03/2016 - 30/06/2016"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Volver"
+                        android:textColor="@color/colorWhite"
+                        android:id="@+id/volver"
+                        android:background="@android:color/holo_red_dark"/>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Aceptar"
+                        android:textColor="@color/colorWhite"
+                        android:background="@color/colorPrimary"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
+    <TextView
+        android:id="@+id/test_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="1"/>
 
 </LinearLayout>

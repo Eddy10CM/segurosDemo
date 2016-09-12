@@ -35,7 +35,10 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
     ViewGroup linearDetails,linearPrincipal;
     Button btnVolver;
     TextView txtDetalles,test;
+    ArrayAdapter<String> adapter;
     private static final int DURATION = 250;
+    private int flip = -1,flipBack = -1;
+
 
     public class ViewHodlder extends RecyclerView.ViewHolder {
         public ViewHodlder(View itemView) {
@@ -48,7 +51,7 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
 
     @Override
     public int getItemCount() {
-        return 2;
+        return 1;
     }
 
     @Override
@@ -81,17 +84,7 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
         data1.add("Cambio de aseguradora");
 
 
-
-
-
-
-
-
-
-
-
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(parent.getContext(),android.R.layout.simple_spinner_dropdown_item,data);
+        adapter = new ArrayAdapter<>(parent.getContext(),android.R.layout.simple_spinner_dropdown_item,data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(parent.getContext(),android.R.layout.simple_spinner_dropdown_item,data1);
@@ -113,7 +106,10 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
 
     @Override
     public void onBindViewHolder(ViewHodlder holder, final int position) {
-        test.setText(String.valueOf(position));
+        //test.setText(String.valueOf(position));
+
+
+
 
         txtDetalles.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,14 +137,28 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
                     case 0:break;
                     case 1:
                         Log.e("TAG" + position,"Animación");
-                        if (linearDetails.getVisibility() == View.GONE){
-                            Animation animation= AnimationUtils.loadAnimation(myContext,R.anim.car_flip_left_in);
-                            linearDetails.startAnimation(animation);
-                            //animar(true);
-                            linearDetails.setVisibility(View.VISIBLE);
-                            linearPrincipal.setVisibility(View.GONE);
+                        //if (linearDetails.getVisibility() == View.GONE){
+                            flip = position;
+                            if (flip >= 0) {
+                                int prev = flip;
+                                notifyItemChanged(prev);
+                            }
+                            //notifyItemChanged(flip);
+                        //}
+                        Log.e("POSICIONES",String.valueOf(position)+" " + String.valueOf(flip));
+                        if (position == flip){
+                            if (linearDetails.getVisibility() == View.GONE){
+                                Animation animation = AnimationUtils.loadAnimation(myContext,R.anim.car_flip_left_in);
+                                linearDetails.startAnimation(animation);
+                                //animar(true);
+                                linearDetails.setVisibility(View.VISIBLE);
+                                linearPrincipal.setVisibility(View.GONE);
+                                Log.e("TAG","ENTRO AL IF");
+                                notifyDataSetChanged();
+                                notifyItemChanged(position);
+                            }//else
                         }
-
+                        //flip = -1;
                         break;
                     case 2:break;
                 }
@@ -160,23 +170,50 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
             }
         });
 
+
+
+
+
+
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                quiero.setSelection(0);
-                if (linearPrincipal.getVisibility() == View.GONE){
-                    Animation animation= AnimationUtils.loadAnimation(myContext,R.anim.car_flip_right_out);
-                    linearPrincipal.startAnimation(animation);
-                    //animar(true);
-                    linearPrincipal.setVisibility(View.VISIBLE);
-                    linearDetails.setVisibility(View.GONE);
+                Log.e("TAG" + position,"Animación");
+                //if (linearPrincipal.getVisibility() == View.GONE){
+                    flipBack = position;
+                    if (flipBack >= 0) {
+                        int prev = flipBack;
+                        notifyItemChanged(prev);
+                    }
+                    //notifyItemChanged(flip);
+                if (position == flipBack){
+                    Animation animation = AnimationUtils.loadAnimation(myContext,R.anim.car_flip_left_in);
+                    if (linearPrincipal.getVisibility() == View.GONE){
+                        linearPrincipal.startAnimation(animation);
+                        //animar(true);
+                        linearPrincipal.setVisibility(View.VISIBLE);
+                        linearDetails.setVisibility(View.GONE);
+                        quiero.setSelection(0);
+                        //adapter.clear();
+                        adapter.notifyDataSetChanged();
+                        notifyDataSetChanged();
+                        notifyItemChanged(position);
+                    }
                 }
+
+                //flipBack = -1;
+                    //
+                //}
                 //ExpandAndCollapseViewUtil.collapse(linearDetails, DURATION);
             }
         });
+
+        //Log.e("TAG",quiero.getSelectedItem().toString());
     }
 
-    private void animar(boolean mostrar)
+
+
+    /*private void animar(boolean mostrar)
     {
         AnimationSet set = new AnimationSet(true);
         Animation animation = null;
@@ -197,5 +234,5 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
 
         linearDetails.setLayoutAnimation(controller);
         linearDetails.startAnimation(animation);
-    }
+    }*/
 }

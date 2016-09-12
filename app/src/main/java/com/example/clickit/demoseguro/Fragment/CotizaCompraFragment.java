@@ -1,8 +1,6 @@
 package com.example.clickit.demoseguro.Fragment;
 
 
-import android.annotation.TargetApi;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -10,19 +8,24 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.clickit.demoseguro.Fragment.FragmentsNietos.CambiarAvatarFragment;
-import com.example.clickit.demoseguro.Fragment.FragmentsNietos.CambiarContasenaFragment;
+import com.example.clickit.demoseguro.Adapters.AdaptadorListaSpinnerAutos;
+import com.example.clickit.demoseguro.Adapters.AdaptadorSpinnerSeleccion;
+import com.example.clickit.demoseguro.Adapters.ExpandAndCollapseViewUtil;
+import com.example.clickit.demoseguro.Clases.ListaSeleccion;
+import com.example.clickit.demoseguro.Clases.RecyclerItemClickListener;
 import com.example.clickit.demoseguro.Fragment.FragmentsNietos.CotizarAutoFragment;
-import com.example.clickit.demoseguro.Fragment.FragmentsNietos.CotizarFunerariaFragment;
 import com.example.clickit.demoseguro.Fragment.FragmentsNietos.CotizarVidaFragment;
-import com.example.clickit.demoseguro.Fragment.FragmentsNietos.InfoPersonalFragment;
 import com.example.clickit.demoseguro.R;
+
+import java.util.ArrayList;
 
 /**
  * Fragment of the section "Cotiza y Compra"
@@ -33,10 +36,19 @@ public class CotizaCompraFragment extends Fragment {
     private AppBarLayout appBar;
     private TabLayout tabs;
     private ViewPager viewPager;
+    private AdaptadorSpinnerSeleccion adapter;
+    private LinearLayoutManager linearLayoutManager;
+    ViewGroup listExpand;
+    RecyclerView listaSeleccion;
     int count = 0;
-    Button btnCotizaCompraAuto,btnCotizaCompraVida,btnCotizaCompraFuneraria;
+    private static final int DURATION = 250;
+    private static final long TIEMPO = 3000;
+    Button btnCotizaCompraAuto,btnCotizaCompraVida,btnCotizaCompraFuneraria,btnSeleccion;
     public final static String KEY = "KEY";
 
+    private String [] seleccion;
+    private boolean isPressed = false;
+    private ArrayList<ListaSeleccion> listaSeleccionados = new ArrayList<>();
 
     public CotizaCompraFragment(){}
 
@@ -53,6 +65,75 @@ public class CotizaCompraFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cotiza_compra,container,false);
 
+        btnSeleccion = (Button)view.findViewById(R.id.btn_seleccion);
+        adapter = new AdaptadorSpinnerSeleccion(getActivity());
+
+        listExpand = (ViewGroup)view.findViewById(R.id.list_expand);
+
+        btnSeleccion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isPressed==false){
+                    ExpandAndCollapseViewUtil.expand(listExpand, DURATION);
+                    isPressed=true;
+                }else {
+                    ExpandAndCollapseViewUtil.collapse(listExpand,DURATION);
+                    isPressed = false;
+                }
+            }
+        });
+
+        seleccion = getActivity().getResources().getStringArray(R.array.selecciones);
+
+        for (int i=0; i<seleccion.length; i++){
+            ListaSeleccion test = new ListaSeleccion();
+            test.setTitulo(seleccion[i]);
+            listaSeleccionados.add(test);
+        }
+
+        adapter.setItems(listaSeleccionados);
+
+        listaSeleccion = (RecyclerView)view.findViewById(R.id.lista_de_seleccion);
+        linearLayoutManager = new LinearLayoutManager(getActivity());
+        listaSeleccion.setLayoutManager(linearLayoutManager);
+        listaSeleccion.setAdapter(adapter);
+
+        listaSeleccion.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View childView, int position) {
+                switch (position){
+                    case 0:
+                        btnSeleccion.setCompoundDrawablesWithIntrinsicBounds(getActivity().getResources().getDrawable(R.drawable.car_blanco_button),null,null,null);
+                        btnSeleccion.setText("AUTO");
+                        ExpandAndCollapseViewUtil.collapse(listExpand,DURATION);
+                        isPressed = false;
+                        fragments(position);
+                        break;
+                    case 1:
+                        btnSeleccion.setCompoundDrawablesWithIntrinsicBounds(getActivity().getResources().getDrawable(R.drawable.corazon_blanco_button),null,null,null);
+                        ExpandAndCollapseViewUtil.collapse(listExpand,DURATION);
+                        btnSeleccion.setText("VIDA");
+                        isPressed = false;
+                        fragments(position);
+                        break;
+                    case 2:
+                        btnSeleccion.setCompoundDrawablesWithIntrinsicBounds(getActivity().getResources().getDrawable(R.drawable.injury_blanco),null,null,null);
+                        btnSeleccion.setText("GASTOS FUNERARIOS");
+                        ExpandAndCollapseViewUtil.collapse(listExpand,DURATION);
+                        fragments(position);
+                        isPressed = false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            @Override
+            public void onItemLongPress(View childView, int position) {
+
+            }
+        }));
+
         /*if (savedInstanceState == null){
             insertTabs(container);
 
@@ -63,7 +144,7 @@ public class CotizaCompraFragment extends Fragment {
         }*/
 
 
-        btnCotizaCompraAuto = (Button)view.findViewById(R.id.btn_cotiza_auto);
+        /*btnCotizaCompraAuto = (Button)view.findViewById(R.id.btn_cotiza_auto);
 
         btnCotizaCompraAuto.setOnClickListener(new View.OnClickListener() {
             @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -131,7 +212,7 @@ public class CotizaCompraFragment extends Fragment {
 
                 fragments(count);
             }
-        });
+        });*/
 
         fragments(count);
 

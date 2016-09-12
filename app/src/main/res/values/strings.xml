@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sprint 1 Inicio</string>
+    <string name="app_name">Sprint 3</string>
     <string name="pantalla_inicio">Inicio Sesión</string>
     <string name="usuario">Usuario</string>
     <string name="password">Contraseña</string>
@@ -59,4 +59,11 @@
         <item>RDX CLIMA VIDRIOELEC BOLSAAIRE QUEMACOCOS MP3 DVD PIEL AUT 6 CIL 5 PTS</item>
     </string-array>
     <string name="api_key_google">AIzaSyDUpiMhnoULN3HfXyTy9v4AytF1yvlRQsk</string>
+
+
+    <string-array name="selecciones">
+        <item>Auto</item>
+        <item>Vida</item>
+        <item>Gastos Funerarios</item>
+    </string-array>
 </resources>

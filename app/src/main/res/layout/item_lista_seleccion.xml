@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_gravity="center_vertical"
+    android:layout_height="wrap_content">
+
+
+        <Button
+            android:paddingLeft="8dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/btn_modificable"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:drawablePadding="8dp"
+            android:text="Auto"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/title_fragment"
+            android:background="@drawable/btn_disable_cotiza_compra"
+            android:drawableLeft="@drawable/car_naranja_button1"/>
+
+
+</LinearLayout>

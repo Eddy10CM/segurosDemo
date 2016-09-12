@@ -58,12 +58,18 @@
     <string-array name="descripcion">
         <item>RDX CLIMA VIDRIOELEC BOLSAAIRE QUEMACOCOS MP3 DVD PIEL AUT 6 CIL 5 PTS</item>
     </string-array>
+
     <string name="api_key_google">AIzaSyDUpiMhnoULN3HfXyTy9v4AytF1yvlRQsk</string>
 
 
+<<<<<<< HEAD
     <string-array name="selecciones">
         <item>Auto</item>
         <item>Vida</item>
         <item>Gastos Funerarios</item>
     </string-array>
+=======
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAy9WUBxA6G7FMDiQ0C4TKFL5L8v8t6wr0</string>
+
+>>>>>>> 68698f485f59c3ecc690a87fbb173e6335a58108
 </resources>

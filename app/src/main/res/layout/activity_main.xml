@@ -14,10 +14,12 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
@@ -47,10 +49,26 @@
                     android:textSize="28dp"/>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_marginTop="@dimen/activity_vertical_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Seguros para Empleados"
+                    android:gravity="center"
+                    android:textSize="28dp"/>
+            </LinearLayout>
+
             <android.support.design.widget.TextInputLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/usuario_">
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -64,6 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/password_">
+
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -80,7 +99,22 @@
                 android:background="@drawable/background_button_pop"
                 android:text="@string/inicio"
                 android:id="@+id/login"
-                android:textColor="@color/colorWhite"/>
+                android:textColor="@color/colorWhite"
+                android:layout_marginTop="10dp"/>
+
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/segutrendscolor"
+                    android:layout_marginTop="6dp"/>
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

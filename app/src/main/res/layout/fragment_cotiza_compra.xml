@@ -29,50 +29,81 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
     </LinearLayout>
-    
-    <TextView
-        android:layout_marginTop="@dimen/espacio_card_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Me gustaría Cotizar y Comprar mi Seguro de"
-        android:gravity="center"
-
-        android:layout_gravity="center"
-        android:textSize="14sp"
-        android:textColor="@color/title_fragment"
-        android:textStyle="bold"/>
 
     <LinearLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <Button
-            android:paddingLeft="8dp"
-            android:layout_gravity="center"
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Me gustaría Cotizar y Comprar mi Seguro de"
             android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:drawablePadding="8dp"
-            android:text="Auto"
-            android:id="@+id/btn_seleccion"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/background_button_pop"
-            android:drawableLeft="@drawable/car_blanco_button"/>
+
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            android:textColor="@color/title_fragment"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:paddingLeft="8dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:drawablePadding="8dp"
+                android:text="Auto"
+                android:id="@+id/btn_seleccion"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/background_button_pop"
+                android:drawableLeft="@drawable/car_blanco_button"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/list_expand"
+                android:visibility="gone">
+                <android.support.v7.widget.RecyclerView
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/lista_de_seleccion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:id="@+id/list_expand"
-            android:visibility="gone">
-            <android.support.v7.widget.RecyclerView
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:id="@+id/lista_de_seleccion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
+            android:id="@+id/content_cotiza_compra"/>
     </LinearLayout>
-    
+    <LinearLayout
+        android:layout_weight="0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Copyright 2016"/>
+        <TextView
+            android:textAlignment="textEnd"
+            android:gravity="end"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SeguTrends"/>
+    </LinearLayout>
+
     <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -122,10 +153,4 @@
             android:textColor="@color/colorPrimary"
             android:background="@drawable/btn_disable_cotiza_compra"/>
     </LinearLayout>-->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/content_cotiza_compra"/>
 </LinearLayout>

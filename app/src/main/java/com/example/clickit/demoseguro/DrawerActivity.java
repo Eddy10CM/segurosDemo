@@ -77,9 +77,9 @@ public class DrawerActivity extends AppCompatActivity {
             case R.id.nav_polizas:
                 fragmentGenerico = new PolizasFragment();
                 break;
-            case R.id.nav_invita:
+            /*case R.id.nav_invita:
                 fragmentGenerico = new InvitaUnAmigoFragment();
-                break;
+                break;*/
             case R.id.nav_acerca:
                 fragmentGenerico = new AcercaFragment();
                 break;

@@ -8,6 +8,7 @@
 
     <com.example.clickit.demoseguro.CustomScrollView
         android:id="@+id/scrollView"
+        android:layout_weight="1"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -255,16 +256,25 @@
 
     </com.example.clickit.demoseguro.CustomScrollView>
 
-    <!--<ScrollView
+
+    <LinearLayout
+        android:layout_weight="0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:layout_weight="1">
-
-
-
-    </ScrollView>-->
-
-
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Copyright 2016"/>
+        <TextView
+            android:textAlignment="textEnd"
+            android:gravity="end"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SeguTrends"/>
+    </LinearLayout>
 
 </LinearLayout>

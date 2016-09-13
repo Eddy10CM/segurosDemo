@@ -5,11 +5,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.clickit.demoseguro.Adapters.AdaptadorMisPolizas;
+import com.example.clickit.demoseguro.Clases.RecyclerItemClickListener;
 import com.example.clickit.demoseguro.R;
 
 /**
@@ -17,6 +19,7 @@ import com.example.clickit.demoseguro.R;
  */
 public class PolizasFragment extends Fragment {
 
+    public static final String TAG = PolizasFragment.class.getSimpleName();
     private LinearLayoutManager linearLayoutManager;
 
     public PolizasFragment() {
@@ -27,12 +30,24 @@ public class PolizasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_polizas,container,false);
 
-        RecyclerView listaPolizas = (RecyclerView)view.findViewById(R.id.mis_polizas);
+        final RecyclerView listaPolizas = (RecyclerView)view.findViewById(R.id.mis_polizas);
         linearLayoutManager = new LinearLayoutManager(getActivity());
         listaPolizas.setLayoutManager(linearLayoutManager);
 
-        AdaptadorMisPolizas adaptadorMisPolizas = new AdaptadorMisPolizas();
+        final AdaptadorMisPolizas adaptadorMisPolizas = new AdaptadorMisPolizas();
         listaPolizas.setAdapter(adaptadorMisPolizas);
+        /*listaPolizas.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View childView, int position) {
+                adaptadorMisPolizas.onBindViewHolder(childView,position);
+            }
+
+            @Override
+            public void onItemLongPress(View childView, int position) {
+
+            }
+
+        }));*/
         return view;
     }
 }

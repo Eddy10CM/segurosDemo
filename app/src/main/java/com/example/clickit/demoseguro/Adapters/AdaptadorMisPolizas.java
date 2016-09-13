@@ -31,18 +31,31 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
 
     Context myContext;
 
-    Spinner quiero,motivo;
-    ViewGroup linearDetails,linearPrincipal;
-    Button btnVolver;
-    TextView txtDetalles,test;
-    ArrayAdapter<String> adapter;
+    public static final String TAG = AdaptadorMisPolizas.class.getSimpleName();
+
+
     private static final int DURATION = 250;
+    ArrayAdapter<String> adapter;
     private int flip = -1,flipBack = -1;
 
 
-    public class ViewHodlder extends RecyclerView.ViewHolder {
+    public static class ViewHodlder extends RecyclerView.ViewHolder {
+
+        Spinner quiero,motivo;
+        ViewGroup linearDetails,linearPrincipal;
+        Button btnVolver;
+        TextView txtDetalles,test;
+
+
         public ViewHodlder(View itemView) {
             super(itemView);
+            quiero = (Spinner)itemView.findViewById(R.id.quiero_polizas);
+            motivo = (Spinner)itemView.findViewById(R.id.motivo);
+            btnVolver = (Button)itemView.findViewById(R.id.volver);
+            txtDetalles = (TextView)itemView.findViewById(R.id.txtDetalles);
+            linearDetails = (ViewGroup)itemView.findViewById(R.id.details);
+            linearPrincipal = (ViewGroup)itemView.findViewById(R.id.linear_principal);
+            test = (TextView)itemView.findViewById(R.id.test_txt);
         }
     }
 
@@ -51,23 +64,31 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
 
     @Override
     public int getItemCount() {
-        return 1;
+        return 4;
     }
 
     @Override
     public ViewHodlder onCreateViewHolder(final ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_polizas,parent,false);
-
-        quiero = (Spinner)view.findViewById(R.id.quiero_polizas);
-        motivo = (Spinner)view.findViewById(R.id.motivo);
-        btnVolver = (Button)view.findViewById(R.id.volver);
-        txtDetalles = (TextView)view.findViewById(R.id.txtDetalles);
-        linearDetails = (ViewGroup)view.findViewById(R.id.details);
-        linearPrincipal = (ViewGroup)view.findViewById(R.id.linear_principal);
-        test = (TextView)view.findViewById(R.id.test_txt);
-
         myContext = parent.getContext();
+        ViewHodlder hol = new ViewHodlder(view);
+        return hol;
+    }
+
+    /*private void details(View view) {
+        if (linearDetails.getVisibility() == View.GONE){
+            ExpandAndCollapseViewUtil.expand(linearDetails, DURATION);
+        }else {
+            ExpandAndCollapseViewUtil.collapse(linearDetails, DURATION);
+        }
+    }*/
+
+
+    @Override
+    public void onBindViewHolder(final ViewHodlder holder, final int position) {
+        //test.setText(String.valueOf(position));
+
 
         final List<String> data = new ArrayList<>();
         data.add("Seleccione");
@@ -84,36 +105,21 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
         data1.add("Cambio de aseguradora");
 
 
-        adapter = new ArrayAdapter<>(parent.getContext(),android.R.layout.simple_spinner_dropdown_item,data);
+        adapter = new ArrayAdapter<>(myContext,android.R.layout.simple_spinner_dropdown_item,data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(parent.getContext(),android.R.layout.simple_spinner_dropdown_item,data1);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(myContext,android.R.layout.simple_spinner_dropdown_item,data1);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        quiero.setAdapter(adapter);
-        motivo.setAdapter(adapter1);
-        return new ViewHodlder(view);
-    }
+        holder.quiero.setAdapter(adapter);
+        holder.motivo.setAdapter(adapter1);
 
-    private void details(View view) {
-        if (linearDetails.getVisibility() == View.GONE){
-            ExpandAndCollapseViewUtil.expand(linearDetails, DURATION);
-        }else {
-            ExpandAndCollapseViewUtil.collapse(linearDetails, DURATION);
-        }
-    }
-
-
-    @Override
-    public void onBindViewHolder(ViewHodlder holder, final int position) {
-        //test.setText(String.valueOf(position));
-
-
-
-
-        txtDetalles.setOnClickListener(new View.OnClickListener() {
+        holder.txtDetalles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //holder.txtDetalles.setText("HOLA " + position);
+                //notifyItemChanged(position);
 
                 /*View popUp = LayoutInflater.from(myContext).inflate(R.layout.show_data,null);
                 final PopupWindow popupWindow = new PopupWindow(popUp, WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.MATCH_PARENT);
@@ -130,34 +136,32 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
 
 
 
-        quiero.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        holder.quiero.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
                 switch (pos){
                     case 0:break;
                     case 1:
-                        Log.e("TAG" + position,"Animación");
-                        //if (linearDetails.getVisibility() == View.GONE){
-                            flip = position;
-                            if (flip >= 0) {
-                                int prev = flip;
-                                notifyItemChanged(prev);
-                            }
+
                             //notifyItemChanged(flip);
-                        //}
-                        Log.e("POSICIONES",String.valueOf(position)+" " + String.valueOf(flip));
-                        if (position == flip){
-                            if (linearDetails.getVisibility() == View.GONE){
+                            //}
+
+                        //Log.e("TAG" + position,"Animación");
+                        //
+                        //Log.e("POSICIONES",String.valueOf(position)+" " + String.valueOf(flip));
+                        //if (position == flip){
+                            if (holder.linearDetails.getVisibility() == View.GONE){
                                 Animation animation = AnimationUtils.loadAnimation(myContext,R.anim.car_flip_left_in);
-                                linearDetails.startAnimation(animation);
+                                holder.linearDetails.startAnimation(animation);
                                 //animar(true);
-                                linearDetails.setVisibility(View.VISIBLE);
-                                linearPrincipal.setVisibility(View.GONE);
-                                Log.e("TAG","ENTRO AL IF");
-                                notifyDataSetChanged();
-                                notifyItemChanged(position);
+                                holder.linearDetails.setVisibility(View.VISIBLE);
+                                holder.linearPrincipal.setVisibility(View.GONE);
+
+                                //notifyDataSetChanged();
+                                //notifyItemChanged(position);
                             }//else
-                        }
+                        //}
                         //flip = -1;
                         break;
                     case 2:break;
@@ -175,31 +179,24 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
 
 
 
-        btnVolver.setOnClickListener(new View.OnClickListener() {
+        holder.btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("TAG" + position,"Animación");
-                //if (linearPrincipal.getVisibility() == View.GONE){
-                    flipBack = position;
-                    if (flipBack >= 0) {
-                        int prev = flipBack;
-                        notifyItemChanged(prev);
-                    }
+
                     //notifyItemChanged(flip);
-                if (position == flipBack){
-                    Animation animation = AnimationUtils.loadAnimation(myContext,R.anim.car_flip_left_in);
-                    if (linearPrincipal.getVisibility() == View.GONE){
-                        linearPrincipal.startAnimation(animation);
+
+
+                    if (holder.linearPrincipal.getVisibility() == View.GONE){
+                        Animation animation = AnimationUtils.loadAnimation(myContext,R.anim.car_flip_left_in);
+                        holder.linearPrincipal.startAnimation(animation);
                         //animar(true);
-                        linearPrincipal.setVisibility(View.VISIBLE);
-                        linearDetails.setVisibility(View.GONE);
-                        quiero.setSelection(0);
+                        holder.linearPrincipal.setVisibility(View.VISIBLE);
+                        holder.linearDetails.setVisibility(View.GONE);
+                        holder.quiero.setSelection(0);
                         //adapter.clear();
-                        adapter.notifyDataSetChanged();
-                        notifyDataSetChanged();
-                        notifyItemChanged(position);
+
                     }
-                }
+
 
                 //flipBack = -1;
                     //
@@ -210,6 +207,36 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
 
         //Log.e("TAG",quiero.getSelectedItem().toString());
     }
+
+    /*public void testForId(int position){
+        Log.e(TAG,String.valueOf(position));
+        txtDetalles.setText(TAG + position);
+    }*/
+
+
+
+    /*private void setAimationBack(ViewGroup viewGroup, int position) {
+        if (position > flipBack){
+            Animation animation = AnimationUtils.loadAnimation(myContext,R.anim.car_flip_left_in);
+            viewGroup.startAnimation(animation);
+            flipBack = position;
+            linearDetails.setVisibility(View.GONE);
+            linearPrincipal.setVisibility(View.VISIBLE);
+            notifyItemChanged(flipBack);
+        }
+    }
+
+    private void setAnimation(ViewGroup viewGroup, int position) {
+        //if (position > flip){
+            Log.e("TAG",String.valueOf(position) + " " + String.valueOf(flip));
+            flip = position;
+            notifyItemChanged(flip);
+            Animation animation = AnimationUtils.loadAnimation(myContext,R.anim.car_flip_left_in);
+            viewGroup.getChildAt(position).startAnimation(animation);
+            linearPrincipal.setVisibility(View.GONE);
+            linearDetails.setVisibility(View.VISIBLE);
+        //}
+    }*/
 
 
 

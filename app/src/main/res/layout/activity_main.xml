@@ -49,20 +49,6 @@
                     android:textSize="28dp"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_marginTop="@dimen/activity_vertical_menu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="16dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Seguros para Empleados"
-                    android:gravity="center"
-                    android:textSize="28dp"/>
-            </LinearLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_height="wrap_content"
@@ -82,7 +68,6 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/password_">
-
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -103,7 +88,7 @@
                 android:layout_marginBottom="10dp"/>
 
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/segutrendscolor"
                     android:layout_marginTop="6dp"/>
-            </LinearLayout>
+            </LinearLayout>-->
 
         </LinearLayout>
     </ScrollView>

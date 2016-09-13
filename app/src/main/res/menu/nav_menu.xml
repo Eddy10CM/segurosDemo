@@ -17,11 +17,11 @@
             android:checked="true"
             android:icon="@drawable/poliza"
             android:title="@string/polizas"/>
-        <item
+        <!--<item
             android:id="@+id/nav_invita"
             android:checked="true"
             android:icon="@drawable/add"
-            android:title="@string/friends"/>
+            android:title="@string/friends"/>-->
         <item
             android:id="@+id/nav_acerca"
             android:checked="true"

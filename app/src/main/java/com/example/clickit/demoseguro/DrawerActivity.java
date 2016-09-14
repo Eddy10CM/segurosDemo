@@ -63,7 +63,7 @@ public class DrawerActivity extends AppCompatActivity {
         }
     }
 
-    private void selccionarItem(MenuItem item) {
+    public void selccionarItem(MenuItem item) {
         Fragment fragmentGenerico = null;
         FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -72,7 +72,7 @@ public class DrawerActivity extends AppCompatActivity {
                 fragmentGenerico = new InicioFragment();
                 break;
             case R.id.nav_cotiza_compra:
-                fragmentGenerico = new CotizaCompraFragment();
+                fragmentGenerico = new CotizaCompraFragment(0);
                 break;
             case R.id.nav_polizas:
                 fragmentGenerico = new PolizasFragment();
@@ -102,7 +102,7 @@ public class DrawerActivity extends AppCompatActivity {
         //setTitle(item.getTitle());
     }
 
-    private void prepararDrawer(NavigationView navigationView) {
+    public void prepararDrawer(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {

@@ -76,6 +76,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:id="@+id/btn_mis_polizas"
                     android:src="@drawable/polizas"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true" />
@@ -89,38 +90,55 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="24dp" />
             </RelativeLayout>
-            <com.daimajia.slider.library.SliderLayout
-                android:layout_marginTop="@dimen/espacio_card_view"
-                android:id="@+id/slider"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                custom:pager_animation="Default"
-                custom:auto_cycle="true"
-                custom:indicator_visibility="visible"
-                custom:pager_animation_span="1100"/>
-            <com.daimajia.slider.library.Indicators.PagerIndicator
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                custom:selected_color="#0095BF"
-                custom:unselected_color="#553333"
-                custom:shape="oval"
-                custom:selected_padding_left="5dp"
-                custom:selected_padding_right="5dp"
-                custom:unselected_padding_left="5dp"
-                custom:unselected_padding_right="5dp"
-                android:layout_gravity="center"
-                custom:selected_width="6dp"
-                custom:selected_height="6dp"
-                custom:unselected_width="6dp"
-                custom:unselected_height="6dp"
-                android:layout_marginBottom="6dp"/>
-            <com.daimajia.slider.library.Indicators.PagerIndicator
-                android:id="@+id/custom_indicador2"
-                style="@style/AndroidImageSlider_Corner_Oval_Orange"
-                android:gravity="center_horizontal"
-                android:layout_gravity="center_horizontal"/>
-
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <com.daimajia.slider.library.SliderLayout
+                   android:layout_marginTop="@dimen/espacio_card_view"
+                   android:id="@+id/slider"
+                   android:layout_width="match_parent"
+                   android:layout_height="200dp"
+                   custom:pager_animation="Default"
+                   custom:auto_cycle="true"
+                   custom:indicator_visibility="visible"
+                   custom:pager_animation_span="1100">
+               </com.daimajia.slider.library.SliderLayout>
+               <Button
+                   style="?android:attr/buttonStyleSmall"
+                   android:layout_width="wrap_content"
+                   android:layout_height="25dp"
+                   android:text="Cotizar"
+                   android:textColor="@color/colorWhite"
+                   android:background="@drawable/background_button_pop"
+                   android:id="@+id/button"
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentRight="true"
+                   android:layout_alignParentEnd="true"
+                   android:layout_marginRight="28dp"
+                   android:layout_marginEnd="28dp" />
+               <com.daimajia.slider.library.Indicators.PagerIndicator
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:gravity="center"
+                   custom:selected_color="#0095BF"
+                   custom:unselected_color="#553333"
+                   custom:shape="oval"
+                   custom:selected_padding_left="5dp"
+                   custom:selected_padding_right="5dp"
+                   custom:unselected_padding_left="5dp"
+                   custom:unselected_padding_right="5dp"
+                   android:layout_gravity="center"
+                   custom:selected_width="6dp"
+                   custom:selected_height="6dp"
+                   custom:unselected_width="6dp"
+                   custom:unselected_height="6dp"
+                   android:layout_marginBottom="6dp"/>
+               <com.daimajia.slider.library.Indicators.PagerIndicator
+                   android:id="@+id/custom_indicador2"
+                   style="@style/AndroidImageSlider_Corner_Oval_Orange"
+                   android:gravity="center_horizontal"
+                   android:layout_gravity="center_horizontal"/>
+           </RelativeLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

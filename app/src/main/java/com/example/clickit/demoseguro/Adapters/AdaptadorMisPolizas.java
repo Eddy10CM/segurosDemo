@@ -36,7 +36,7 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
 
     private static final int DURATION = 250;
     ArrayAdapter<String> adapter;
-    private int flip = -1,flipBack = -1;
+    //private int flip = -1,flipBack = -1;
 
 
     public static class ViewHodlder extends RecyclerView.ViewHolder {
@@ -44,7 +44,7 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
         Spinner quiero,motivo;
         ViewGroup linearDetails,linearPrincipal;
         Button btnVolver;
-        TextView txtDetalles,test;
+        TextView txtDetalles;
 
 
         public ViewHodlder(View itemView) {
@@ -55,7 +55,7 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
             txtDetalles = (TextView)itemView.findViewById(R.id.txtDetalles);
             linearDetails = (ViewGroup)itemView.findViewById(R.id.details);
             linearPrincipal = (ViewGroup)itemView.findViewById(R.id.linear_principal);
-            test = (TextView)itemView.findViewById(R.id.test_txt);
+
         }
     }
 

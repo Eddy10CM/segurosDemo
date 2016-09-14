@@ -40,7 +40,7 @@ public class CotizaCompraFragment extends Fragment {
     private LinearLayoutManager linearLayoutManager;
     ViewGroup listExpand;
     RecyclerView listaSeleccion;
-    int count = 0;
+    int count;
     private static final int DURATION = 250;
     private static final long TIEMPO = 3000;
     Button btnCotizaCompraAuto,btnCotizaCompraVida,btnCotizaCompraFuneraria,btnSeleccion;
@@ -51,6 +51,10 @@ public class CotizaCompraFragment extends Fragment {
     private ArrayList<ListaSeleccion> listaSeleccionados = new ArrayList<>();
 
     public CotizaCompraFragment(){}
+
+    public CotizaCompraFragment(int count){
+        this.count = count;
+    }
 
     public static CotizaCompraFragment newInstance(String title){
         CotizaCompraFragment cotizaCompraFragment = new CotizaCompraFragment();
@@ -214,6 +218,8 @@ public class CotizaCompraFragment extends Fragment {
             }
         });*/
 
+        Log.e("TAG", String.valueOf(count));
+
         fragments(count);
 
         return view;
@@ -232,6 +238,23 @@ public class CotizaCompraFragment extends Fragment {
             fragment = new CotizarVidaFragment();
         }else if (count==2){
             fragment = new CotizarVidaFragment();
+        }
+
+        switch (count){
+            case 0:
+                btnSeleccion.setCompoundDrawablesWithIntrinsicBounds(getActivity().getResources().getDrawable(R.drawable.car_blanco_button),null,null,null);
+                btnSeleccion.setText("AUTO");
+                break;
+            case 1:
+                btnSeleccion.setCompoundDrawablesWithIntrinsicBounds(getActivity().getResources().getDrawable(R.drawable.corazon_blanco_button),null,null,null);
+                btnSeleccion.setText("VIDA");
+                break;
+            case 2:
+                btnSeleccion.setCompoundDrawablesWithIntrinsicBounds(getActivity().getResources().getDrawable(R.drawable.injury_blanco),null,null,null);
+                btnSeleccion.setText("GASTOS FUNERARIOS");
+                break;
+            default:
+                break;
         }
 
         if (fragment != null){

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sprint 3</string>
+    <string name="app_name">Sprint 4</string>
     <string name="pantalla_inicio">Inicio Sesión</string>
     <string name="usuario">Usuario</string>
     <string name="password">Contraseña</string>
@@ -71,5 +71,71 @@
 
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAy9WUBxA6G7FMDiQ0C4TKFL5L8v8t6wr0</string>
 
-
+    <string name="panorama">Panorama</string>
+    <string name="mis_polizas">Mis Pólizas</string>
+    <string name="cotizar">Cotizar</string>
+    <string name="number">8</string>
+    <string name="volver">Volver</string>
+    <string name="name">RAYMUNDO DE JESUS CHAPA FLORES</string>
+    <string name="rfc">R.F.C.: </string>
+    <string name="rfc1">CAFR670520I50</string>
+    <string name="poliza1">Póliza: </string>
+    <string name="valor_poliza">3569</string>
+    <string name="vigente">(Vigente)</string>
+    <string name="prima_total">Prima total: </string>
+    <string name="valor_prima">$ 11,957.05</string>
+    <string name="endoso">(Incluye un endoso)</string>
+    <string name="agente">Agente: </string>
+    <string name="caja">CAJA PRODUCTOR</string>
+    <string name="refresh">Renovar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="orden">Orden de trabajo N° NA</string>
+    <string name="numero_cotiza">Número de cotización w7f5lx</string>
+    <string name="admin">ADMINISTRADOR PRINCIPAL</string>
+    <string name="ramo">Ramo:</string>
+    <string name="subramo">Sub-ramo:</string>
+    <string name="individual">Individual</string>
+    <string name="vigencia">Vigencia:</string>
+    <string name="fecha_vigencia">16/Jun/2016 al  16/Jun/2017</string>
+    <string name="pago">Pago:</string>
+    <string name="mensual">MENSUAL</string>
+    <string name="moneda">Moneda:</string>
+    <string name="peso">Peso</string>
+    <string name="emisor">Emisor:</string>
+    <string name="resumen_poliza">RESUMEN PÓLIZA</string>
+    <string name="riesgo_as">Riesgo Asegurable</string>
+    <string name="modelo">Modelo:</string>
+    <string name="modelo_year">2016</string>
+    <string name="marca">Marca: </string>
+    <string name="marca_auto">Audi</string>
+    <string name="descripcion">Descripción: </string>
+    <string name="description">AUDI A3 S LINE 1.8L TFSI S TRONIC 180HP</string>
+    <string name="serie">Serie:</string>
+    <string name="serie_w">WAU8CF8V0GA129127</string>
+    <string name="placa">Placa:</string>
+    <string name="placa_v">STS3484</string>
+    <string name="motor">Motor:</string>
+    <string name="motor_v">CJS148012</string>
+    <string name="datos_as">Datos del asegurado</string>
+    <string name="nombre">Nombre:</string>
+    <string name="paquete_amplia">Paquete: Amplia</string>
+    <string name="sa">SA:</string>
+    <string name="valor_comercial">Valor comercial + 10%</string>
+    <string name="dm">DM:</string>
+    <string name="porciento_dm">5%</string>
+    <string name="rt">RT:</string>
+    <string name="rc">RC:</string>
+    <string name="valor_rc">$4,000,000</string>
+    <string name="gm">GM:</string>
+    <string name="valor_gm">$500,000</string>
+    <string name="extr">ExtRC:</string>
+    <string name="valor_extr">$4,000,000</string>
+    <string name="asv">ASV:</string>
+    <string name="amparada">Amparada</string>
+    <string name="fi">FI:</string>
+    <string name="valor_fi">$2,000,000</string>
+    <string name="aac">AAC:</string>
+    <string name="valor_aac">$100,000</string>
+    <string name="apm">APM:</string>
+    <string name="reportar">Reportar siniestro</string>
 </resources>

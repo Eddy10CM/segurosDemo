@@ -37,13 +37,47 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
-                            <ImageView
+                            <de.hdodenhof.circleimageview.CircleImageView
                                 android:id="@+id/img_cambiar_avatar"
                                 android:layout_width="64dp"
                                 android:layout_height="64dp"
-                                android:scaleType="centerInside"
-                                android:layout_gravity="center_horizontal"
+                                android:layout_gravity="center"
+                                android:gravity="center"
                                 android:src="@drawable/perfil"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <Button
+                                    android:visibility="gone"
+                                    android:layout_weight="1"
+                                    android:layout_marginTop="@dimen/espacio_card_view"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="25dp"
+                                    android:layout_marginLeft="8dp"
+                                    android:text="Cancelar"
+                                    android:id="@+id/btn_cancelar"
+                                    android:layout_marginRight="15dp"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/colorWhite"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/espacio_card_view"
+                                    android:background="@drawable/background_button_pop_disable"/>
+                                <Button
+                                    android:layout_weight="1"
+                                    android:visibility="gone"
+                                    android:layout_marginTop="@dimen/espacio_card_view"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="25dp"
+                                    android:text="Actualizar"
+                                    android:id="@+id/btn_actualizar"
+                                    android:layout_marginRight="15dp"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/colorWhite"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="@dimen/espacio_card_view"
+                                    android:background="@drawable/background_button_pop"/>
+                            </LinearLayout>
                         </LinearLayout>
                         <TextView
                             android:layout_width="match_parent"

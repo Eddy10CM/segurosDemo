@@ -26,6 +26,7 @@
                 android:layout_height="25dp"
                 android:text="Actualizar"
                 android:textSize="12sp"
+                android:layout_marginRight="10dp"
                 android:textColor="@color/colorWhite"
                 android:layout_gravity="end"
                 android:layout_marginBottom="@dimen/espacio_card_view"

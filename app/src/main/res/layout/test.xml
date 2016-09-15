@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/title_orange"
-        android:text="Panorama"
+        android:text="@string/panorama"
         android:textColor="@color/title_fragment"
         />
     <LinearLayout
@@ -39,7 +39,7 @@
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="8"
+            android:text="@string/number"
             android:gravity="center"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"/>
@@ -55,6 +55,7 @@
         android:layout_marginTop="@dimen/espacio_card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/linea_separadora"/>
     <android.support.v7.widget.CardView
         android:layout_marginTop="@dimen/espacio_card_view"
@@ -67,7 +68,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mis Polizas"
+                android:text="@string/mis_polizas"
                 android:layout_gravity="center"
                 android:gravity="center"/>
             <RelativeLayout
@@ -84,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorWhite"
-                    android:text="9"
+                    android:text="@string/number"
                     android:textSize="@dimen/title_orange"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
@@ -107,7 +108,7 @@
                    style="?android:attr/buttonStyleSmall"
                    android:layout_width="wrap_content"
                    android:layout_height="25dp"
-                   android:text="Cotizar"
+                   android:text="@string/cotizar"
                    android:textColor="@color/colorWhite"
                    android:background="@drawable/background_button_pop"
                    android:id="@+id/button"

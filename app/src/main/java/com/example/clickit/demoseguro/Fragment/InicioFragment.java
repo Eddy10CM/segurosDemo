@@ -1,10 +1,14 @@
 package com.example.clickit.demoseguro.Fragment;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,12 +18,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.clickit.demoseguro.Fragment.FragmentsNietos.CambiarAvatarFragment;
 import com.example.clickit.demoseguro.R;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.example.clickit.demoseguro.R.color.colorPrimary;
 
@@ -29,7 +36,11 @@ public class InicioFragment extends Fragment {
     int count = 0;
     int transitions_fragment1 = 0,transitions_fragment2 = 0, transitions_fragment3 = 0;
     public InicioFragment(){}
-    private ImageView imageViewAvatar;
+    private CircleImageView imageViewAvatar;
+    final static int cons  = 0;
+    Button btnActualizar,btnCancelar;
+    Intent intent;
+    Bitmap bmp;
 
     TextView txtNotification,txtPanorama,txtConfiguration;
 
@@ -46,6 +57,8 @@ public class InicioFragment extends Fragment {
         transaction.add(R.id.content,test).addToBackStack("TEST").commit();*/
 
         fragments(count);
+
+        btnActualizar = (Button)view.findViewById(R.id.btn_actualizar);
 
         txtPanorama = (TextView)view.findViewById(R.id.txt_panorama);
 
@@ -85,18 +98,50 @@ public class InicioFragment extends Fragment {
             }
         });
 
-        /*imageViewAvatar = (ImageView)view.findViewById(R.id.img_cambiar_avatar);
+        imageViewAvatar = (CircleImageView) view.findViewById(R.id.img_cambiar_avatar);
         imageViewAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Fragment test = new CambiarAvatarFragment();
-                FragmentTransaction transaction = getChildFragmentManager()
-                        .beginTransaction();
-                transaction.add(R.id.content_configuration,test).addToBackStack("TEST").commit();
+                intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent,cons);
             }
-        });*/
+        });
+
+
+        btnActualizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (btnActualizar.getVisibility() == View.VISIBLE){
+                    btnActualizar.setVisibility(View.GONE);
+                    btnCancelar.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        btnCancelar = (Button)view.findViewById(R.id.btn_cancelar);
+
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imageViewAvatar.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.perfil));
+                btnActualizar.setVisibility(View.GONE);
+                btnCancelar.setVisibility(View.GONE);
+            }
+        });
 
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode== Activity.RESULT_OK){
+            Bundle extras = data.getExtras();
+            bmp = (Bitmap) extras.get("data");
+            imageViewAvatar.setImageBitmap(bmp);
+            btnActualizar.setVisibility(View.VISIBLE);
+            btnCancelar.setVisibility(View.VISIBLE);
+        }
     }
 
     private void fragments(int count) {

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
@@ -19,6 +20,7 @@ import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.clickit.demoseguro.Clases.MyCustomDialog;
 import com.example.clickit.demoseguro.R;
 
 import java.util.ArrayList;
@@ -131,6 +133,16 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
                     }
                 });
                 popupWindow.showAsDropDown(popUp, 100,300);*/
+
+                MyCustomDialog dialog = new MyCustomDialog(myContext,position);
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                LayoutInflater li = (LayoutInflater)myContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View v = li.inflate(R.layout.show_data,null,false);
+                dialog.setContentView(v);
+                dialog.getWindow().setAttributes(lp);
+                dialog.show();
             }
         });
 

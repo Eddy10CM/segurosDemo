@@ -9,4 +9,9 @@
     <color name="colorGrey">#f7f7f7 </color>
 
     <color name="title_fragment">#626262</color>
+    <color name="red">#E96562</color>
+    <color name="green">#339933</color>
+    <color name="blue">#4e7fe1</color>
+    <color name="blue_arrow">#6bbcd7</color>
+    <color name="gray">#626262</color>
 </resources>

@@ -28,6 +28,7 @@ import com.example.clickit.demoseguro.Adapters.ExpandAndCollapseViewUtil;
 import com.example.clickit.demoseguro.Clases.Global;
 import com.example.clickit.demoseguro.Clases.ListaAutos;
 import com.example.clickit.demoseguro.Clases.RecyclerItemClickListener;
+import com.example.clickit.demoseguro.Fragment.CotizaCompraFragment;
 import com.example.clickit.demoseguro.Fragment.CotizaFragment;
 import com.example.clickit.demoseguro.R;
 import com.google.android.gms.common.ConnectionResult;
@@ -253,17 +254,14 @@ public class CotizarAutoFragment extends Fragment implements GoogleApiClient.Con
         btnMostrarOfertas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                CotizaCompraFragment.Ocultar(true);
                 Fragment fragment = new CotizaFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 if (fragment != null){
-                    if (btnSpinner.getText().toString().equals("Selecciona tu vehículo") && editTextCP.getText().toString().trim().equals(null)){
-                        transaction
-                                .setCustomAnimations(R.anim.zoom_foward_in,R.anim.zoom_foward_out)
-                                .replace(R.id.contenedor_principal,fragment)
-                                .commit();
-                    }else {
-                        Toast.makeText(getActivity().getApplicationContext(),"Capture todos los datos solicitados",Toast.LENGTH_LONG).show();
-                    }
+                    transaction
+                            .setCustomAnimations(R.anim.zoom_foward_in,R.anim.zoom_foward_out)
+                            .replace(R.id.content_cotiza_compra, fragment)
+                            .commit();
                 }
             }
         });

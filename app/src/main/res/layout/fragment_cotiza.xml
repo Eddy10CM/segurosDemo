@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:padding="10dp">
 
-    <TextView
+    <!--<<TextView
         android:layout_marginTop="@dimen/espacio_card_view"
         android:layout_marginLeft="@dimen/espacio_card_view"
         android:layout_marginRight="@dimen/espacio_card_view"
@@ -14,7 +14,7 @@
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="16sp"
         />
-    <!--<LinearLayout
+    LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -34,43 +34,93 @@
             android:text="@string/print"/>
     </LinearLayout>-->
     <LinearLayout
+        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:orientation="horizontal">
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Paquete"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:textAlignment="center"/>
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown"
+                    android:id="@+id/paq"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Forma de pago"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:textAlignment="center"/>
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown"
+                    android:id="@+id/form_pay"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Paquete"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:textColor="@color/colorWhite"
-                android:textAlignment="center"/>
-            <Spinner
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:spinnerMode="dropdown"
-                android:id="@+id/paq"/>
+                android:text="@string/vigencia"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 año"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Forma de pago"
-                android:textColor="@color/colorWhite"
-                android:textAlignment="center"/>
+            android:orientation="horizontal">
             <Spinner
+                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown"
-                android:id="@+id/form_pay"/>
+                android:id="@+id/fecha"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/colorWhite"
+                android:text="al"
+                android:layout_marginLeft="5dp"
+                />
         </LinearLayout>
     </LinearLayout>
     <android.support.v7.widget.RecyclerView

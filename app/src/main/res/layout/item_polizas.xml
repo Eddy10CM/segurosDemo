@@ -7,7 +7,7 @@
     android:layout_marginRight="15dp"
     android:layout_marginTop="5dp"
     android:animateLayoutChanges="true"
-    android:id="@+id/test">holder
+    android:id="@+id/test">
 
     <!--<android.support.v7.widget.CardView
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -21,7 +21,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <!--Linear Principal-->
                 <LinearLayout
                     android:visibility="visible"
@@ -48,6 +49,7 @@
                                 android:orientation="horizontal"
                                 >
                                 <ImageView
+                                    android:contentDescription="@string/app_name"
                                     android:layout_marginLeft="6dp"
                                     android:layout_width="32dp"
                                     android:layout_height="32dp"
@@ -68,12 +70,14 @@
                                     android:layout_weight=".5"
                                     android:layout_width="32dp"
                                     android:layout_height="32dp"
+                                    android:contentDescription="@string/app_name"
                                     android:src="@drawable/logo" />
                             </LinearLayout>
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/boton_seleccionar"/>
+                                android:src="@drawable/boton_seleccionar"
+                                android:contentDescription="@string/app_name" />
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -107,7 +111,8 @@
                                     android:layout_marginRight="8dp"
                                     android:layout_marginLeft="8dp"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
+                                    android:orientation="horizontal"
+                                    android:baselineAligned="false">
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
@@ -121,12 +126,14 @@
                                             android:textColor="@color/colorPrimary"
                                             android:textSize="@dimen/title_orange"/>
                                         <TextView
+                                            android:drawableLeft="@drawable/serach"
                                             android:layout_width="wrap_content"
+                                            android:drawablePadding="5dp"
                                             android:layout_height="wrap_content"
-                                            android:text="Ver Detalles"
+                                            android:text="@string/ver_detalles"
                                             android:id="@+id/txtDetalles"
                                             android:textSize="15sp"
-                                            android:textColor="@color/colorAccent"/>
+                                            android:textColor="@color/title_fragment"/>
                                         <!--<LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
@@ -159,7 +166,7 @@
                                             android:scrollbars="vertical"
                                             android:spinnerMode="dropdown"
                                             android:id="@+id/quiero_polizas"/>
-                                        <!--<Button
+                                        <Button
                                             android:layout_marginLeft="10dp"
                                             android:layout_marginTop="10dp"
                                             android:layout_width="wrap_content"
@@ -167,17 +174,18 @@
                                             android:text="@string/reportar"
                                             android:layout_gravity="center"
                                             android:gravity="center"
-                                            android:id="@+id/back"
+                                            android:id="@+id/btn_reportar"
                                             android:paddingLeft="5dp"
                                             android:paddingRight="5dp"
                                             android:textAlignment="center"
                                             android:layout_marginRight="10dp"
                                             android:textColor="@color/colorPrimary"
                                             android:background="@drawable/btn_disable_cotiza_compra"
-                                            />-->
+                                            />
                                     </LinearLayout>
                                 </LinearLayout>
                                 <ImageView
+                                    android:contentDescription="@string/app_name"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/boton_seleccionar"/>
@@ -190,7 +198,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="2"
-                                        android:text="Vigencia:"
+                                        android:text="@string/vigencia"
                                         android:textColor="@android:color/black"
                                         android:textSize="@dimen/title_orange"/>
                                     <TextView
@@ -204,20 +212,17 @@
                                 </LinearLayout>
                                 <LinearLayout
                                     android:layout_width="match_parent"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
-                                    <ProgressBar
-                                        android:layout_marginTop="@dimen/espacio_card_view"
+                                    <TextView
+                                        android:textColor="@color/verde"
                                         android:layout_weight="1"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:id="@+id/progreso"
-                                        style="?android:attr/progressBarStyleHorizontal"
-                                        android:indeterminate="false"
-                                        android:max="100"
-                                        android:minHeight="15dp"
-                                        android:progress="75"/>
+                                        android:text="@string/meses"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
                                     <ImageView
+                                        android:contentDescription="@string/app_name"
                                         android:layout_weight="1"
                                         android:layout_width="60dp"
                                         android:layout_height="32dp"
@@ -226,6 +231,7 @@
                                 <ImageView
                                     android:layout_marginTop="@dimen/espacio_card_view"
                                     android:layout_width="match_parent"
+                                    android:contentDescription="@string/app_name"
                                     android:layout_height="wrap_content"
                                     android:src="@drawable/linea_separador"/>
                             </LinearLayout>
@@ -259,6 +265,8 @@
                             android:orientation="horizontal"
                             >
                             <ImageView
+                                android:contentDescription="@string/app_name"
+                                android:layout_marginLeft="15dp"
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
                                 android:src="@drawable/car"/>
@@ -277,13 +285,17 @@
                                 android:layout_weight=".5"
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
+                                android:contentDescription="@string/app_name"
+                                android:layout_marginRight="15dp"
                                 android:src="@drawable/logo" />
                         </LinearLayout>
                         <ImageView
+                            android:contentDescription="@string/app_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:src="@drawable/boton_seleccionar"/>
                         <LinearLayout
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
@@ -303,6 +315,8 @@
                                 android:textSize="16sp"/>
                         </LinearLayout>
                         <LinearLayout
+                            android:layout_marginRight="8dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
@@ -322,13 +336,14 @@
                                 android:id="@+id/motivo"/>
                         </LinearLayout>
                         <LinearLayout
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_weight="2"
                                 android:text="Vigencia:"
                                 android:textColor="@android:color/black"
                                 android:textSize="@dimen/title_orange"/>
@@ -342,6 +357,7 @@
                                 android:text="15/03/2016 - 30/06/2016"/>
                         </LinearLayout>
                         <LinearLayout
+                            android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
@@ -349,7 +365,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Volver"
+                                android:text="@string/volver"
                                 android:textColor="@color/colorWhite"
                                 android:id="@+id/volver"
                                 android:background="@android:color/holo_red_dark"/>
@@ -357,15 +373,140 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Aceptar"
+                                android:text="@string/aceptar"
                                 android:textColor="@color/colorWhite"
                                 android:background="@color/colorPrimary"/>
                         </LinearLayout>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
             </LinearLayout>
+
+            <!--Linea reportar siniestro -->
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/linear_reportar_siniestro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <android.support.v7.widget.CardView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="2dp"
+                    android:layout_gravity="center"
+                    app:cardElevation="10dp"
+                    app:cardUseCompatPadding="true">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            >
+                            <ImageView
+                                android:contentDescription="@string/app_name"
+                                android:layout_marginLeft="6dp"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/car"/>
+                            <TextView
+                                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                                android:layout_weight="2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="Paliot 2007"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/espacio_card_view"
+                                android:textSize="@dimen/title_orange"
+                                android:textColor="@color/colorPrimary"
+                                />
+                            <ImageView
+                                android:layout_marginRight="15dp"
+                                android:layout_weight=".5"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/logo" />
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/boton_seleccionar"
+                            android:contentDescription="@string/app_name" />
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:textStyle="bold"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/reporte"/>
+                            <TextView
+                                android:layout_marginTop="6dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/telefono"/>
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/desea"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <RadioGroup
+                                    android:layout_weight=".5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/rad_si_no"
+                                    android:orientation="horizontal"
+                                    android:layout_gravity="center_horizontal">
+                                    <RadioButton
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="SI"
+                                        android:id="@+id/rad_si"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_centerHorizontal="true"
+                                        android:checked="false"/>
+                                    <RadioButton
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="NO"
+                                        android:id="@+id/rad_no"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_centerHorizontal="true"
+                                        android:checked="false"/>
+                                </RadioGroup>
+                            </LinearLayout>
+                            <Button
+                                android:layout_marginTop="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                android:text="@string/volver"
+                                android:layout_gravity="end"
+                                android:paddingLeft="8dp"
+                                android:drawablePadding="8dp"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="center"
+                                android:id="@+id/btn_back"
+                                android:layout_marginRight="10dp"
+                                android:textColor="@color/colorWhite"
+                                android:background="@drawable/background_button_red"
+                                android:drawableLeft="@drawable/back_white"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
         </LinearLayout>
     <!--</android.support.v7.widget.CardView>-->
-
-
 </LinearLayout>

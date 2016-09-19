@@ -16,6 +16,7 @@
             android:layout_height="25dp"
             android:drawablePadding="8dp"
             android:text="Auto"
+            android:paddingRight="8dp"
             android:layout_marginTop="5dp"
             android:textColor="@color/title_fragment"
             android:background="@drawable/btn_disable_cotiza_compra"

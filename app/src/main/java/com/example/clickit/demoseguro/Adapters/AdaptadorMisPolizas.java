@@ -44,8 +44,8 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
     public static class ViewHodlder extends RecyclerView.ViewHolder {
 
         Spinner quiero,motivo;
-        ViewGroup linearDetails,linearPrincipal;
-        Button btnVolver;
+        ViewGroup linearDetails,linearPrincipal,linearReportarSiniestro;
+        Button btnVolver,btnReportar,btnBack;
         TextView txtDetalles;
 
 
@@ -57,6 +57,9 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
             txtDetalles = (TextView)itemView.findViewById(R.id.txtDetalles);
             linearDetails = (ViewGroup)itemView.findViewById(R.id.details);
             linearPrincipal = (ViewGroup)itemView.findViewById(R.id.linear_principal);
+            btnReportar = (Button)itemView.findViewById(R.id.btn_reportar);
+            btnBack = (Button)itemView.findViewById(R.id.btn_back);
+            linearReportarSiniestro = (ViewGroup)itemView.findViewById(R.id.linear_reportar_siniestro);
 
         }
     }
@@ -186,10 +189,31 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
             }
         });
 
+        holder.btnReportar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (holder.linearReportarSiniestro.getVisibility() == View.GONE){
+                    Animation animation = AnimationUtils.loadAnimation(myContext,R.anim.car_flip_left_in);
+                    holder.linearReportarSiniestro.startAnimation(animation);
+                    //animar(true);
+                    holder.linearReportarSiniestro.setVisibility(View.VISIBLE);
+                    holder.linearPrincipal.setVisibility(View.GONE);
+                }
+            }
+        });
 
-
-
-
+        holder.btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (holder.linearPrincipal.getVisibility() == View.GONE){
+                    Animation animation = AnimationUtils.loadAnimation(myContext,R.anim.car_flip_left_in);
+                    holder.linearPrincipal.startAnimation(animation);
+                    //animar(true);
+                    holder.linearPrincipal.setVisibility(View.VISIBLE);
+                    holder.linearReportarSiniestro.setVisibility(View.GONE);
+                }
+            }
+        });
 
         holder.btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -37,9 +37,7 @@ public class AdaptadorSeguros1 extends RecyclerView.Adapter<AdaptadorSeguros1.Vi
 
         public ViewHolder(View itemView) {
             super(itemView);
-            costoTotal = (TextView)itemView.findViewById(R.id.costo);
-            primRecivo = (TextView)itemView.findViewById(R.id.prim_recivo);
-            proxRecivo = (TextView)itemView.findViewById(R.id.prox_reciv);
+
         }
     }
 
@@ -61,9 +59,7 @@ public class AdaptadorSeguros1 extends RecyclerView.Adapter<AdaptadorSeguros1.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-            holder.costoTotal.setText("$53,500");
-            holder.primRecivo.setText("$12,500");
-            holder.proxRecivo.setText("$10,450");
+
 
     }
 

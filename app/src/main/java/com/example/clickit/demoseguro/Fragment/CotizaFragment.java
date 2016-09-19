@@ -23,7 +23,10 @@ import com.example.clickit.demoseguro.Adapters.AdaptadorSeguros;
 import com.example.clickit.demoseguro.Adapters.AdaptadorSeguros1;
 import com.example.clickit.demoseguro.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,7 +38,6 @@ public class CotizaFragment extends Fragment {
     String item,item1;
     RecyclerView recyclerView;
     AdaptadorSeguros adaptadorSeguros;
-    AdaptadorSeguros1 adaptadorSeguros1;
     String auto="",edad="",sexo="",cp="";
 
     private LinearLayoutManager linearLayout;
@@ -56,7 +58,7 @@ public class CotizaFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cotiza,container,false);
 
         recyclerView = (RecyclerView)view.findViewById(R.id.list_seguros);
@@ -73,29 +75,36 @@ public class CotizaFragment extends Fragment {
         paquetes.add("Integral");
 
         List<String> formasDePago = new ArrayList<>();
-        formasDePago.add("Completo");
-        formasDePago.add("Semestral");
-        formasDePago.add("Trimestral");
+        formasDePago.add("Contado");
+        formasDePago.add("Mensual");
 
         paquete.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 item = adapterView.getItemAtPosition(position).toString();
-                adaptadorSeguros = new AdaptadorSeguros();
-                recyclerView.setAdapter(adaptadorSeguros);
+                //adaptadorSeguros = new AdaptadorSeguros(item);
+                //adaptadorSeguros.recibe(item);
+                //recyclerView.setAdapter(adaptadorSeguros);
+                mostrar(item,item1);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
+
+        item = paquetes.get(0).toString();
+        item1 = formasDePago.get(0).toString();
+        //item1 = formPago.getItemAtPosition(0).toString();
 
         formPago.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 item1 = adapterView.getItemAtPosition(position).toString();
-                adaptadorSeguros1 = new AdaptadorSeguros1();
-                recyclerView.setAdapter(adaptadorSeguros1);
+                //adaptadorSeguros = new AdaptadorSeguros(item1);
+                //adaptadorSeguros.recibe(item1);
+                //recyclerView.setAdapter(adaptadorSeguros);
+                mostrar(item,item1);
             }
 
             @Override
@@ -103,6 +112,8 @@ public class CotizaFragment extends Fragment {
             }
         });
 
+
+        //mostrar(item,item1);
 
 
         ArrayAdapter<String> dataPaquetes = new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_dropdown_item,paquetes);
@@ -113,7 +124,21 @@ public class CotizaFragment extends Fragment {
         dataFormasPago.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         formPago.setAdapter(dataFormasPago);
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String fecha = dateFormat.format(new Date());
+        Calendar now = Calendar.getInstance();
+        int day = now.get(Calendar.DAY_OF_MONTH);
+        int Month = now.get(Calendar.MONTH);
+        int year = now.get(Calendar.YEAR);
+        Log.e("TAG", fecha);
+        Log.e("TAG", String.valueOf(day + "/" + Month + "/" + year));
         return view;
+    }
+
+    private void mostrar(String item, String item1) {
+        adaptadorSeguros = new AdaptadorSeguros(item,item1);
+        //adaptadorSeguros.recibe(item,item1);
+        recyclerView.setAdapter(adaptadorSeguros);
     }
 
     @Override

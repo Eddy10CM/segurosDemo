@@ -1,5 +1,6 @@
 package com.example.clickit.demoseguro.Adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,8 +10,7 @@ import android.widget.TextView;
 
 import com.example.clickit.demoseguro.R;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  * Created by clickit on 12/08/16.
@@ -18,14 +18,14 @@ import java.util.List;
 public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.ViewHolder> {
 
     public String info = "";
+    private static final int DURATION = 250;
+    Context myContext;
+    public static final String TAG = AdaptadorSeguros.class.getSimpleName();
 
 
 
-    public void envioDatos(String item) {
-        info = item;
-    }
-
-    public AdaptadorSeguros() {
+    public AdaptadorSeguros(String dato,String dato1) {
+        Log.e("TAG",dato + " " + dato1);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -33,13 +33,12 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
         /**
          * Aqui van los campos a usar en la lista personalizada
          * */
-        TextView costoTotal,primRecivo,proxRecivo;
-
+        TextView txtDetalles;
+        ViewGroup linear;
         public ViewHolder(View itemView) {
             super(itemView);
-            costoTotal = (TextView)itemView.findViewById(R.id.costo);
-            primRecivo = (TextView)itemView.findViewById(R.id.prim_recivo);
-            proxRecivo = (TextView)itemView.findViewById(R.id.prox_reciv);
+            txtDetalles = (TextView)itemView.findViewById(R.id.detalles);
+            linear = (ViewGroup)itemView.findViewById(R.id.linear_expa);
         }
     }
 
@@ -54,34 +53,28 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_seguros,parent,false);
-
-        return new ViewHolder(view);
+        myContext = parent.getContext();
+        ViewHolder holder = new ViewHolder(view);
+        return holder;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-
-            holder.costoTotal.setText("$23,500");
-            holder.primRecivo.setText("$7,500");
-            holder.proxRecivo.setText("$6,450");
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        holder.txtDetalles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (holder.linear.getVisibility() == View.GONE){
+                    ExpandAndCollapseViewUtil.expand(holder.linear,DURATION);
+                    holder.txtDetalles.setCompoundDrawablesWithIntrinsicBounds(myContext.getResources().getDrawable(R.drawable.menos),null,null,null);
+                }else if (holder.linear.getVisibility() == View.VISIBLE){
+                    ExpandAndCollapseViewUtil.collapse(holder.linear,DURATION);
+                    holder.txtDetalles.setCompoundDrawablesWithIntrinsicBounds(myContext.getResources().getDrawable(R.drawable.mas),null,null,null);
+                }
+            }
+        });
     }
 
-    public static class Datos{
-        public String costoTotal;
-
-
-
-        public Datos(String costoTotal) {
-            this.costoTotal = costoTotal;
-        }
-
-
-        public final static List<Datos> DIRECCIONES = new ArrayList<>();
-
-        static {
-            DIRECCIONES.add(new Datos("$23,500"));
-            DIRECCIONES.add(new Datos("$23,500"));
-            DIRECCIONES.add(new Datos("$23,500"));
-        }
-    }
+    /*public static void recibe(String dato,String dato1){
+        Log.e("TAG",dato + " " + dato1);
+    }*/
 }

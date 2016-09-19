@@ -4,97 +4,288 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        app:cardCornerRadius="2dp"
+        android:layout_gravity="center"
+        app:cardElevation="10dp"
+        app:cardUseCompatPadding="true">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="62dp"
-                android:layout_height="32dp"
-                android:src="@drawable/logo"
-                android:layout_marginTop="6dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="+ Detalles"
-                android:textColor="@color/colorAccent"
-                android:id="@+id/detalles"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:orientation="vertical">
             <LinearLayout
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <TextView
-
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Costo Total: "
-                    android:layout_gravity="center" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$13,637"
                     android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:textAlignment="center"
-                    android:id="@+id/costo"/>
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="62dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/logo"
+                        android:layout_marginTop="6dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Detalles"
+                        android:drawableLeft="@drawable/mas"
+                        android:drawablePadding="6dp"
+                        android:textColor="@color/title_fragment"
+                        android:id="@+id/detalles"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/title_fragment"
+                        android:textSize="16sp"
+                        android:text="$28,063"
+                        android:textStyle="bold"/>
+                    <Button
+                        android:layout_marginTop="@dimen/espacio_card_view"
+                        android:layout_gravity="center"
+                        android:padding="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        android:textColor="@color/colorWhite"
+                        android:text="Seleccionar"/>
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:id="@+id/linear_expa">
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Primer recibo: "
-                    android:layout_gravity="center"/>
-                <TextView
-                    android:layout_width="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:text="Suma Asegurada: "
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:text="Valor comercial + 10%"
+                        android:textColor="@color/title_fragment"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="$13,637"
-                    android:layout_weight="1"
-                    android:id="@+id/prim_recivo"
-                    android:layout_gravity="center"
-                    android:textAlignment="center"/>
+                    android:orientation="horizontal">
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Daños Materiales:"/>
+                    <TextView
+                        android:text="5% de valor comercial + 10%"
+                        android:textColor="@color/title_fragment"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Robo Total:"/>
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5% de valor comercial + 10%"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="Resp. Civil en USA (Dlls.):"
+                        android:textColor="@color/title_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Amparada"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="Responsabilidad Civil:"
+                        android:textColor="@color/title_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="$1,500,000"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Gastos Médicos Ocup.:"/>
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="$500,000"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Asistencia automovilistica"/>
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Amparada"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:textColor="@color/title_fragment"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Próx. recibo(1):"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"/>
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$13,637"
-                    android:id="@+id/prox_reciv"
-                    android:layout_gravity="center"
-                    android:textAlignment="center"/>
-            </LinearLayout>
-            <Button
-                android:layout_marginTop="@dimen/espacio_card_view"
-                android:layout_width="match_parent"
-                android:layout_height="22dp"
-                android:background="@color/colorPrimary"
-                android:textColor="@color/colorWhite"
-                android:text="Seleccionar"/>
         </LinearLayout>
-    </LinearLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>

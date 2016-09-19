@@ -37,6 +37,11 @@ public class DrawerActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     DrawerLayout drawer;
+    /*private boolean isPressedInicio = true,
+    isPressedCotiza = false,
+    isPressedPolizas = false,
+    isPressedAcerca = false,
+    isPressedContacto = false;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

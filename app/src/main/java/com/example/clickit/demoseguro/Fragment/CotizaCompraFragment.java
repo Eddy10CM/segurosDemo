@@ -3,11 +3,10 @@ package com.example.clickit.demoseguro.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.TabLayout;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
+
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -16,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.clickit.demoseguro.Adapters.AdaptadorListaSpinnerAutos;
+
 import com.example.clickit.demoseguro.Adapters.AdaptadorSpinnerSeleccion;
 import com.example.clickit.demoseguro.Adapters.ExpandAndCollapseViewUtil;
 import com.example.clickit.demoseguro.Clases.ListaSeleccion;
@@ -33,21 +32,19 @@ import java.util.ArrayList;
 
 public class CotizaCompraFragment extends Fragment {
 
-    private AppBarLayout appBar;
-    private TabLayout tabs;
-    private ViewPager viewPager;
+
     private AdaptadorSpinnerSeleccion adapter;
     private LinearLayoutManager linearLayoutManager;
     ViewGroup listExpand;
+    public static ViewGroup linearOcultar;
     RecyclerView listaSeleccion;
     int count;
     private static final int DURATION = 250;
-    private static final long TIEMPO = 3000;
-    Button btnCotizaCompraAuto,btnCotizaCompraVida,btnCotizaCompraFuneraria,btnSeleccion;
+    Button btnSeleccion;
     public final static String KEY = "KEY";
 
     private String [] seleccion;
-    private boolean isPressed = false;
+    private boolean isPressed = false,isPressedAuto = true, isPressedVida = false, isPressedFuneraria = false;
     private ArrayList<ListaSeleccion> listaSeleccionados = new ArrayList<>();
 
     public CotizaCompraFragment(){}
@@ -73,11 +70,12 @@ public class CotizaCompraFragment extends Fragment {
         adapter = new AdaptadorSpinnerSeleccion(getActivity());
 
         listExpand = (ViewGroup)view.findViewById(R.id.list_expand);
+        linearOcultar = (ViewGroup)view.findViewById(R.id.a_ocultar);
 
         btnSeleccion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isPressed==false){
+                if (!isPressed){
                     ExpandAndCollapseViewUtil.expand(listExpand, DURATION);
                     isPressed=true;
                 }else {
@@ -102,6 +100,8 @@ public class CotizaCompraFragment extends Fragment {
         listaSeleccion.setLayoutManager(linearLayoutManager);
         listaSeleccion.setAdapter(adapter);
 
+        final android.os.Handler mHandler = new android.os.Handler();
+
         listaSeleccion.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View childView, int position) {
@@ -111,20 +111,35 @@ public class CotizaCompraFragment extends Fragment {
                         btnSeleccion.setText("AUTO");
                         ExpandAndCollapseViewUtil.collapse(listExpand,DURATION);
                         isPressed = false;
-                        fragments(position);
+                        if (!isPressedAuto){
+                            fragments(position);
+                            isPressedAuto = true;
+                            isPressedVida = false;
+                            isPressedFuneraria = false;
+                        }
                         break;
                     case 1:
                         btnSeleccion.setCompoundDrawablesWithIntrinsicBounds(getActivity().getResources().getDrawable(R.drawable.corazon_blanco_button),null,null,null);
                         ExpandAndCollapseViewUtil.collapse(listExpand,DURATION);
                         btnSeleccion.setText("VIDA");
                         isPressed = false;
-                        fragments(position);
+                        if (!isPressedVida){
+                            fragments(position);
+                            isPressedVida = true;
+                            isPressedAuto = false;
+                            isPressedFuneraria = false;
+                        }
                         break;
                     case 2:
                         btnSeleccion.setCompoundDrawablesWithIntrinsicBounds(getActivity().getResources().getDrawable(R.drawable.injury_blanco),null,null,null);
                         btnSeleccion.setText("GASTOS FUNERARIOS");
                         ExpandAndCollapseViewUtil.collapse(listExpand,DURATION);
-                        fragments(position);
+                        if (!isPressedFuneraria){
+                            fragments(position);
+                            isPressedFuneraria = true;
+                            isPressedVida = false;
+                            isPressedAuto = false;
+                        }
                         isPressed = false;
                         break;
                     default:
@@ -137,6 +152,8 @@ public class CotizaCompraFragment extends Fragment {
 
             }
         }));
+
+
 
         /*if (savedInstanceState == null){
             insertTabs(container);
@@ -225,9 +242,11 @@ public class CotizaCompraFragment extends Fragment {
         return view;
     }
 
+
+
     private void fragments(int count) {
         Fragment fragment = null;
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        final FragmentTransaction transaction = getFragmentManager().beginTransaction();
         if (count==0){
             fragment = new CotizarAutoFragment();
             /*if (transitionCount==0){
@@ -258,12 +277,20 @@ public class CotizaCompraFragment extends Fragment {
         }
 
         if (fragment != null){
+            final Fragment finalFragment = fragment;
             transaction
                     .setCustomAnimations(R.anim.zoom_foward_in,R.anim.zoom_foward_out)
-                    .replace(R.id.content_cotiza_compra,fragment)
+                    .replace(R.id.content_cotiza_compra, finalFragment)
                     .commit();
         }
     }
+
+    public static void Ocultar(boolean ocultar){
+        if (ocultar && linearOcultar.getVisibility() == View.VISIBLE){
+            linearOcultar.setVisibility(View.GONE);
+        }
+    }
+
 
     /*private void poblarViewPager(ViewPager viewPager) {
         AdaptadorSecciones adapter = new AdaptadorSecciones(getFragmentManager());

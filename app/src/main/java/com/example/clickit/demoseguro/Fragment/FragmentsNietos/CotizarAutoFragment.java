@@ -1,5 +1,6 @@
 package com.example.clickit.demoseguro.Fragment.FragmentsNietos;
 
+import android.app.ProgressDialog;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,7 @@ import com.example.clickit.demoseguro.Adapters.AdaptadorListaSpinnerAutos;
 import com.example.clickit.demoseguro.Adapters.ExpandAndCollapseViewUtil;
 import com.example.clickit.demoseguro.Clases.Global;
 import com.example.clickit.demoseguro.Clases.ListaAutos;
+import com.example.clickit.demoseguro.Clases.MyCustomToast;
 import com.example.clickit.demoseguro.Clases.RecyclerItemClickListener;
 import com.example.clickit.demoseguro.Fragment.CotizaCompraFragment;
 import com.example.clickit.demoseguro.Fragment.CotizaFragment;
@@ -50,6 +53,7 @@ public class CotizarAutoFragment extends Fragment implements GoogleApiClient.Con
     Button btnSpinner,btnCerrarBack;
     ViewGroup lista;
     TextView txtCambia;
+
     private String [] modelos;
     private String [] marca;
     private String [] linea;
@@ -69,6 +73,7 @@ public class CotizarAutoFragment extends Fragment implements GoogleApiClient.Con
     private EditText editTextCP;
     private boolean isPressed = false;
     private Button btnMostrarOfertas;
+    private ProgressDialog progressDialog;
 
     @Nullable
     @Override
@@ -181,6 +186,11 @@ public class CotizarAutoFragment extends Fragment implements GoogleApiClient.Con
         }
         adapter.setItems(listaAutoses);
 
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage(getActivity().getResources().getString(R.string.mensaje));
+        progressDialog.setIndeterminate(true);
+        progressDialog.show();
+
         listaAutos.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View childView, int position) {
@@ -254,14 +264,22 @@ public class CotizarAutoFragment extends Fragment implements GoogleApiClient.Con
         btnMostrarOfertas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CotizaCompraFragment.Ocultar(true);
-                Fragment fragment = new CotizaFragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                if (fragment != null){
-                    transaction
-                            .setCustomAnimations(R.anim.zoom_foward_in,R.anim.zoom_foward_out)
-                            .replace(R.id.content_cotiza_compra, fragment)
-                            .commit();
+                String dato = btnSpinner.getText().toString();
+                String cp = editTextCP.getHint().toString();
+                if (dato.equals("Selecciona tu vehículo") && cp.equals("C.P")){
+                    MyCustomToast toast = new MyCustomToast(getActivity().getApplicationContext(),Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.BOTTOM,0,50);
+                    toast.show("Capture todos los datos seleccionados");
+                }else{
+                    CotizaCompraFragment.Ocultar(true);
+                    Fragment fragment = new CotizaFragment();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    if (fragment != null){
+                        transaction
+                                .setCustomAnimations(R.anim.zoom_foward_in,R.anim.zoom_foward_out)
+                                .replace(R.id.content_cotiza_compra, fragment)
+                                .commit();
+                    }
                 }
             }
         });
@@ -309,12 +327,12 @@ public class CotizarAutoFragment extends Fragment implements GoogleApiClient.Con
     }
 
     private void objectRequest(){
-        Log.e(TAG,URL+"latlng="+"25.443858040743756"+","+"-100.99137008462526"+"&key="+getActivity().getResources().getString(R.string.api_key_google));
+        Log.e(TAG,URL+"latlng="+latitud+","+longitud+"&key="+getActivity().getResources().getString(R.string.api_key_google));
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL+"latlng="+latitud+","+longitud+"&key="+getActivity().getResources().getString(R.string.api_key_google), null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
-                //Log.e(TAG + 1, response.toString());
+                Log.e(TAG, response.toString());
                 try {
                     //Log.e(TAG,response.getString("status"));
                     /*if (response.getString("status").equals("ZERO_RESULTS")){
@@ -323,6 +341,7 @@ public class CotizarAutoFragment extends Fragment implements GoogleApiClient.Con
 
                     }*/
                     JSONArray results = response.getJSONArray("results");
+                    //Log.e(TAG, results.toString());
                     if (results!=null){
 
                         //Log.e(TAG,results.toString());
@@ -356,11 +375,12 @@ public class CotizarAutoFragment extends Fragment implements GoogleApiClient.Con
                                     Log.e(TAG + "area_level_1",components.getString("long_name"));
                                     break;
                                 case 6:
-                                    Log.e(TAG + "country",components.getString("long_name"));
+                                    Log.e(TAG + "country",components.getString("short_name"));
                                     break;
                                 case 7:
                                     Log.e(TAG + "postal_code",components.getString("long_name"));
                                     editTextCP.setText(components.getString("long_name"));
+
                                     break;
                                 default:
                                     break;
@@ -378,9 +398,11 @@ public class CotizarAutoFragment extends Fragment implements GoogleApiClient.Con
                         //JSONArray array = item.getJSONArray("postal_code");
                         //Log.e(TAG,item.toString());
                         if (array.length()<8){
-                            Toast.makeText(getActivity().getApplicationContext(),"Se esta buscando el C.P",Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                            Toast.makeText(getActivity().getApplicationContext(),getActivity().getResources().getString(R.string.mensaje1),Toast.LENGTH_SHORT).show();
                         }
                     }else{
+                        progressDialog.dismiss();
                         Toast.makeText(getActivity().getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {

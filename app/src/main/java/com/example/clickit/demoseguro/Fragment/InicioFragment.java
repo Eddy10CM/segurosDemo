@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -38,6 +39,7 @@ public class InicioFragment extends Fragment {
     public InicioFragment(){}
     private CircleImageView imageViewAvatar;
     final static int cons  = 0;
+    private Drawable imagenAnteroir;
     Button btnActualizar,btnCancelar;
     Intent intent;
     Bitmap bmp;
@@ -102,6 +104,7 @@ public class InicioFragment extends Fragment {
         imageViewAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                imagenAnteroir = imageViewAvatar.getDrawable();
                 intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent,cons);
             }
@@ -123,7 +126,7 @@ public class InicioFragment extends Fragment {
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageViewAvatar.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.perfil));
+                imageViewAvatar.setImageDrawable(imagenAnteroir);
                 btnActualizar.setVisibility(View.GONE);
                 btnCancelar.setVisibility(View.GONE);
             }

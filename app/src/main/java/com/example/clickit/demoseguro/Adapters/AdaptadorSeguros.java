@@ -47,7 +47,7 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
         /**
          * Aqui van los campos a usar en la lista personalizada
          * */
-        TextView txtDetalles,txtCosto;
+        TextView txtDetalles,txtCosto,txtError;
         ViewGroup linear,linearPrincipal,linearSecundario;
         CardView card;
         public ViewHolder(View itemView) {
@@ -58,6 +58,7 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
             linearPrincipal = (ViewGroup)itemView.findViewById(R.id.car_principal);
             linearSecundario = (ViewGroup)itemView.findViewById(R.id.car_secundaria);
             card = (CardView)itemView.findViewById(R.id.card);
+            txtError = (TextView)itemView.findViewById(R.id.error);
         }
     }
 
@@ -92,7 +93,8 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        Log.e(TAG, String.valueOf(holder));
+        ListaSeguros item = data.get(position);
+        Log.e(TAG,item.toString());
         if (data.size()>1){
             if (holder.linearPrincipal.getVisibility() == View.GONE){
                 ExpandAndCollapseViewUtil.expand(holder.linearPrincipal,DURATION);
@@ -110,13 +112,13 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
                     }
                 }
             });
-            ListaSeguros item = data.get(position);
             holder.txtCosto.setText(item.getCosto());
         }else{
             if (holder.linearSecundario.getVisibility() == View.GONE){
                 holder.card.setCardBackgroundColor(myContext.getResources().getColor(R.color.fondo_seguros_inexistentes));
                 ExpandAndCollapseViewUtil.expand(holder.linearSecundario,DURATION);
                 ExpandAndCollapseViewUtil.collapse(holder.linearPrincipal,DURATION);
+                //holder.txtError.setText();
             }
         }
     }

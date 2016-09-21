@@ -163,5 +163,6 @@
     <string-array name="integral">
         <item>1</item>
     </string-array>
-
+    <string name="mensaje">Buscando el código postal</string>
+    <string name="mensaje1">No se encontro el código postal favor de ingresarlo</string>
 </resources>

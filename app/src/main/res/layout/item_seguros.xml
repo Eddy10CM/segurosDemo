@@ -323,6 +323,7 @@
             android:orientation="vertical"
             android:layout_height="wrap_content">
             <TextView
+                android:id="@+id/error"
                 android:layout_marginLeft="15dp"
                 android:textColor="@color/red_title"
                 android:layout_width="match_parent"

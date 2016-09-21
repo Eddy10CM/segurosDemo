@@ -17,4 +17,5 @@
     <color name="verde">#56ab7e</color>
     <color name="fondo_seguros_inexistentes">#fcd8de</color>
     <color name="red_title">#9D545B</color>
+    <color name="red_toast">#e56360</color>
 </resources>

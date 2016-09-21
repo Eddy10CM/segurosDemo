@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 import com.example.clickit.demoseguro.Adapters.AdaptadorSeguros;
 import com.example.clickit.demoseguro.Adapters.AdaptadorSeguros1;
 import com.example.clickit.demoseguro.Clases.ListaSeguros;
+import com.example.clickit.demoseguro.Clases.MyCustomToast;
 import com.example.clickit.demoseguro.R;
 
 import java.text.SimpleDateFormat;
@@ -40,6 +42,7 @@ public class CotizaFragment extends Fragment {
     private String [] limitada;
     private String [] rc;
     private String [] integral;
+    public static final String NOHAYDATOS  = "no hay datos";
     private ArrayList<ListaSeguros> seguros = new ArrayList<>();
     String item,item1;
     RecyclerView recyclerView;
@@ -136,6 +139,11 @@ public class CotizaFragment extends Fragment {
                             ListaSeguros seg = new ListaSeguros();
                             seg.setCosto(integral[i]);
                             seguros.add(seg);
+                        }
+                        if (integral.length == 0){
+                            MyCustomToast toast = new MyCustomToast(getActivity().getApplicationContext(),Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER_VERTICAL,0,50);
+                            toast.show("Este paquete no se encuentra disponible");
                         }
                         adaptadorSeguros.setItems(seguros);
                         break;

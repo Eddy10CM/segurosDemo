@@ -26,6 +26,7 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
     private static final int DURATION = 250;
     private ArrayList<ListaSeguros> data = new ArrayList<>();
     Context myContext;
+    public static  boolean queMostrar;
     private LayoutInflater inflater;
     public static final String TAG = AdaptadorSeguros.class.getSimpleName();
 
@@ -39,7 +40,7 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
     }
 
     public AdaptadorSeguros(Context context) {
-        this.inflater = LayoutInflater.from(context);;
+        this.inflater = LayoutInflater.from(context);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -94,33 +95,40 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         ListaSeguros item = data.get(position);
-        Log.e(TAG,item.toString());
-        if (data.size()>1){
-            if (holder.linearPrincipal.getVisibility() == View.GONE){
-                ExpandAndCollapseViewUtil.expand(holder.linearPrincipal,DURATION);
-                ExpandAndCollapseViewUtil.collapse(holder.linearSecundario,DURATION);
-            }
-            holder.txtDetalles.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (holder.linear.getVisibility() == View.GONE){
-                        ExpandAndCollapseViewUtil.expand(holder.linear,DURATION);
-                        holder.txtDetalles.setCompoundDrawablesWithIntrinsicBounds(myContext.getResources().getDrawable(R.drawable.menos),null,null,null);
-                    }else if (holder.linear.getVisibility() == View.VISIBLE){
-                        ExpandAndCollapseViewUtil.collapse(holder.linear,DURATION);
-                        holder.txtDetalles.setCompoundDrawablesWithIntrinsicBounds(myContext.getResources().getDrawable(R.drawable.mas),null,null,null);
-                    }
+        Log.e(TAG,String.valueOf(data.size()));
+        if (data.size()>0){
+            if (item.getCosto().equals("no hay datos")){
+                if (holder.linearSecundario.getVisibility() == View.GONE){
+                    //holder.card.setCardBackgroundColor(myContext.getResources().getColor(R.color.fondo_seguros_inexistentes));
+                    ExpandAndCollapseViewUtil.expand(holder.linearSecundario,DURATION);
+                    ExpandAndCollapseViewUtil.collapse(holder.linearPrincipal,DURATION);
+                    //holder.txtError.setText();
                 }
-            });
-            holder.txtCosto.setText(item.getCosto());
-        }else{
-            if (holder.linearSecundario.getVisibility() == View.GONE){
-                holder.card.setCardBackgroundColor(myContext.getResources().getColor(R.color.fondo_seguros_inexistentes));
-                ExpandAndCollapseViewUtil.expand(holder.linearSecundario,DURATION);
-                ExpandAndCollapseViewUtil.collapse(holder.linearPrincipal,DURATION);
-                //holder.txtError.setText();
+            }else{
+                //holder.card.setBackgroundColor(myContext.getResources().getColor(R.color.colorWhite));
+                if (holder.linearPrincipal.getVisibility() == View.GONE){
+                    ExpandAndCollapseViewUtil.expand(holder.linearPrincipal,DURATION);
+                    ExpandAndCollapseViewUtil.collapse(holder.linearSecundario,DURATION);
+                }
+                holder.txtDetalles.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (holder.linear.getVisibility() == View.GONE){
+                            ExpandAndCollapseViewUtil.expand(holder.linear,DURATION);
+                            holder.txtDetalles.setCompoundDrawablesWithIntrinsicBounds(myContext.getResources().getDrawable(R.drawable.menos),null,null,null);
+                        }else if (holder.linear.getVisibility() == View.VISIBLE){
+                            ExpandAndCollapseViewUtil.collapse(holder.linear,DURATION);
+                            holder.txtDetalles.setCompoundDrawablesWithIntrinsicBounds(myContext.getResources().getDrawable(R.drawable.mas),null,null,null);
+                        }
+                    }
+                });
+                holder.txtCosto.setText(item.getCosto());
             }
         }
+    }
+
+    public static void recibir(boolean seCollapsa){
+        queMostrar = seCollapsa;
     }
 
     /*public static void recibe(String dato,String dato1){

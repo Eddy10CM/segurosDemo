@@ -7,11 +7,6 @@
     android:padding="8dp"
     android:background="@color/red_toast"
     android:gravity="center_vertical">
-
-    
-
-
-
     <ImageView
     android:src="@drawable/alert"
     android:layout_width="30dp"
@@ -24,6 +19,4 @@
     android:text="texto a mostrar"
     android:textColor="@color/colorWhite"
     android:textSize="15sp"/>
-
-
 </LinearLayout>

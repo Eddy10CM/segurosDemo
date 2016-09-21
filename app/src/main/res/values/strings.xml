@@ -144,5 +144,24 @@
     <string name="telefono">Teléfono para reportar un siniestro, 01800 00 00 00.</string>
     <string name="desea">¿Deséa notificar a un ejecutivo de siniestros de Odessa Seguros?</string>
     <string name="meses">8 meses 27 días restantes</string>
-    
+
+    <string-array name="amplia">
+        <item>$10,901</item>
+        <item>$20,551</item>
+        <item>$37,072</item>
+    </string-array>
+    <string-array name="limitada">
+        <item>$6,561</item>
+        <item>$6,721</item>
+        <item>$22,115</item>
+    </string-array>
+    <string-array name="rc">
+        <item>$2,772</item>
+        <item>$3,763</item>
+        <item>$4,149</item>
+    </string-array>
+    <string-array name="integral">
+        <item>1</item>
+    </string-array>
+
 </resources>

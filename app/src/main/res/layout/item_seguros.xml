@@ -11,8 +11,11 @@
         app:cardCornerRadius="2dp"
         android:layout_gravity="center"
         app:cardElevation="10dp"
+        android:id="@+id/card"
         app:cardUseCompatPadding="true">
         <LinearLayout
+            android:id="@+id/car_principal"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -52,17 +55,21 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:id="@+id/txt_costo"
                         android:textColor="@color/title_fragment"
                         android:textSize="16sp"
                         android:text="$28,063"
                         android:textStyle="bold"/>
                     <Button
                         android:layout_marginTop="@dimen/espacio_card_view"
-                        android:layout_gravity="center"
-                        android:padding="5dp"
+                        android:layout_gravity="end"
+                        android:paddingRight="35dp"
+                        android:paddingLeft="5dp"
+                        android:textAlignment="textStart"
+                        android:gravity="start|center"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@color/colorPrimary"
+                        android:layout_height="30dp"
+                        android:background="@drawable/test"
                         android:textColor="@color/colorWhite"
                         android:text="Seleccionar"/>
                 </LinearLayout>
@@ -76,6 +83,9 @@
                 android:visibility="gone"
                 android:id="@+id/linear_expa">
                 <LinearLayout
+                    android:visibility="visible"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -93,7 +103,9 @@
                         android:layout_height="wrap_content" />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_marginTop="5dp"
+                    android:visibility="visible"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -111,7 +123,9 @@
                         android:layout_height="wrap_content" />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_marginTop="5dp"
+                    android:visibility="visible"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -129,7 +143,9 @@
                         android:text="5% de valor comercial + 10%"/>
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_marginTop="5dp"
+                    android:visibility="visible"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -147,7 +163,9 @@
                         android:text="Amparada"/>
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_marginTop="5dp"
+                    android:visibility="visible"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -165,7 +183,9 @@
                         android:text="$1,500,000"/>
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_marginTop="5dp"
+                    android:visibility="visible"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -183,7 +203,9 @@
                         android:text="$500,000"/>
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_marginTop="5dp"
+                    android:visibility="visible"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -202,7 +224,8 @@
                 </LinearLayout>
                 <LinearLayout
                     android:visibility="gone"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -219,7 +242,8 @@
                 </LinearLayout>
                 <LinearLayout
                     android:visibility="gone"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -236,7 +260,8 @@
                 </LinearLayout>
                 <LinearLayout
                     android:visibility="gone"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -253,7 +278,8 @@
                 </LinearLayout>
                 <LinearLayout
                     android:visibility="gone"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -270,7 +296,8 @@
                 </LinearLayout>
                 <LinearLayout
                     android:visibility="gone"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -286,6 +313,21 @@
                         android:layout_height="wrap_content" />
                 </LinearLayout>
             </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/car_secundaria"
+            android:visibility="gone"
+
+            android:background="@color/fondo_seguros_inexistentes"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/red_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Este paquete no se encuentra disponible"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

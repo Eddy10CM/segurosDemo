@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.clickit.demoseguro.Adapters.AdaptadorSeguros;
 import com.example.clickit.demoseguro.Adapters.AdaptadorSeguros1;
+import com.example.clickit.demoseguro.Clases.ListaSeguros;
 import com.example.clickit.demoseguro.R;
 
 import java.text.SimpleDateFormat;
@@ -35,6 +36,11 @@ import java.util.List;
 public class CotizaFragment extends Fragment {
 
     private final String LOG_TAG = "test";
+    private String [] amplia;
+    private String [] limitada;
+    private String [] rc;
+    private String [] integral;
+    private ArrayList<ListaSeguros> seguros = new ArrayList<>();
     String item,item1;
     RecyclerView recyclerView;
     AdaptadorSeguros adaptadorSeguros;
@@ -67,6 +73,13 @@ public class CotizaFragment extends Fragment {
 
         Spinner paquete = (Spinner)view.findViewById(R.id.paq);
         Spinner formPago = (Spinner)view.findViewById(R.id.form_pay);
+        adaptadorSeguros = new AdaptadorSeguros(getActivity());
+        recyclerView.setAdapter(adaptadorSeguros);
+
+        amplia = getActivity().getResources().getStringArray(R.array.amplia);
+        limitada = getActivity().getResources().getStringArray(R.array.limitada);
+        rc = getActivity().getResources().getStringArray(R.array.rc);
+        integral = getActivity().getResources().getStringArray(R.array.integral);
 
         List<String> paquetes = new ArrayList<>();
         paquetes.add("Amplia");
@@ -78,14 +91,55 @@ public class CotizaFragment extends Fragment {
         formasDePago.add("Contado");
         formasDePago.add("Mensual");
 
+        for (int i = 0; i<amplia.length; i++){
+            ListaSeguros seg = new ListaSeguros();
+            seg.setCosto(amplia[i]);
+            seguros.add(seg);
+        }
+        adaptadorSeguros.setItems(seguros);
+
         paquete.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 item = adapterView.getItemAtPosition(position).toString();
-                //adaptadorSeguros = new AdaptadorSeguros(item);
-                //adaptadorSeguros.recibe(item);
-                //recyclerView.setAdapter(adaptadorSeguros);
-                mostrar(item,item1);
+                switch (position){
+                    case 0:
+                        adaptadorSeguros.clear();
+                        for (int i = 0; i<amplia.length; i++){
+                            ListaSeguros seg = new ListaSeguros();
+                            seg.setCosto(amplia[i]);
+                            seguros.add(seg);
+                        }
+                        adaptadorSeguros.setItems(seguros);
+                        break;
+                    case 1:
+                        adaptadorSeguros.clear();
+                        for (int i = 0; i<limitada.length; i++){
+                            ListaSeguros seg = new ListaSeguros();
+                            seg.setCosto(limitada[i]);
+                            seguros.add(seg);
+                        }
+                        adaptadorSeguros.setItems(seguros);
+                        break;
+                    case 2:
+                        adaptadorSeguros.clear();
+                        for (int i = 0; i<rc.length; i++){
+                            ListaSeguros seg = new ListaSeguros();
+                            seg.setCosto(rc[i]);
+                            seguros.add(seg);
+                        }
+                        adaptadorSeguros.setItems(seguros);
+                        break;
+                    case 3:
+                        adaptadorSeguros.clear();
+                        for (int i = 0; i<integral.length; i++){
+                            ListaSeguros seg = new ListaSeguros();
+                            seg.setCosto(integral[i]);
+                            seguros.add(seg);
+                        }
+                        adaptadorSeguros.setItems(seguros);
+                        break;
+                }
             }
 
             @Override
@@ -104,7 +158,7 @@ public class CotizaFragment extends Fragment {
                 //adaptadorSeguros = new AdaptadorSeguros(item1);
                 //adaptadorSeguros.recibe(item1);
                 //recyclerView.setAdapter(adaptadorSeguros);
-                mostrar(item,item1);
+                //enviarFormaPago(item1);
             }
 
             @Override
@@ -130,16 +184,18 @@ public class CotizaFragment extends Fragment {
         int day = now.get(Calendar.DAY_OF_MONTH);
         int Month = now.get(Calendar.MONTH);
         int year = now.get(Calendar.YEAR);
+        Month+=1;
         Log.e("TAG", fecha);
         Log.e("TAG", String.valueOf(day + "/" + Month + "/" + year));
         return view;
     }
 
-    private void mostrar(String item, String item1) {
-        adaptadorSeguros = new AdaptadorSeguros(item,item1);
-        //adaptadorSeguros.recibe(item,item1);
-        recyclerView.setAdapter(adaptadorSeguros);
+    /*private void enviarPaquete(String item) {
+        AdaptadorSeguros.Datos.recibirPaquete(item);
     }
+    private void enviarFormaPago(String item1) {
+        AdaptadorSeguros.Datos.recibirFormaPago(item1);
+    }*/
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

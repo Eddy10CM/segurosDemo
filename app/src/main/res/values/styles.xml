@@ -37,5 +37,8 @@
         <item name="android:background">@drawable/gradient_spinner</item>
         <item name="android:popupBackground">#DFFFFFFF</item>
     </style>
-
+    <style name="spinner_style_">
+        <item name="android:background">@drawable/gradient_spinner</item>
+        <item name="android:popupBackground">@color/colorWhite</item>
+    </style>
 </resources>

@@ -3,14 +3,18 @@
     package="com.example.clickit.demoseguro">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- persmisos para poder usar la camara-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA"/>
+    <protected-broadcast android:name="android.intent.action.MEDIA_MOUNTED"/>
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <!--<uses-feature android:name="android.hardware.camera" android:required="true"/>-->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
 
 
     <application

@@ -97,7 +97,7 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
 
         final List<String> data = new ArrayList<>();
         data.add("Seleccione");
-        data.add("Dar de baja");
+        data.add("Cancelar Póliza");
 
 
         List<String> data1 = new ArrayList<>();
@@ -148,7 +148,6 @@ public class AdaptadorMisPolizas extends RecyclerView.Adapter<AdaptadorMisPoliza
                 dialog.show();
             }
         });
-
 
 
 

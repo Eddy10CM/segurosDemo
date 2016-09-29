@@ -327,7 +327,7 @@ public class CotizarAutoFragment extends Fragment implements GoogleApiClient.Con
     }
 
     private void objectRequest(){
-        Log.e(TAG,URL+"latlng="+latitud+","+longitud+"&key="+getActivity().getResources().getString(R.string.api_key_google));
+        //Log.e(TAG,URL+"latlng="+latitud+","+longitud+"&key="+getActivity().getResources().getString(R.string.api_key_google));
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL+"latlng="+latitud+","+longitud+"&key="+getActivity().getResources().getString(R.string.api_key_google), null, new Response.Listener<JSONObject>() {
 
             @Override

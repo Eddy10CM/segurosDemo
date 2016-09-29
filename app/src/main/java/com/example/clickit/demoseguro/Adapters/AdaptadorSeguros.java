@@ -1,12 +1,15 @@
 package com.example.clickit.demoseguro.Adapters;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.clickit.demoseguro.Clases.ListaAutos;
@@ -51,6 +54,7 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
         TextView txtDetalles,txtCosto,txtError;
         ViewGroup linear,linearPrincipal,linearSecundario;
         CardView card;
+        Button btnseleccionar;
         public ViewHolder(View itemView) {
             super(itemView);
             txtDetalles = (TextView)itemView.findViewById(R.id.detalles);
@@ -60,6 +64,7 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
             linearSecundario = (ViewGroup)itemView.findViewById(R.id.car_secundaria);
             card = (CardView)itemView.findViewById(R.id.card);
             txtError = (TextView)itemView.findViewById(R.id.error);
+            btnseleccionar = (Button) itemView.findViewById(R.id.btn_seleccionar);
         }
     }
 
@@ -96,7 +101,9 @@ public class AdaptadorSeguros extends RecyclerView.Adapter<AdaptadorSeguros.View
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         ListaSeguros item = data.get(position);
         Log.e(TAG,String.valueOf(data.size()));
+
         if (data.size()>0){
+
             if (item.getCosto().equals("no hay datos")){
                 if (holder.linearSecundario.getVisibility() == View.GONE){
                     //holder.card.setCardBackgroundColor(myContext.getResources().getColor(R.color.fondo_seguros_inexistentes));

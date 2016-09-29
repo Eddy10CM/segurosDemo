@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item>
         <shape android:shape="rectangle">
             <size
-                android:width="90dp"
+                android:width="100dp"
                 android:height="30dp" />
             <solid android:color="@color/colorPrimary" />
             <corners android:radius="0dp"/>
@@ -12,7 +12,7 @@
     </item>
 
     <item
-        android:top="-40dp"
+        android:top="-50dp"
         android:bottom="50dp"
         android:right="-30dp">
         <rotate
@@ -25,7 +25,7 @@
 
     <item
         android:top="50dp"
-        android:bottom="-40dp"
+        android:bottom="-50dp"
         android:right="-30dp">
         <rotate
             android:fromDegrees="-45">

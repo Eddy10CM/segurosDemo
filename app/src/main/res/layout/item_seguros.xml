@@ -27,6 +27,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="8dp"
+                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -36,10 +37,11 @@
                         android:layout_weight="1"
                         android:orientation="vertical">
                         <ImageView
+                            android:layout_marginTop="6dp"
                             android:layout_width="62dp"
                             android:layout_height="32dp"
                             android:src="@drawable/logo"
-                            android:layout_marginTop="6dp"/>
+                            />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -53,7 +55,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:layout_marginTop="6dp">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -63,6 +66,7 @@
                             android:textColor="@color/title_fragment"
                             android:textSize="16sp"
                             android:text="$28,063"
+
                             android:textStyle="bold"/>
                         <Button
                             android:layout_marginTop="@dimen/espacio_card_view"
@@ -75,6 +79,7 @@
                             android:layout_height="30dp"
                             android:background="@drawable/test"
                             android:textColor="@color/colorWhite"
+                            android:id="@+id/btn_seleccionar"
                             android:text="Seleccionar"/>
                     </LinearLayout>
                 </LinearLayout>

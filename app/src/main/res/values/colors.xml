@@ -18,4 +18,6 @@
     <color name="fondo_seguros_inexistentes">#fcd8de</color>
     <color name="red_title">#9D545B</color>
     <color name="red_toast">#e56360</color>
+    <color name="color_fondo">#f4f8fa</color>
+    <color name="color_fondo1">#f6f6f6</color>
 </resources>

@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.clickit.demoseguro.Adapters.AdaptadorSeguros;
@@ -31,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * Created by clickit on 11/08/16.
@@ -42,14 +44,21 @@ public class CotizaFragment extends Fragment {
     private String [] limitada;
     private String [] rc;
     private String [] integral;
-    public static final String NOHAYDATOS  = "no hay datos";
+    private String [] meses;
+    private String [] dias;
     private ArrayList<ListaSeguros> seguros = new ArrayList<>();
     String item,item1;
     RecyclerView recyclerView;
     AdaptadorSeguros adaptadorSeguros;
     String auto="",edad="",sexo="",cp="";
-
+    int day,Month,year;
+    String d,m,y;
+    //int y;
     private LinearLayoutManager linearLayout;
+    Spinner fecha;
+    List<String> fechas = new ArrayList<>();
+    ArrayAdapter<String> dataFechas;
+    TextView txtFechaVencimiento;
 
     public CotizaFragment(){}
 
@@ -78,6 +87,7 @@ public class CotizaFragment extends Fragment {
         Spinner formPago = (Spinner)view.findViewById(R.id.form_pay);
         adaptadorSeguros = new AdaptadorSeguros(getActivity());
         recyclerView.setAdapter(adaptadorSeguros);
+        txtFechaVencimiento = (TextView)view.findViewById(R.id.txt_fecha_vencimiento);
 
         amplia = getActivity().getResources().getStringArray(R.array.amplia);
         limitada = getActivity().getResources().getStringArray(R.array.limitada);
@@ -93,6 +103,7 @@ public class CotizaFragment extends Fragment {
         List<String> formasDePago = new ArrayList<>();
         formasDePago.add("Contado");
         formasDePago.add("Mensual");
+        fecha = (Spinner)view.findViewById(R.id.fecha);
 
         for (int i = 0; i<amplia.length; i++){
             ListaSeguros seg = new ListaSeguros();
@@ -186,16 +197,128 @@ public class CotizaFragment extends Fragment {
         dataFormasPago.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         formPago.setAdapter(dataFormasPago);
 
+        meses = getActivity().getResources().getStringArray(R.array.meses);
+        dias = getActivity().getResources().getStringArray(R.array.dias);
+
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String fecha = dateFormat.format(new Date());
+        //String fecha = dateFormat.format(new Date());
         Calendar now = Calendar.getInstance();
         int day = now.get(Calendar.DAY_OF_MONTH);
-        int Month = now.get(Calendar.MONTH);
-        int year = now.get(Calendar.YEAR);
-        Month+=1;
-        Log.e("TAG", fecha);
-        Log.e("TAG", String.valueOf(day + "/" + Month + "/" + year));
+        Month = now.get(Calendar.MONTH);
+        year = now.get(Calendar.YEAR);
+
+        fechas.add(day + "/" + meses[Month] + "/" + year);
+        int nextYear = year+1;
+        txtFechaVencimiento.setText("al " + day + "/" + meses[Month] + "/" + nextYear);
+
+        switch (Month){
+            //Enero
+            case 0:
+                for (int i = day; i<dias.length; i++){
+                    Log.e("TAG", String.valueOf(dias[i] + "/" + meses[Month] + "/" + year));
+                }
+                break;
+            //Febrero
+            case 1:
+                for (int i = day; i<dias.length-3; i++){
+                    Log.e("TAG", String.valueOf(dias[i] + "/" + meses[Month] + "/" + year));
+                }
+                break;
+            //Marzo
+            case 2:
+                for (int i = day; i<dias.length; i++){
+                    Log.e("TAG", String.valueOf(dias[i] + "/" + meses[Month] + "/" + year));
+                }
+                break;
+            //Abril
+            case 3:
+                for (int i = day; i<dias.length-1; i++){
+                    Log.e("TAG", String.valueOf(dias[i] + "/" + meses[Month] + "/" + year));
+                }
+                break;
+            //Mayo
+            case 4:
+                for (int i = day; i<dias.length; i++){
+                    Log.e("TAG", String.valueOf(dias[i] + "/" + meses[Month] + "/" + year));
+                }
+                break;
+            //Junio
+            case 5:
+                for (int i = day; i<dias.length-1; i++){
+                    Log.e("TAG", String.valueOf(dias[i] + "/" + meses[Month] + "/" + year));
+                }
+                break;
+            //Julio
+            case 6:
+                for (int i = day; i<dias.length; i++){
+                    Log.e("TAG", String.valueOf(dias[i] + "/" + meses[Month] + "/" + year));
+                }
+                break;
+            //Agosto
+            case 7:
+                for (int i = day; i<dias.length; i++){
+                    Log.e("TAG", String.valueOf(dias[i] + "/" + meses[Month] + "/" + year));
+                }
+                break;
+            //Septiembre
+            case 8:
+                for (int i = day; i<dias.length-1; i++){
+                    Log.e("TAG", String.valueOf(dias[i] + "/" + meses[Month] + "/" + year));
+                    fechas.add(dias[i] + "/" + meses[Month] + "/" + year);
+                }
+                count(Month+1,day);
+                break;
+            //Octubre
+            case 9:
+                for (int i = day; i<dias.length; i++){
+                    Log.e("TAG", String.valueOf(dias[i] + "/" + meses[Month] + "/" + year));
+                }
+                break;
+            //Noviembre
+            case 10:
+                for (int i = day; i<dias.length-1; i++){
+                    Log.e("TAG", String.valueOf(dias[i] + "/" + meses[Month] + "/" + year));
+                }
+                break;
+            //Diciembre
+            case 11:
+                for (int i = day; i<dias.length; i++){
+                    Log.e("TAG", String.valueOf(dias[i] + "/" + meses[Month] + "/" + year));
+                }
+                break;
+            default:
+                break;
+        }
         return view;
+    }
+
+    private void count(int mes,int day) {
+
+        for (int i = 0; i<day-1; i++){
+            Log.e("TAG", String.valueOf(dias[i] + "/" + meses[mes] + "/" + year));
+            fechas.add(dias[i] + "/" + meses[mes] + "/" + year);
+        }
+        dataFechas = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_dropdown_item,fechas);
+        dataFechas.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        fecha.setAdapter(dataFechas);
+
+
+        fecha.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                String fecha = adapterView.getItemAtPosition(position).toString();
+                String [] separed = fecha.split("/");
+                String year1 = separed[2];
+                int yearNext = Integer.parseInt(year1);
+                yearNext +=1;
+                txtFechaVencimiento.setText("al " + separed[0] + "/" + separed[1] + "/" + yearNext);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     /*private void enviarPaquete(String item) {

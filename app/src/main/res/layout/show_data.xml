@@ -10,13 +10,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
             <LinearLayout
+                android:layout_marginTop="10dp"
+                android:background="@color/color_fondo"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp">
                 <Button
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
@@ -40,7 +44,7 @@
                     android:drawablePadding="8dp"
                     android:gravity="start|center"
                     android:layout_gravity="start|center"
-
+                    android:textStyle="bold"
                     android:id="@+id/txt_name_user"
                     android:text="@string/name"/>
                 <LinearLayout
@@ -198,7 +202,8 @@
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="2dp"
                     android:layout_gravity="center"
-                    app:cardElevation="10dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/color_fondo1"
                     app:cardUseCompatPadding="true">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -223,9 +228,11 @@
                             android:textColor="@color/blue"
                             android:text="@string/numero_cotiza"/>
                         <TextView
+                            android:textStyle="bold"
                             android:layout_marginLeft="6dp"
                             android:layout_marginRight="6dp"
                             android:layout_marginTop="5dp"
+                            android:textSize="16sp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/gray"
@@ -251,6 +258,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:textStyle="bold"
                                     android:textColor="@color/gray"
                                     android:text="@string/ramo"/>
                                 <TextView
@@ -269,6 +277,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:textStyle="bold"
                                     android:textColor="@color/gray"
                                     android:text="@string/subramo"/>
                                 <TextView
@@ -276,6 +285,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:gravity="start"
+                                    android:textColor="@color/gray"
                                     android:text="@string/individual" />
                             </LinearLayout>
                             <LinearLayout
@@ -287,6 +297,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:textStyle="bold"
                                     android:textColor="@color/gray"
                                     android:text="@string/vigencia"/>
                                 <TextView
@@ -294,6 +305,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:gravity="start"
+                                    android:textColor="@color/gray"
                                     android:text="@string/fecha_vigencia" />
                             </LinearLayout>
                             <LinearLayout
@@ -305,9 +317,11 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:textStyle="bold"
                                     android:textColor="@color/gray"
                                     android:text="@string/pago"/>
                                 <TextView
+                                    android:textColor="@color/gray"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -323,12 +337,14 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:textStyle="bold"
                                     android:textColor="@color/gray"
                                     android:text="@string/moneda"/>
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:textColor="@color/gray"
                                     android:gravity="start"
                                     android:text="@string/peso" />
                             </LinearLayout>
@@ -338,12 +354,14 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
                                 <TextView
+                                    android:textStyle="bold"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:textColor="@color/gray"
                                     android:text="@string/emisor"/>
                                 <TextView
+                                    android:textColor="@color/gray"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -354,15 +372,19 @@
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
                 <TextView
+
+                    android:textStyle="bold"
+                    android:background="@color/color_fondo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:textColor="@color/gray"
+                    android:textSize="16sp"
                     android:text="@string/resumen_poliza"/>
                 <android.support.v7.widget.CardView
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -370,13 +392,16 @@
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="2dp"
                     android:layout_gravity="center"
-                    app:cardElevation="10dp"
+                    app:cardElevation="0dp"
                     app:cardUseCompatPadding="true">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
                         <TextView
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:background="@color/color_fondo"
                             android:layout_marginLeft="6dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -394,6 +419,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textStyle="bold"
                                 android:layout_gravity="center"
                                 android:textColor="@color/gray"
                                 android:gravity="center"
@@ -404,6 +430,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+
                                 android:layout_gravity="start"
                                 android:gravity="start"
                                 android:text="@string/modelo_year"/>
@@ -422,6 +449,8 @@
                                 android:layout_weight="1"
                                 android:layout_gravity="center"
                                 android:gravity="center"
+                                android:textColor="@color/gray"
+                                android:textStyle="bold"
                                 android:textAlignment="center"
                                 android:text="@string/marca"/>
                             <TextView
@@ -447,6 +476,7 @@
                                 android:layout_weight="1"
                                 android:layout_gravity="center"
                                 android:gravity="center"
+                                android:textStyle="bold"
                                 android:textAlignment="center"
                                 android:text="@string/descripcion"/>
                             <TextView
@@ -472,6 +502,7 @@
                                 android:layout_weight="1"
                                 android:layout_gravity="center"
                                 android:gravity="center"
+                                android:textStyle="bold"
                                 android:textAlignment="center"
                                 android:text="@string/serie"/>
                             <TextView
@@ -497,6 +528,7 @@
                                 android:layout_weight="1"
                                 android:layout_gravity="center"
                                 android:gravity="center"
+                                android:textStyle="bold"
                                 android:textAlignment="center"
                                 android:text="@string/placa"/>
                             <TextView
@@ -520,6 +552,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textStyle="bold"
                                 android:layout_gravity="center"
                                 android:gravity="center"
                                 android:textAlignment="center"
@@ -537,7 +570,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -545,17 +578,20 @@
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="2dp"
                     android:layout_gravity="center"
-                    app:cardElevation="10dp"
+                    app:cardElevation="0dp"
                     app:cardUseCompatPadding="true">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
                         <TextView
+                            android:textSize="16sp"
+                            android:background="@color/color_fondo"
                             android:layout_marginLeft="6dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/gray"
+                            android:textStyle="bold"
                             android:text="@string/datos_as"
                             />
                         <LinearLayout
@@ -572,6 +608,7 @@
                                 android:layout_gravity="center"
                                 android:textColor="@color/gray"
                                 android:gravity="center"
+                                android:textStyle="bold"
                                 android:textAlignment="center"
                                 android:text="@string/nombre"/>
                             <TextView
@@ -597,6 +634,8 @@
                                 android:layout_weight="1"
                                 android:layout_gravity="center"
                                 android:gravity="center"
+                                android:textColor="@color/gray"
+                                android:textStyle="bold"
                                 android:textAlignment="center"
                                 android:text="@string/rfc"/>
                             <TextView
@@ -612,7 +651,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -620,14 +659,18 @@
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="2dp"
                     android:layout_gravity="center"
-                    app:cardElevation="10dp"
+                    app:cardElevation="0dp"
                     app:cardUseCompatPadding="true">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:layout_marginBottom="10dp">
                         <TextView
+                            android:background="@color/color_fondo"
                             android:layout_marginLeft="6dp"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/gray"
@@ -644,6 +687,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
+                                android:textStyle="bold"
                                 android:layout_gravity="start"
                                 android:textColor="@color/gray"
                                 android:gravity="start"
@@ -672,6 +716,8 @@
                                 android:layout_weight="2"
                                 android:layout_gravity="start"
                                 android:gravity="start"
+                                android:textColor="@color/gray"
+                                android:textStyle="bold"
                                 android:textAlignment="textStart"
                                 android:text="@string/dm"/>
                             <TextView
@@ -697,6 +743,7 @@
                                 android:layout_weight="2"
                                 android:layout_gravity="start"
                                 android:gravity="start"
+                                android:textStyle="bold"
                                 android:textAlignment="textStart"
                                 android:text="@string/rt"/>
                             <TextView
@@ -722,6 +769,7 @@
                                 android:layout_weight="2"
                                 android:layout_gravity="start"
                                 android:gravity="start"
+                                android:textStyle="bold"
                                 android:textAlignment="textStart"
                                 android:text="@string/rc"/>
                             <TextView
@@ -747,6 +795,7 @@
                                 android:layout_weight="2"
                                 android:layout_gravity="start"
                                 android:gravity="start"
+                                android:textStyle="bold"
                                 android:textAlignment="textStart"
                                 android:text="@string/gm"/>
                             <TextView
@@ -772,6 +821,7 @@
                                 android:layout_weight="2"
                                 android:layout_gravity="start"
                                 android:gravity="start"
+                                android:textStyle="bold"
                                 android:textAlignment="textStart"
                                 android:text="@string/extr"/>
                             <TextView
@@ -797,6 +847,7 @@
                                 android:layout_weight="2"
                                 android:layout_gravity="start"
                                 android:gravity="start"
+                                android:textStyle="bold"
                                 android:textAlignment="textStart"
                                 android:text="@string/asv"/>
                             <TextView
@@ -822,6 +873,7 @@
                                 android:layout_weight="2"
                                 android:layout_gravity="start"
                                 android:gravity="start"
+                                android:textStyle="bold"
                                 android:textAlignment="textStart"
                                 android:text="@string/fi"/>
                             <TextView
@@ -847,6 +899,7 @@
                                 android:layout_weight="2"
                                 android:layout_gravity="start"
                                 android:gravity="start"
+                                android:textStyle="bold"
                                 android:textAlignment="textStart"
                                 android:text="@string/aac"/>
                             <TextView
@@ -872,6 +925,7 @@
                                 android:layout_weight="2"
                                 android:layout_gravity="start"
                                 android:gravity="start"
+                                android:textStyle="bold"
                                 android:textAlignment="textStart"
                                 android:text="@string/apm"/>
                             <TextView
@@ -888,6 +942,4 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-
 </LinearLayout>

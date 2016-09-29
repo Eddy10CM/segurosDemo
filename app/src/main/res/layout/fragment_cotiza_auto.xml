@@ -100,6 +100,13 @@
                             android:id="@+id/items_seleccionables"/>
                     </LinearLayout>
                 </LinearLayout>
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textStyle="bold"
+                android:textColor="@color/title_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/vehiculo"/>
             <EditText
                 android:layout_marginTop="@dimen/espacio_card_view"
                 android:layout_width="wrap_content"
